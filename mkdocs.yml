@@ -1,1 +1,65 @@
-site_name: My Docs
+site_name: Prision Break
+repo_url: https://github.com/SBD1/2025.1_Prision_Break
+repo_name: 2025.1_Prision_Break
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Planejamento:
+    - Cronograma: Planejamento/cronograma.md
+    - Ferramentas: Planejamento/Ferramentas.md
+    - Metodologia: Planejamento/metodologia.md
+    - Políticas: Planejamento/políticas.md
+    - Heatmap: Planejamento/Heatmap.md
+  - Atas:
+    - Ata 01: Atas/ata.md
+    - Ata 02: Atas/ata2.md
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: grey
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para o modo escuro
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: grey
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para o modo claro
+
+  language: pt-BR
+  logo: assets/icon1.PNG
+  favicon: assets/icon1.PNG
+
+  language: pt-BR
+  favicon: assets/icon1.PNG
+  logo: assets/icon1.PNG
