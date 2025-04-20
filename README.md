@@ -17,9 +17,9 @@
 
 ## :handshake: Colaboradores
 
-| <img src="" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/126706592?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/105389239?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/67807684?v=4" width="100px" style="border-radius: 50%;"> |<img src="https://avatars.githubusercontent.com/u/64983769?v=4" width="100px" style="border-radius: 50%;"> |
+| <img src="https://avatars.githubusercontent.com/u/122827734?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/126706592?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/105389239?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/67807684?v=4" width="100px" style="border-radius: 50%;"> |<img src="https://avatars.githubusercontent.com/u/64983769?v=4" width="100px" style="border-radius: 50%;"> |
 |:------------------------------------------------:|:------------------------------------------------:|:------------------------------------------------:|:-------------------------------------------------------------:|:----------------------------------------------------:|
-| [Ana Carolina M. Fialho](https://github.com/)   |[Marllon F Cardoso](https://github.com/m4rllon)      | [Maria Alice B. C. Silva](https://github.com/maliz30)     | [Mayara A. Oliveira](https://github.com/Mayara-tech)      | [Renann O. Gomes](https://github.com/renannOgomes)      |
+| [Ana Carolina M. Fialho](https://github.com/anawcarol)   |[Marllon F Cardoso](https://github.com/m4rllon)      | [Maria Alice B. C. Silva](https://github.com/maliz30)     | [Mayara A. Oliveira](https://github.com/Mayara-tech)      | [Renann O. Gomes](https://github.com/renannOgomes)      |
 
 ### 📝 Licença:
 
