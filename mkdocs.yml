@@ -29,6 +29,11 @@ nav:
   - Atas:
     - Ata 01: Atas/ata.md
     - Ata 02: Atas/ata2.md
+  - Modelagem:
+    - MER - Modelo Entidade Relacionamento: Modelagem/MER.md
+    - DER - Diagrama Entidade Relacionamento: Modelagem/DER.md
+    - Modelo Relacional: Modelagem/MREL.md
+    - Dicionário de dados: Modelagem/DIC.md
 
 theme:
   name: material
