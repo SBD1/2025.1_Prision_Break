@@ -49,13 +49,22 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 
 ## Pautas
 
-- Atribuir novos relacionamentos
-- Definir e revisar atributos Atributos
-- Dividir tarefas
-- Ambientalização do repositório
-  
 
-<p align="center"><strong>Tabela 3:</strong> Atividade a ser desenvolvida</p>
+- Detalhar os relacionamentos entre as entidades do projeto.
+
+
+- Revisar os atributos existentes e adicionar novos, se necessário.
+
+
+- Distribuir as responsabilidades entre os membros da equipe.
+
+
+- Configurar o repositório para o desenvolvimento do projeto.
+
+## O que foi feito durante a reunião
+### 1. Segunda idealização do DER
+
+![Exemplo de Issue](../assets/segundodiagrama.png){: style="width: 50%; display: block; margin: 0 auto;" }
 
 | Atividade                                     | Responsável                                                                               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -66,6 +75,10 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | Realizar descrição do jogo      | [Marllon Cardoso](https://github.com/m4rllon)  | 
 
 <p align="center"><strong>Fonte: </strong>Todos, 2025</p>
+
+### Gravação da reunião:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M6oOJ8Dmqrc?si=1VD32Q5GZKOfnJRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## 📑 Histórico de Versões

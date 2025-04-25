@@ -54,15 +54,28 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 - Definir Escopo do projeto;
 - Criação do ambiente para elaboração do Diagrama Entidade-Relacionamento (DER)
 
-<p align="center"><strong>Tabela 3:</strong> Atividade a ser desenvolvida</p>
+## O que foi feito durante a reunião
+### 1. Primeira idealização do DER
+
+![Exemplo de Issue](../assets/primeirodiagrama.png){: style="width: 50%; display: block; margin: 0 auto;" }
+
+### 2. Definição de tema e escopo do projeto
+
+![Exemplo de Issue](../assets/tema.png){: style="width: 50%; display: block; margin: 0 auto;" }
+
+
+<p align="cente
+r"><strong>Tabela 3:</strong> Atividade a ser desenvolvida</p>
 
 | Atividade | Responsável |
 | --------- | ----------- |
 | Escolha do framework para criação do DER      | Todos      |
-| Definição do tema    | Todos        |
-
+| Melhorar relacionamentos entre entidades idealizadas   | Todos        |
 
 <p align="center"><strong>Fonte: </strong>Todos, 2025</p>
+
+
+
 
 
 
