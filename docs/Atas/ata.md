@@ -70,4 +70,4 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 
 | Versão |    Data    | Descrição |            Autor(es)            |
 | :----: | :--------: | :-------: | :-----------------------------: |
-| `1.0`  | 05/04/2025 |   xxxx    | [Ana Carolina](https://github.com/xxxx) |
+| `1.0`  | 05/04/2025 |   Criação da ata da reunião     | [Ana Carolina](https://github.com/xxxx) |
