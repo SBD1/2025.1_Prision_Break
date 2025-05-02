@@ -1,4 +1,4 @@
-# Reunião 02 - 12.04.2025
+# Reunião 04 - 24.04.2025
 
 ## Local
 Reunião realizada via Discord.
@@ -13,9 +13,9 @@ Reunião realizada via Discord.
 | 211063210 | Maria Alice Bernardo da Costa Silva | ✓        |
 | 222025914 | Marllon Fausto Cardoso              | ✓        |
 | 200025058 | Mayara Alves de Oliveira            | ✓        |
-| 200043030 | Renann de Oliveira Gomes            | x        |
+| 200043030 | Renann de Oliveira Gomes            | ✓       |
 
-<p align="center"><strong> Fonte: </strong> Maria Alice, 2025</p>
+<p align="center"><strong> Fonte: </strong> Ana Carolina Fialho, 2025</p>
 
 <!-- 
 
@@ -42,9 +42,9 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 
 | Hora de Início | Hora de Término |
 | -------------- | --------------- |
-| 10:00          | 11:20           |
+| 17:30          | 20:40           |
 
-<p align="center"><strong>Fonte: </strong> Maria Alice, 2025</p>
+<p align="center"><strong>Fonte: </strong> Ana Carolina Fialho, 2025</p>
 
 
 ## Pautas
@@ -55,35 +55,29 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 
 - Revisar os atributos existentes e adicionar novos, se necessário.
 
+- Adicionar cardinalinalidades aos relacionamentos
 
-- Distribuir as responsabilidades entre os membros da equipe.
 
-
-- Configurar o repositório para o desenvolvimento do projeto.
 
 ## O que foi feito durante a reunião
-### 1. Segunda idealização do DER
+### 1. Terceira idealização do DER
 
-![Exemplo de Issue](../assets/segundodiagrama.png){: style="width: 50%; display: block; margin: 0 auto;" }
+![](../assets/terceirodiagrama.jpg){:  display: block; margin: 0 auto;" }
 
 | Atividade                                     | Responsável                                                                               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Escrever primeiras atas         | [Ana Carolina](https://github.com/anawcarol)                                         |
+| Escrever   ata  | [Ana Carolina](https://github.com/anawcarol)                                         |
 | Revisar relacionamentos e adicionar atributos | Todos |
-| Ambientalização do repositório       | [Mayara Oliveira](https://github.com/mayara-tech)   | 
-| Criar mkdocs       | [Mayara Oliveira](https://github.com/mayara-tech)   | 
-| Realizar descrição do jogo      | [Marllon Cardoso](https://github.com/m4rllon)  | 
+| Criação de cardinalidades      | [Maria Alice](https://github.com/maliz30) e   [Ana Carolina Fialho](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes) 
 
-<p align="center"><strong>Fonte: </strong>Maria Alice, 2025</p>
 
-### Gravação da reunião:
+<p align="center"><strong>Fonte: </strong>Ana Carolina Fialho, 2025</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/M6oOJ8Dmqrc?si=1VD32Q5GZKOfnJRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ## 📑 Histórico de Versões
 
 | Versão |    Data    | Descrição |            Autor(es)            |
 | :----: | :--------: | :-------: | :-----------------------------: |
-| `1.0`  | 12/04/2025 |   Criação da ata da reunião    | [Ana Carolina Fialho](https://github.com/anawcarol) |
-
+| `1.0`  | 24/04/2025 |   Criação da ata da reunião    | [Ana Carolina Fialho](https://github.com/anawcarol) |

@@ -1,4 +1,4 @@
-# Reunião 02 - 12.04.2025
+# Reunião 03 - 21.04.2025
 
 ## Local
 Reunião realizada via Discord.
@@ -9,10 +9,10 @@ Reunião realizada via Discord.
 
 | Matrícula | Aluno                               | Presente |
 | --------- | ----------------------------------- | -------- |
-| 221021102 | Ana Carolina Madeira Fialho         | ✓       |
+| 221021102 | Ana Carolina Madeira Fialho         | x        |
 | 211063210 | Maria Alice Bernardo da Costa Silva | ✓        |
 | 222025914 | Marllon Fausto Cardoso              | ✓        |
-| 200025058 | Mayara Alves de Oliveira            | ✓        |
+| 200025058 | Mayara Alves de Oliveira            | x        |
 | 200043030 | Renann de Oliveira Gomes            | x        |
 
 <p align="center"><strong> Fonte: </strong> Maria Alice, 2025</p>
@@ -49,41 +49,23 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 
 ## Pautas
 
+- Atribuir relacionamentos
+- Definir Atributos
+- Dividir tarefas
+  
 
-- Detalhar os relacionamentos entre as entidades do projeto.
-
-
-- Revisar os atributos existentes e adicionar novos, se necessário.
-
-
-- Distribuir as responsabilidades entre os membros da equipe.
-
-
-- Configurar o repositório para o desenvolvimento do projeto.
-
-## O que foi feito durante a reunião
-### 1. Segunda idealização do DER
-
-![Exemplo de Issue](../assets/segundodiagrama.png){: style="width: 50%; display: block; margin: 0 auto;" }
+<p align="center"><strong>Tabela 3:</strong> Atividade a ser desenvolvida</p>
 
 | Atividade                                     | Responsável                                                                               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Escrever primeiras atas         | [Ana Carolina](https://github.com/anawcarol)                                         |
-| Revisar relacionamentos e adicionar atributos | Todos |
-| Ambientalização do repositório       | [Mayara Oliveira](https://github.com/mayara-tech)   | 
-| Criar mkdocs       | [Mayara Oliveira](https://github.com/mayara-tech)   | 
-| Realizar descrição do jogo      | [Marllon Cardoso](https://github.com/m4rllon)  | 
+| Adicionar Relacionamentos no diagrama         | [Mayara Oliveira](https://github.com/mayara-tech)                                         |
+| Revisar relacionamentos e adicionar atributos | [Maria Alice](https://github.com/maliz30) e [Marllon Cardoso](https://github.com/m4rllon) |
 
 <p align="center"><strong>Fonte: </strong>Maria Alice, 2025</p>
-
-### Gravação da reunião:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/M6oOJ8Dmqrc?si=1VD32Q5GZKOfnJRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## 📑 Histórico de Versões
 
 | Versão |    Data    | Descrição |            Autor(es)            |
 | :----: | :--------: | :-------: | :-----------------------------: |
-| `1.0`  | 12/04/2025 |   Criação da ata da reunião    | [Ana Carolina Fialho](https://github.com/anawcarol) |
-
+| `1.0`  | 21/04/2025 |   Criação da ata da reunião    | [Maria Alice](https://github.com/maliz30) |
