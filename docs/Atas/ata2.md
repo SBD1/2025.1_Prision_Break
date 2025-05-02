@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Reunião 03 - 12.04.2025
 
 ## Local
@@ -86,3 +87,19 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | Versão |    Data    | Descrição |            Autor(es)            |
 | :----: | :--------: | :-------: | :-----------------------------: |
 | `1.0`  | 12/04/2025 |   Criação da ata da reunião    | [Ana Carolina Fialho](https://github.com/anawcarol) |
+=======
+# Reunião 02 - 12.04.2025
+
+## Local
+Reunião realizada via Google Meet.
+
+<p align="justify"><strong>Gravação da reunião 2:</strong> [link](https://youtu.be/M6oOJ8Dmqrc) </p>
+
+<!-- Adicionar demais tópicos do template de ata -->
+
+## 📑 Histórico de Versões
+
+| Versão |    Data    |               Descrição               |                 Autor(es)                 |
+| :----: | :--------: | :-----------------------------------: | :---------------------------------------: |
+| `1.0`  | 22/04/2025 | Adição do link da gravação da reunião | [Maria Alice](https://github.com/maliz30) |
+>>>>>>> 918f82a98a424167703a577cd9a93f57796cfa3c
