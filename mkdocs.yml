@@ -64,6 +64,6 @@ theme:
         name: Mudar para o modo claro
 
   language: pt-BR
-  logo: assets/icon1.PNG
-  favicon: assets/icon1.PNG
+  logo: assets/icon1.png
+  favicon: assets/icon1.png
 
