@@ -19,64 +19,63 @@ A construção do MER seguiu uma abordagem sistemática, iniciando pela identifi
 ### Entidades e atributos 
 
 #### Personagem 
-- id_personagem
+- id-personagem
 - nome
 - tipo
 - velocidade
 #### Agente penitenciario
-- nivel_de_perigo
-- nivel_de_alerta
+- nivel-de-perigo
+- nivel-de-alerta
 - corrupto
 - preço 
 - cargo
 #### Jogador
 - vida
-- qtdd_recurso
-- qtdd_capturas
+- qtdd-recurso
+- qtdd-capturas
 #### Prisioneiro 
 - vida
 - crime
 #### Gangue
-- nome_gangue
+- nome-gangue
 - descrição
-- qtdd_membros
-- qtdd_recurso_gangue
+- qtdd-membros
+- qtdd-recurso-gangue
 #### Sala
-- id_sala
+- id-sala
 - nome
 - descrição
-- nivel_de_perigo
+- nivel-de-perigo
 - pre-requisito
 - bloqueada
 #### Loja
-- lista_de_itens_vendidos
+- preco
 #### Item 
-- nome_item
+- nome-item
 - descrição
 - durabilidade
-- pode_ser_vendido
+- pode-ser-vendido
 #### Item missão
-- missão_associada
 #### Ferramenta
 - utilidade
 #### Disfarce
 - beneficio
 - slot
 #### Instancia item
-- id_instancia
-- nivel_de_gasto
+- id-instancia
+- nivel-de-gasto
 #### Inventário
 - id-inventário
-- qtdd_item
+- qtdd-item
 #### Objetivo principal
-- titulo_objetivo
+- titulo-objetivo
 - descrição
 #### Diálogo
-- id_dialogo
+- id-dialogo
 - texto
 - ordem
 #### Missão
-- nome_missao
+- nome-missao
 - descrição
 - status
 
@@ -106,3 +105,4 @@ A construção do MER seguiu uma abordagem sistemática, iniciando pela identifi
 | **Versão**   |   **Data**   | **Descrição** | **Autor** |
 |--------|---------|-----------|--------|
 |`1.0`| 21/04/2025 | Criação da página do modelo entidade relacionamento| [Mayara Alves](https://github.com/Mayara-tech)| 
+|`2.0`| 02/05/2025 | Criação do modelo entidade relacionamento| [Mayara Alves](https://github.com/Mayara-tech)| 
