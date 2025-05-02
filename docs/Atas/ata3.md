@@ -15,7 +15,7 @@ Reunião realizada via Discord.
 | 200025058 | Mayara Alves de Oliveira            | x        |
 | 200043030 | Renann de Oliveira Gomes            | x        |
 
-<p align="center"><strong> Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong> Fonte: </strong> Maria Alice, 2025</p>
 
 <!-- 
 
@@ -44,7 +44,7 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | -------------- | --------------- |
 | 10:00          | 11:20           |
 
-<p align="center"><strong>Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong>Fonte: </strong> Maria Alice, 2025</p>
 
 
 ## Pautas
@@ -61,7 +61,7 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | Adicionar Relacionamentos no diagrama         | [Mayara Oliveira](https://github.com/mayara-tech)                                         |
 | Revisar relacionamentos e adicionar atributos | [Maria Alice](https://github.com/maliz30) e [Marllon Cardoso](https://github.com/m4rllon) |
 
-<p align="center"><strong>Fonte: </strong>Todos, 2025</p>
+<p align="center"><strong>Fonte: </strong>Maria Alice, 2025</p>
 
 
 ## 📑 Histórico de Versões
