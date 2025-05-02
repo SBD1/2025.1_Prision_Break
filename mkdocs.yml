@@ -36,6 +36,7 @@ nav:
     - DER - Diagrama Entidade Relacionamento: Modelagem/DER.md
     - Modelo Relacional: Modelagem/MREL.md
     - Dicionário de dados: Modelagem/DIC.md
+    - Aprensentacao: Modelagem/Apresentacao.md
 
 theme:
   name: material
