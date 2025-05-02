@@ -20,3 +20,4 @@ Posteriormente, o modelo foi submetido à normalização para eliminar redundân
 |--------|---------|-----------|--------|
 |`1.0`| 21/04/2025 | Criação da página do modelo relacional| [Mayara Alves](https://github.com/Mayara-tech)| 
 |`2.0`| 01/05/2025 | Criação do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|
+|`2.1`| 02/05/2025 | Criação do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|`
