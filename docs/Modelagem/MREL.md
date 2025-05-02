@@ -12,9 +12,11 @@ Posteriormente, o modelo foi submetido à normalização para eliminar redundân
 
 ## Modelo Relacional
 
+![](../assets/modelorelacional.png){:  display: block; margin: 0 auto;" }
 
 ## 📑 Histórico de Versões
 
 | **Versão**   |   **Data**   | **Descrição** | **Autor** |
 |--------|---------|-----------|--------|
 |`1.0`| 21/04/2025 | Criação da página do modelo relacional| [Mayara Alves](https://github.com/Mayara-tech)| 
+|`2.0`| 01/05/2025 | Criação do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|
