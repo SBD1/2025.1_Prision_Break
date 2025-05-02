@@ -1,4 +1,4 @@
-# Reunião 03 - 24.04.2025
+# Reunião 04 - 24.04.2025
 
 ## Local
 Reunião realizada via Discord.
@@ -15,7 +15,7 @@ Reunião realizada via Discord.
 | 200025058 | Mayara Alves de Oliveira            | ✓        |
 | 200043030 | Renann de Oliveira Gomes            | ✓       |
 
-<p align="center"><strong> Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong> Fonte: </strong> Ana Carolina Fialho, 2025</p>
 
 <!-- 
 
@@ -44,7 +44,7 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | -------------- | --------------- |
 | 17:30          | 20:40           |
 
-<p align="center"><strong>Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong>Fonte: </strong> Ana Carolina Fialho, 2025</p>
 
 
 ## Pautas
@@ -71,7 +71,7 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | Criação de cardinalidades      | [Maria Alice](https://github.com/maliz30) e   [Ana Carolina Fialho](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes) 
 
 
-<p align="center"><strong>Fonte: </strong>Todos, 2025</p>
+<p align="center"><strong>Fonte: </strong>Ana Carolina Fialho, 2025</p>
 
 
 

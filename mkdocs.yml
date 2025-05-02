@@ -29,11 +29,9 @@ nav:
   - Atas:
     - Ata 01: Atas/ata.md
     - Ata 02: Atas/ata2.md
-<<<<<<< HEAD
-    - Ata 04: Atas/ata4.md
-=======
     - Ata 03: Atas/ata3.md
->>>>>>> 918f82a98a424167703a577cd9a93f57796cfa3c
+    - Ata 04: Atas/ata4.md
+    - Ata 05: Atas/ata5.md
   - Modelagem:
     - MER - Modelo Entidade Relacionamento: Modelagem/MER.md
     - DER - Diagrama Entidade Relacionamento: Modelagem/DER.md

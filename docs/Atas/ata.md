@@ -15,7 +15,7 @@ Reunião realizada via Discord.
 | 200025058 | Mayara Alves de Oliveira            |     ✓     |
 | 200043030 | Renann de Oliveira Gomes            |     x    |
 
-<p align="center"><strong> Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong> Fonte: </strong> Ana Carolina, 2025</p>
 
 <!-- 
 
@@ -45,7 +45,7 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | -------------- | --------------- |
 | 10:00          | 11:30           |
 
-<p align="center"><strong>Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong>Fonte: </strong> Ana Carolina, 2025</p>
 
 
 ## Pautas
@@ -72,7 +72,7 @@ r"><strong>Tabela 3:</strong> Atividade a ser desenvolvida</p>
 | Escolha do framework para criação do DER      | Todos      |
 | Melhorar relacionamentos entre entidades idealizadas   | Todos        |
 
-<p align="center"><strong>Fonte: </strong>Todos, 2025</p>
+<p align="center"><strong>Fonte: </strong>Ana Carolina, 2025</p>
 
 
 
