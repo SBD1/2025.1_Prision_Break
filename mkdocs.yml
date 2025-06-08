@@ -25,7 +25,6 @@ nav:
     - Ferramentas: Planejamento/Ferramentas.md
     - Metodologia: Planejamento/metodologia.md
     - Políticas: Planejamento/políticas.md
-    - Heatmap: Planejamento/Heatmap.md
   - Atas:
     - Ata 01: Atas/ata.md
     - Ata 02: Atas/ata2.md
@@ -70,6 +69,6 @@ theme:
         name: Mudar para o modo claro
 
   language: pt-BR
-  logo: assets/icon1.PNG
-  favicon: assets/icon1.PNG
+  logo: assets/icon1.png
+  favicon: assets/icon1.png
 
