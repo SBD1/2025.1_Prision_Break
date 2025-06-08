@@ -31,13 +31,17 @@ nav:
     - Ata 03: Atas/ata3.md
     - Ata 04: Atas/ata4.md
     - Ata 05: Atas/ata5.md
+    - Ata 06: Atas/ata6.md
   - Modelagem:
     - MER - Modelo Entidade Relacionamento: Modelagem/MER.md
     - DER - Diagrama Entidade Relacionamento: Modelagem/DER.md
     - Modelo Relacional: Modelagem/MREL.md
     - Dicionário de dados: Modelagem/DIC.md
-    - Aprensentacao: Modelagem/Apresentacao.md
-
+  - Linguagem SQL:
+    - DDL - Data Definition Language: SQL/DDL.md
+    - DML - Data Manipulation Language: SQL/DML.md
+    - DQL - Data Query Language: SQL/DQL.md
+    - Algebra Relacional: SQL/AlgebraRelacional.md
 theme:
   name: material
   features:
