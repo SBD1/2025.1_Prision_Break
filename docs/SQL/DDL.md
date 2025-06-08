@@ -11,6 +11,68 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
 
 ## Criação das Tabelas
 
+#### Jogador
+
+    CREATE TABLE Jogador (
+
+    id_personagem     INT           NOT NULL,
+    nome              VARCHAR(50)   NOT NULL,
+    velocidade        INT           DEFAULT 0,
+    vida              INT           DEFAULT 0,
+    qtded_recurso     INT           DEFAULT 0,
+    qtded_captura     INT           DEFAULT 0,
+    id_sala           INT           NOT NULL,
+    id_inventario     INT           NOT NULL,
+    nome_missao       VARCHAR(255)  NOT NULL,
+    titulo_objetivo   VARCHAR(255)  NOT NULL,
+    nome_gangue       VARCHAR(50)   NOT NULL,
+
+    PRIMARY KEY (id_personagem),
+    UNIQUE (nome),
+
+    FOREIGN KEY (id_sala)           REFERENCES Sala (id_sala),
+    FOREIGN KEY (id_inventario)     REFERENCES Inventario (id_inventario),
+    FOREIGN KEY (nome_missao)       REFERENCES Missao (nome_missao),
+    FOREIGN KEY (titulo_objetivo)   REFERENCES Objetivo_principal (titulo_objetivo),
+    FOREIGN KEY (nome_gangue)       REFERENCES Gangue (nome_gangue)
+
+    );
+
+
+#### Prisioneiro
+
+    CREATE TABLE Prisioneiro (
+
+    id_personagem   INT           NOT NULL,
+    nome            VARCHAR(50)   NOT NULL,
+    velocidade      INT           DEFAULT 0,
+    vida            INT           DEFAULT 0,
+    crime           VARCHAR(255)  DEFAULT NULL,
+    id_sala         INT           NOT NULL,
+    nome_gangue     VARCHAR(50)   NOT NULL,
+
+    PRIMARY KEY (id_personagem),
+    UNIQUE (nome),
+
+    FOREIGN KEY (id_sala)       REFERENCES Sala (id_sala),
+    FOREIGN KEY (nome_gangue)   REFERENCES Gangue (nome_gangue)
+
+    );
+
+#### Gangue
+
+    CREATE TABLE Gangue (
+
+    nome_gangue          VARCHAR(50)   NOT NULL,
+    descricao            VARCHAR(1000) NOT NULL,
+    qtdd_membros         INT           DEFAULT 0,
+    qtdd_recurso_gangue  INT           DEFAULT 0,
+
+    PRIMARY KEY (nome_gangue)
+    
+    );
+
+
 
 
 ## 📑 Histórico de versão
@@ -18,3 +80,4 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
 | Versão| Data      | Descrição | Autor |
 | :-:   | :-:       | :--       | --    |
 | `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada no DDL | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| `1.1`   | 07/06/2025 |adicionando tabelas jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
