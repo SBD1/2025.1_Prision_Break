@@ -34,3 +34,36 @@ CREATE TABLE Loja (
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
 
+CREATE TABLE Consulta_Personagem(
+    id_personagem SERIAL PRIMARY KEY,       --Alterar no dicionario de dados
+    tipo_personagem VARCHAR(2) NOT NULL      	
+); -- Colocar restrição no tipo (AP, J, P)
+
+CREATE TABLE Agente_Penitenciario(
+    id_personagem INT PRIMARY KEY,
+    -- id_sala INT,         				-- descomentar depois de inserir a tabela de salas
+    nome VARCHAR(50) DEFAULT 'Tira',
+    velocidade INT DEFAULT 5,
+    nivel_de_perigo INT DEFAULT 5, --Alterar no dicionário 
+    nivel_de_alerta INT DEFAULT 5,
+    corrupto BOOLEAN DEFAULT false, --Alterar no dicionário 
+    preco INT DEFAULT 0,
+    cargo VARCHAR(255) DEFAULT 'Carcereiro',
+
+    -- FOREIGN KEY (id_sala) REFERENCES Sala(id_sala), -- descomentar depois de inserir a tabela de salas
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem)
+);
+
+CREATE TABLE Agente_Penitenciario_Jogador(
+    id_captura SERIAL PRIMARY KEY,        	--Alterar no dicionario de dados
+    -- id_personagem_jogador INT,           -- descomentar depois de inserir a tabela de Jogador
+    id_personagem_agente_penitenciario INT,
+
+    -- FOREIGN KEY (id_personagem_jogador) REFERENCES Jogador(id_personagem), -- descomentar depois de inserir a tabela de Jogador
+    FOREIGN KEY (id_personagem_agente_penitenciario) REFERENCES Agente_Penitenciario(id_personagem)
+);
+
+-- Apaga tabelas
+DROP TABLE agente_penitenciario_jogador;
+DROP TABLE agente_penitenciario;
+DROP TABLE consulta_personagem;

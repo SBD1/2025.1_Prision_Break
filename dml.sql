@@ -23,3 +23,68 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
 ('Os Fugitivos', 150.00, 'Chave Inglesa'),
 ('Os Noturnos', 75.50, 'Lanterna'),
 ('Os Exploradores', 200.00, 'Mapa');
+
+-- INSERT UPDATE DELETE 
+
+-- Consulta_Personagem
+INSERT INTO Consulta_Personagem (
+    tipo_personagem
+) VALUES
+    -- ('J'), -- Descomentar depois de inserir a tabela de Jogador
+    -- ('P'), -- Descomentar depois de inserir a tabela de Prisioneiros
+    ('AP')
+REFERENCES id_personagem 
+
+-- Agente_Penitenciario
+INSERT INTO Agente_Penitenciario(
+    id_personagem, 
+    -- id_sala, 
+    nome, 
+    velocidade, 
+    nivel_de_perigo, 
+    nivel_de_alerta, 
+    corrupto, 
+    preco, 
+    cargo
+) VALUES
+    (1, 'Brad Bellick', DEFAULT, 4, DEFAULT, true, 5, DEFAULT),
+    (2, 'Alex Mahone', DEFAULT, 8, DEFAULT, DEFAULT, DEFAULT, 'Policial Chefe'),
+    (3, 'Paul Kellerman', DEFAULT, 6, DEFAULT, true, 20, DEFAULT),
+    (4, 'Donald Self', DEFAULT, 3, DEFAULT, true, 10, DEFAULT),
+    (5, 'Warden Pope', DEFAULT, 10, DEFAULT, DEFAULT, DEFAULT, 'Diretor'),
+    (6, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+
+-- Inserindo em Agente_Penitenciario_Jogador
+INSERT INTO Agente_Penitenciario_Jogador(
+    -- id_personagem_jogador,		--Descomentar depois de adicionar tabela de Jogador 
+    id_personagem_agente_penitenciario 
+) VALUES
+	(1);
+-- (1, 2);
+
+-- UPDATE
+-- Aumenta a velocidade e o nível de alerta do personagem
+UPDATE agente_penitenciario
+SET velocidade = 6, nivel_de_alerta = 10
+WHERE id_personagem = 6;
+
+-- Diminui a velocidade e o nível de alerta do personagem
+UPDATE agente_penitenciario
+SET velocidade = 5, nivel_de_alerta = 5
+WHERE id_personagem = 6;
+
+-- Nivel difícil
+UPDATE agente_penitenciario
+SET velocidade = 10, nivel_de_perigo = 10, nivel_de_alerta = 10
+WHERE id_personagem = 6;
+
+-- DELETE
+-- Apaga personagem
+DELETE FROM agente_penitenciario_jogador 
+WHERE id_personagem_agente_penitenciario = 6;
+
+DELETE FROM agente_penitenciario 
+WHERE id_personagem = 6;
+
+DELETE FROM consulta_personagem 
+WHERE id_personagem = 6;
