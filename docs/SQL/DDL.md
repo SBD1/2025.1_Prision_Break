@@ -72,6 +72,40 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
     
     );
 
+#### Consulta_Personagem
+
+    CREATE TABLE Consulta_Personagem(
+        id_personagem SERIAL PRIMARY KEY,   
+        tipo_personagem VARCHAR(2) NOT NULL      	
+    );
+
+#### Agente_Penitenciario
+
+    CREATE TABLE Agente_Penitenciario(
+        id_personagem INT PRIMARY KEY,
+        id_sala INT,         				
+        nome VARCHAR(50) DEFAULT 'Tira',
+        velocidade INT DEFAULT 5,
+        nivel_de_perigo INT DEFAULT 5,
+        nivel_de_alerta INT DEFAULT 5,
+        corrupto BOOLEAN DEFAULT false,
+        preco INT DEFAULT 0,
+        cargo VARCHAR(255) DEFAULT 'Carcereiro',
+        FOREIGN KEY (id_sala) REFERENCES Sala(id_sala),
+        FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem)
+    );
+
+#### Agente_Penitenciario_Jogador
+
+    CREATE TABLE Agente_Penitenciario_Jogador(
+        id_captura SERIAL PRIMARY KEY,
+        id_personagem_jogador INT,           
+        id_personagem_agente_penitenciario INT,
+
+        FOREIGN KEY (id_personagem_jogador) REFERENCES Jogador(id_personagem),
+        FOREIGN KEY (id_personagem_agente_penitenciario) REFERENCES Agente_Penitenciario(id_personagem)
+    );
+
 
 
 
@@ -81,3 +115,4 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
 | :-:   | :-:       | :--       | --    |
 | `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada no DDL | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.1`   | 07/06/2025 |adicionando tabelas jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| `1.2`   | 09/06/2025 | Adiciona dados a tabela consulta_personagem, agente_penitenciario e agente_penitenciario_jogador | [Maria Alice](https://github.com/Maliz30)  |

@@ -24,8 +24,6 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
 ('Os Noturnos', 75.50, 'Lanterna'),
 ('Os Exploradores', 200.00, 'Mapa');
 
--- INSERT UPDATE DELETE 
-
 -- Consulta_Personagem
 INSERT INTO Consulta_Personagem (
     tipo_personagem
