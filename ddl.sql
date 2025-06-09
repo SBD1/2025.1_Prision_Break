@@ -1,38 +1,38 @@
 CREATE TABLE Item (
-    nome_item            VARCHAR(100) PRIMARY KEY,
-    descricao            TEXT,
-    durabilidade         INT,
-    pode_ser_vendido     BOOLEAN,
-    nome_missao          VARCHAR(100),
-    utilidade            TEXT,
-    beneficio            TEXT,
+    nome_item            VARCHAR(50)  PRIMARY KEY,
+    descricao            VARCHAR (500) NOT NULL,
+    durabilidade         INT           DEFAULT 1,
+    pode_ser_vendido     BOOLEAN       DEFAULT NOT,
+    nome_missao          VARCHAR(255)  NOT NULL,
+    utilidade            VARCHAR (500) DEFAULT NULL,
+    beneficio            VARCHAR(500)  DEFAULT NULL,
 
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
 
 CREATE TABLE Instancia_Item (
-    id_instancia          INT PRIMARY KEY,
-    nivel_de_gasto        INT,
-    id_inventario         INT,
-    nome_item             VARCHAR(100),
+    id_instancia          INT         PRIMARY KEY,
+    nivel_de_gasto        INT         DEFAULT 1,
+    id_inventario         INT         NOT NULL,
+    nome_item             VARCHAR(50) NOT NULL,
 
     FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
 
 CREATE TABLE Item_Loja (
-    id_compra              INT PRIMARY KEY,
-    nome_gangue            VARCHAR(100),
-    nome_item              VARCHAR(100),
+    id_compra              INT          PRIMARY KEY,
+    nome_gangue            VARCHAR(50)  NOT NULL,
+    nome_item              VARCHAR(100) NOT NULL,
 
     FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
 
 CREATE TABLE Loja (
-    nome_gangue            VARCHAR(100),
-    preco                  DECIMAL(10,2),
-    nome_item              VARCHAR(100),
+    nome_gangue            VARCHAR(50)     NOT NULL,
+    preco                  INT             NOT NULL,
+    nome_item              VARCHAR(100)    NOT NULL,
 
     FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
@@ -48,7 +48,7 @@ CREATE TABLE Sala (
     id_sala         INT           PRIMARY KEY,
     id_inventario   INT           NOT NULL,
     nome            VARCHAR(50)   NOT NULL,
-    descricao       VARCHAR(1000)  ,
+    descricao       VARCHAR(1000) NOT NULL,
     nivel_perigo    INT           CHECK (nivel_perigo >= 0 AND nivel_perigo <= 10),
     bloqueado       BOOLEAN       DEFAULT FALSE,
 
@@ -56,16 +56,16 @@ CREATE TABLE Sala (
 );
 
 CREATE TABLE Missao_Sala (
-    nome_missao            VARCHAR(255),
-    id_sala                INT,
+    nome_missao            VARCHAR(255)  NOT NULL,
+    id_sala                INT           NOT NULL,
     
     PRIMARY KEY (nome_missao, id_sala), 
     FOREIGN KEY (id_sala) REFERENCES Sala(id_sala)
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
 CREATE TABLE Consulta_Personagem(
-    id_personagem        SERIAL PRIMARY KEY,    
-    tipo_personagem      VARCHAR(2) NOT NULL      	
+    id_personagem        SERIAL      PRIMARY KEY,    
+    tipo_personagem      VARCHAR(2)  NOT NULL      	
 );
 
 CREATE TABLE Agente_Penitenciario(
