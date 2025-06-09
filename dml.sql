@@ -24,7 +24,60 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
 ('Os Noturnos', 75.50, 'Lanterna'),
 ('Os Exploradores', 200.00, 'Mapa');
 
--- INSERT UPDATE DELETE 
+-- Exemplo de UPDATE para cada tabela
+UPDATE Item SET durabilidade = 120 WHERE nome_item = 'Chave Inglesa';
+UPDATE Instancia_Item SET nivel_de_gasto = 20 WHERE id_instancia = 1;
+UPDATE Item_Loja SET nome_gangue = 'Os Renovados' WHERE id_compra = 1;
+UPDATE Loja SET preco = 180.00 WHERE nome_gangue = 'Os Fugitivos' AND nome_item = 'Chave Inglesa';
+
+-- Exemplo de DELETE usando o id de cada tabela
+DELETE FROM Item WHERE nome_item = 'Chave Inglesa';
+DELETE FROM Instancia_Item WHERE id_instancia = 1;
+DELETE FROM Item_Loja WHERE id_compra = 1;
+DELETE FROM Loja WHERE nome_gangue = 'Os Fugitivos' AND nome_item = 'Chave Inglesa';
+
+-- Inserindo em Inventário
+INSERT INTO Inventario (id_inventario, qtd_itens, is_full)
+VALUES
+    (101, 20, FALSE),
+    (102, 5, FALSE),
+    (103, 100, FALSE);
+
+-- Inserindo em Sala
+INSERT INTO Sala (id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)
+VALUES
+    (1, 101, 'Cela de Detenção', 'Pequena cela com uma cama e um lavatório.', 0, FALSE),
+    (2, 102, 'Pátio Central', 'Área aberta para recreação, com segurança reforçada.', 5, FALSE),
+    (3, 103, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, TRUE);
+
+
+-- Inserindo em MissaoSala
+-- Será adicionada quando tiver a tabela Missao
+
+-- Aumentar capacidade do inventário de id = 101
+UPDATE Inventario
+SET
+    qtd_itens = 25,
+    is_full = TRUE
+WHERE
+    id_inventario = 101;
+
+-- Deleta o inventário de id = 102 (Ele não deve estar associado a nenhuma sala)
+DELETE FROM Inventario
+WHERE
+    id_inventario = 102;
+
+-- Liberar o acesso à enfermaria
+UPDATE Sala
+SET
+    bloqueado = FALSE,
+WHERE
+    id_sala = 3;
+
+-- Remover sala de id = 1 (Detenção)
+DELETE FROM Sala
+WHERE
+    id_sala = 1;
 
 -- Consulta_Personagem
 INSERT INTO Consulta_Personagem (
