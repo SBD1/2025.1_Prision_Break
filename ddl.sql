@@ -139,18 +139,18 @@ CREATE TABLE Gangue (
 );
 
 -- Apaga tabelas E colunas
-DROP TABLE Item [RESTRICT];
 DROP TABLE Instancia_Item [RESTRICT];
+DROP TABLE Missao_Sala [RESTRICT];
 DROP TABLE Item_Loja [RESTRICT];
 DROP TABLE Loja [RESTRICT];
-DROP TABLE Inventario [RESTRICT];
-DROP TABLE Sala [RESTRICT]
-DROP TABLE Missao_Sala [RESTRICT];
-DROP TABLE Consulta_personagem [RESTRICT];
-DROP TABLE Agente_Penitenciario [RESTRICT];
 DROP TABLE Agente_Penitenciario_Jogador [RESTRICT];
 DROP TABLE Jogador [RESTRICT];
+DROP TABLE Agente_Penitenciario [RESTRICT];
 DROP TABLE Prisioneiro [RESTRICT];
+DROP TABLE Consulta_personagem [RESTRICT];
+DROP TABLE Item [RESTRICT];
+DROP TABLE Sala [RESTRICT];
+DROP TABLE Inventario [RESTRICT];
 DROP TABLE Gangue [RESTRICT];
 
 
