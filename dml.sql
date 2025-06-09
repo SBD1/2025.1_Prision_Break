@@ -24,6 +24,18 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
 ('Os Noturnos', 75.50, 'Lanterna'),
 ('Os Exploradores', 200.00, 'Mapa');
 
+-- Exemplo de UPDATE para cada tabela
+UPDATE Item SET durabilidade = 120 WHERE nome_item = 'Chave Inglesa';
+UPDATE Instancia_Item SET nivel_de_gasto = 20 WHERE id_instancia = 1;
+UPDATE Item_Loja SET nome_gangue = 'Os Renovados' WHERE id_compra = 1;
+UPDATE Loja SET preco = 180.00 WHERE nome_gangue = 'Os Fugitivos' AND nome_item = 'Chave Inglesa';
+
+-- Exemplo de DELETE usando o id de cada tabela
+DELETE FROM Item WHERE nome_item = 'Chave Inglesa';
+DELETE FROM Instancia_Item WHERE id_instancia = 1;
+DELETE FROM Item_Loja WHERE id_compra = 1;
+DELETE FROM Loja WHERE nome_gangue = 'Os Fugitivos' AND nome_item = 'Chave Inglesa';
+
 -- Inserindo em Inventário
 INSERT INTO Inventario (id_inventario, qtd_itens, is_full)
 VALUES
