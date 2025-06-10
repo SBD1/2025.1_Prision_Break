@@ -13,6 +13,17 @@ CREATE TABLE Inventario (
     is_full          BOOLEAN  DEFAULT FALSE
 );
 
+CREATE TABLE Objetivo_Principal(
+    titulo_objetivo     VARCHAR(255)    PRIMARY KEY,
+    descricao           VARCHAR(1000)   NOT NULL
+);
+
+CREATE TABLE Missao(
+    nome_missao        VARCHAR(255)   PRIMARY KEY,
+    descricao          VARCHAR(1000)  NOT NULL,
+    status             BOOLEAN        DEFAULT false
+);
+
 CREATE TABLE Sala (
     id_sala         INT           PRIMARY KEY,
     id_inventario   INT           NOT NULL,
@@ -28,7 +39,7 @@ CREATE TABLE Item (
     nome_item            VARCHAR(50)  PRIMARY KEY,
     descricao            VARCHAR (500) NOT NULL,
     durabilidade         INT           DEFAULT 1,
-    pode_ser_vendido     BOOLEAN       DEFAULT NOT,
+    pode_ser_vendido     BOOLEAN       DEFAULT FALSE,
     nome_missao          VARCHAR(255)  NOT NULL,
     utilidade            VARCHAR (500) DEFAULT NULL,
     beneficio            VARCHAR(500)  DEFAULT NULL,
@@ -125,7 +136,7 @@ CREATE TABLE Missao_Sala (
     id_sala                INT           NOT NULL,
     
     PRIMARY KEY (nome_missao, id_sala), 
-    FOREIGN KEY (id_sala) REFERENCES Sala(id_sala)
+    FOREIGN KEY (id_sala) REFERENCES Sala(id_sala),
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
 
@@ -137,6 +148,25 @@ CREATE TABLE Instancia_Item (
 
     FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
+);
+
+CREATE TABLE Dialogo(
+    id_dialogo       INT     PRIMARY KEY,
+    id_personagem    INT,
+    nome_missao      VARCHAR(255),
+    texto            VARCHAR (500),
+    ordem            INT,
+
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
+    FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
+);
+
+CREATE TABLE Objetivo_principal_missao (
+    titulo_objetivo     VARCHAR(255)    NOT NULL,
+    nome_missao        VARCHAR(255)     NOT NULL,
+
+    FOREIGN KEY (titulo_objetivo) REFERENCES Objetivo_Principal(titulo_objetivo),
+    FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
 
 -- Apaga tabelas E colunas
@@ -153,7 +183,10 @@ DROP TABLE Item [RESTRICT];
 DROP TABLE Sala [RESTRICT];
 DROP TABLE Inventario [RESTRICT];
 DROP TABLE Gangue [RESTRICT];
-
+DROP TABLE Objetivo_Principal [RESTRICT];
+DROP TABLE Missao [RESTRICT];
+DROP TABLE Dialogo [RESTRICT];
+DROP TABLE Objetivo_principal_missao [RESTRICT];
 
 -- Alterar tabelas E colunas
 
@@ -170,3 +203,7 @@ ALTER TABLE Agente_Penitenciario_Jogador [DROP CONSTRAINT | DROP COLUMN] [ADD CO
 ALTER TABLE Jogador  [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
 ALTER TABLE Prisioneiro [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
 ALTER TABLE Gangue [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
+ALTER TABLE Objetivo_Principal [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
+ALTER TABLE Missao [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
+ALTER TABLE Dialogo [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
+ALTER TABLE Objetivo_principal_missao [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
