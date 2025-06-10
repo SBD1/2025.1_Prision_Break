@@ -37,10 +37,10 @@ CREATE TABLE Sala (
 
 CREATE TABLE Item (
     nome_item            VARCHAR(50)  PRIMARY KEY,
+    nome_missao          VARCHAR(255),
     descricao            VARCHAR (500) NOT NULL,
     durabilidade         INT           DEFAULT 1,
     pode_ser_vendido     BOOLEAN       DEFAULT FALSE,
-    nome_missao          VARCHAR(255)  NOT NULL,
     utilidade            VARCHAR (500) DEFAULT NULL,
     beneficio            VARCHAR(500)  DEFAULT NULL,
 
