@@ -106,6 +106,36 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
         FOREIGN KEY (id_personagem_agente_penitenciario) REFERENCES Agente_Penitenciario(id_personagem)
     );
 
+#### Objetivo_Principal
+
+    CREATE TABLE Objetivo_Principal(
+        titulo_objetivo VARCHAR(255) PRIMARY KEY,
+        descricao VARCHAR(1000) NOT NULL
+    );
+
+#### Missao
+
+    CREATE TABLE Missao(
+        nome_missao VARCHAR(255) PRIMARY KEY,
+        descricao VARCHAR(1000) NOT NULL,
+        status BOOLEAN DEFAULT false
+    );
+
+
+#### Dialogo
+
+    CREATE TABLE Dialogo(
+        id_dialogo INT PRIMARY KEY,
+        id_personagem INT,
+        nome_missao VARCHAR(255),
+        texto VARCHAR (500),
+        ordem INT,
+
+        FOREIGN KEY (id_personagem) REFERENCES Personagem(id_personagem),
+        FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
+
+    )
+
 
 
 
@@ -116,3 +146,4 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
 | `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada no DDL | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.1`   | 07/06/2025 |adicionando tabelas jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.2`   | 09/06/2025 | Adiciona dados a tabela consulta_personagem, agente_penitenciario e agente_penitenciario_jogador | [Maria Alice](https://github.com/Maliz30)  |
+| `1.3`   | 09/06/2025 | Adiciona tabelas missao, diálogo e objetivo principal | [Ana Carolina](https://github.com/anawcarol)  |
