@@ -29,14 +29,16 @@ DELETE FROM agente_penitenciario_jogador
 WHERE id_personagem_agente_penitenciario = 6;
 
 
--- Jogador (PENDENTE)
+DELETE FROM Jogador
+WHERE id_personagem = 1;
 
 
 DELETE FROM agente_penitenciario 
 WHERE id_personagem = 6;
 
 
--- Prisioneiro (PENDENTE)
+DELETE FROM Prisioneiro
+WHERE id_personagem = 8;
 
 
 DELETE FROM consulta_personagem 
@@ -64,5 +66,6 @@ WHERE titulo_objetivo = 'Distrair guardas';
 DELETE FROM Inventario
 WHERE id_inventario = 102;
 
-
--- Gangue (PENDENTE)
+-- Deleta gangue nao deve ter nenhum personagem associado a esta gangue
+DELETE FROM Gangue
+WHERE nome_gangue = 'Os Fox River Eight';
