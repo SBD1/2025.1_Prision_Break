@@ -5,7 +5,7 @@ Siga os passos abaixo para configurar e iniciar o projeto:
 1.  **Clone o Repositório:**
     Abra seu terminal e clone o repositório para sua máquina local:
     ```bash
-    git clone [https://github.com/SBD1/2025.1_Prision_Break.git](https://github.com/SBD1/2025.1_Prision_Break.git)
+    git clone https://github.com/SBD1/2025.1_Prision_Break.git
     cd 2025.1_Prision_Break
     ```
 
