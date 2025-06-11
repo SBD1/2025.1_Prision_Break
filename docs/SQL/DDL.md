@@ -134,7 +134,7 @@ O banco de dados relacional utilizado para o desenvolvimento do jogo foi o Postg
         FOREIGN KEY (id_personagem) REFERENCES Personagem(id_personagem),
         FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 
-    )
+    );
 
 
 
