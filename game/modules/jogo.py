@@ -1,7 +1,10 @@
 from modules.utils import load_sql_query, clear_console, pause_and_clear
+from modules.start_game import start_game
+from psycopg2 import Error
 
 def iniciar_jogo(conn, cursor):
     print("\n--- Criar personagem ---")
+
     try:
         id_jogador = 1
 
@@ -25,8 +28,10 @@ def iniciar_jogo(conn, cursor):
         while True:
             choice = input("\nDeseja editar essas informações? [S/N]: ").upper()
             if choice == 'N':
-                print("Informações aceitas. Retornando ao menu principal.")
-                return
+                print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
+                clear_console()
+                start_game(conn, cursor)
+
             elif choice == 'S':
                 break
             else:
@@ -84,8 +89,9 @@ def iniciar_jogo(conn, cursor):
                 if cursor.rowcount <= 0:
                     print("Erro: Nenhum jogador encontrado para atualizar ou gangue não alterada.")
                 
-                print(f"Personagem criado com sucesso com sucesso!")
-                
+                print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
+                clear_console()
+                start_game(conn, cursor)
 
             except Error as e:
                 conn.rollback()
@@ -93,7 +99,6 @@ def iniciar_jogo(conn, cursor):
             
             break
             
-
     except Error as e:
         conn.rollback()
         print(f"Erro no gerenciamento do jogador: {e}")

@@ -1,4 +1,6 @@
 import os
+import sys
+import psycopg2
 
 def clear_console():
     """Limpa a tela do console, compatível com Windows, Linux e macOS."""
@@ -23,3 +25,32 @@ def pause_and_clear():
     """Aguarda o usuário pressionar Enter e limpa o console."""
     input("\nPressione Enter para continuar...")
     clear_console()
+
+def quit_application(conn=None, cursor=None):
+    """
+    Encerra a aplicação de forma controlada, fechando a conexão com o banco de dados.
+    """
+    print("\nEncerrando a aplicação...")
+    
+    clear_console()
+
+    if cursor:
+        try:
+            cursor.close()
+        except psycopg2.Error as e:
+            print(f"Erro ao fechar cursor: {e}")
+        except Exception as e:
+            print(f"Erro inesperado ao fechar cursor: {e}")
+
+
+    if conn:
+        try:
+            conn.close()
+            # print("Conexão com o banco de dados fechada.") # Manter apenas se for para depuração
+        except psycopg2.Error as e:
+            print(f"Erro ao fechar conexão: {e}")
+        except Exception as e:
+            print(f"Erro inesperado ao fechar conexão: {e}")
+    
+    print("Aplicação encerrada. Até logo!")
+    sys.exit(0)

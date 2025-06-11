@@ -1,0 +1,1 @@
+SELECT id_sala FROM Jogador WHERE id_personagem = %s;

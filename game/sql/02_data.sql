@@ -9,12 +9,15 @@ INSERT INTO gangue (nome_gangue, descricao, qtdd_membros, qtdd_recurso_gangue) V
 INSERT INTO inventario (id_inventario, qtd_itens, is_full) VALUES
     (1, 20, FALSE),
     (2, 5, FALSE),
-    (3, 100, FALSE);
+    (3, 100, FALSE),
+    (4, 10, FALSE),
+    (5, 5, FALSE);
 
 INSERT INTO sala (id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado) VALUES
     (1, 1, 'Cela de Detenção', 'Pequena cela com uma cama e um lavatório.', 0, FALSE),
     (2, 2, 'Pátio Central', 'Área aberta para recreação, com segurança reforçada.', 5, FALSE),
-    (3, 3, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, TRUE);
+    (3, 3, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, FALSE),
+    (4, 5, 'Sala para telefonemas', 'Local onde os detentos podem fazer ligações.', 5, FALSE);
 
 INSERT INTO Missao (nome_missao, descricao, status) VALUES
     ('Fuga', 'Fuja da prisão.', false);
@@ -50,7 +53,7 @@ INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
 ('Subornar Guarda', 'Conseguir informações ou ajuda de um guarda corrupto oferecendo algo em troca.');
 
 INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue) VALUES
-(1, 'Michael Scofield', 10, 100, 50, 0, 1, 2, 'Fuga', 'Escapar da Prisão', 'Mafia Abruzzi');
+(1, 'Michael Scofield', 10, 100, 50, 0, 1, 4, 'Fuga', 'Escapar da Prisão', 'Mafia Abruzzi');
 
 INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, nome_gangue) VALUES
 (1001, 'João Ligeiro', 5, 80, 'Pequeno Furto', 2, 'Mafia Abruzzi'),
