@@ -97,3 +97,35 @@ INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, 
     (13, 'David "Tweener" Apolskis', 7, 85, 'Roubo e desacato', 2, 'Os Fox River Eight'),
     (14, 'Carlos Ortega', 6, 88, 'Tráfico de drogas e agressão', 3, 'La Familia'); 
 
+INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUES
+    (1, 8, 'Fuga de Fox River', 'Lincoln, eu vou te tirar daqui. Confie em mim.', 1),
+    (2, 8, 'Fuga de Fox River', 'Precisamos do plano exato da penitenciária. Alguém tem acesso aos arquivos?', 2),
+    (3, 11, 'Fuga de Fox River', 'Michael, você tá maluco? Eles vão nos pegar!', 3),
+    (4, 8, 'Fuga de Fox River', 'Cada segundo conta. O túnel deve estar pronto em 72 horas.', 4),
+    (5, 9, 'Fuga de Fox River', 'Você tem meu avião, Scofield? Sem avião, sem ajuda.', 5),
+    (6, 9, 'Missão de Confiança', 'Na minha família, lealdade se prova com sangue.', 1),
+    (7, 8, 'Missão de Confiança', 'O que devo fazer para ganhar sua confiança, Abruzzi?', 2),
+    (8, 9, 'Missão de Confiança', 'Traga-me a cabeça do traidor da ala oeste. Literalmente.', 3);
+
+INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
+    ('Libertar Lincoln', 'Objetivo principal de Michael Scofield: provar a inocência e libertar seu irmão Lincoln Burrows da prisão'),
+    ('Sobreviver até a fuga', 'Manter-se vivo e fora do radar dos guardas até o momento da fuga planejada'),
+    ('Proteger a família', 'Garantir a segurança da família enquanto o plano de fuga está em andamento'),
+    ('Provar lealdade', 'Ganhar a confiança de membros-chave da gangue para obter ajuda na fuga'),
+    ('Descobrir plano rival', 'Identificar e neutralizar planos de outras gangues que possam interferir na fuga'),
+    ('Coletar recursos', 'Obter itens essenciais para a fuga, como ferramentas, uniformes e informações'),
+    ('Distrair guardas', 'Criar distrações para permitir que partes críticas do plano sejam executadas'),
+    ('Encontrar Sara', 'Localizar e resgatar a Dra. Sara Tancredi, aliada crucial para o plano de fuga');
+
+INSERT INTO Objetivo_Principal_Missao (titulo_objetivo, nome_missao) VALUES
+	('Provar lealdade', 'Missão de Confiança'),
+    ('Coletar recursos', 'Aliança Perigosa'),
+    ('Sobreviver até a fuga', 'Túnel da Liberdade'),
+    ('Descobrir plano rival', 'Informante Infiltrado'),
+    ('Distrair guardas', 'Distração Programada'),
+    ('Encontrar Sara', 'Fuga de Fox River'),
+    ('Proteger a família', 'Rota Segura'),
+    ('Libertar Lincoln', 'Arquivos da Sona');
+
+INSERT INTO Missao_Sala (nome_missao, id_sala) VALUES
+	('Rota Segura', 3);
