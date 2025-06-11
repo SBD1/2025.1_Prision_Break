@@ -84,16 +84,17 @@ CREATE TABLE Agente_Penitenciario (
 
 CREATE TABLE Jogador (
     id_personagem     INT           NOT NULL,
+    id_sala           INT           NOT NULL,
+    id_inventario     INT           NOT NULL,
+    nome_missao       VARCHAR(255),     -- Deve poder ser null, pois o usuário inicia o jogo sem uma missão
+    titulo_objetivo   VARCHAR(255),     -- Deve poder ser null, pois o usuário inicia o jogo sem um objetivo
+    nome_gangue       VARCHAR(50),      -- Deve poder ser null, pois o usuário inicia o jogo sem uma gangue
+
     nome              VARCHAR(50)   NOT NULL,
     velocidade        INT           DEFAULT 0,
     vida              INT           DEFAULT 0,
     qtded_recurso     INT           DEFAULT 0,
     qtded_captura     INT           DEFAULT 0,
-    id_sala           INT           NOT NULL,
-    id_inventario     INT           NOT NULL,
-    nome_missao       VARCHAR(255)  NOT NULL,
-    titulo_objetivo   VARCHAR(255)  NOT NULL,
-    nome_gangue       VARCHAR(50)   NOT NULL,
 
     PRIMARY KEY (id_personagem),
     UNIQUE (nome),
