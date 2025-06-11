@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados PostgreSQL
+  db:
+    image: postgres:13 # Versão do PostgreSQL. Escolha uma que você prefira.
+    container_name: prision_break_db_container
+    restart: always # Reinicia o contêiner se ele parar
+    environment:
+      POSTGRES_DB: prision_break_db
+      POSTGRES_USER: prision_break_user
+      POSTGRES_PASSWORD: 123 # Use a mesma senha definida no seu app_console.py/Dockerfile
+    volumes:
+      # Mapeia a pasta 'sql' do seu host para o diretório de inicialização do Postgres.
+      # Scripts .sql aqui serão executados automaticamente na inicialização do contêiner vazio.
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      # Mapeia a porta 5432 do contêiner para a porta 5432 do seu host.
+      # Opcional, útil se você quiser conectar diretamente com pgAdmin ou psql do host.
+      - "5433:5433"
+    healthcheck: # Verifica se o banco de dados está pronto para aceitar conexões
+      test: ["CMD-SHELL", "pg_isready -U prision_break_user -d prision_break_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  # Serviço da sua Aplicação Python
+  app:
+    build: . # Indica que a imagem deve ser construída a partir do Dockerfile no diretório atual
+    container_name: prision_break_app_container
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      # Mapeia o diretório atual do host para /app no contêiner.
+      # Isso permite que você edite o código no host e as mudanças sejam refletidas no contêiner
+      # sem precisar reconstruir a imagem toda hora (útil para desenvolvimento).
+      - .:/app
+    environment:
+      # Passa as variáveis de ambiente para a aplicação Python
+      PG_HOST: db # 'db' é o nome do serviço do banco de dados no Docker Compose
+      PG_DB_NAME: prision_break_db
+      PG_USER: prision_break_user
+      PG_PASSWORD: 123
+    depends_on:
+      db:
+        condition: service_healthy # Garante que o serviço 'app' só inicia depois que 'db' estiver saudável
