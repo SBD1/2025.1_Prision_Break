@@ -1,0 +1,1 @@
+SELECT nome, nome_gangue FROM Jogador WHERE id_personagem = %s;

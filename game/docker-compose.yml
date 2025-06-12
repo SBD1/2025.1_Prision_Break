@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: prision_break_db_container
+    restart: always 
+    environment:
+      POSTGRES_DB: prision_break_db
+      POSTGRES_USER: prision_break_user
+      POSTGRES_PASSWORD: 123 
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "5433:5433"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prision_break_user -d prision_break_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  app:
+    build: .
+    container_name: prision_break_app_container
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - .:/app
+    environment:
+      PG_HOST: db 
+      PG_DB_NAME: prision_break_db
+      PG_USER: prision_break_user
+      PG_PASSWORD: 123
+    depends_on:
+      db:
+        condition: service_healthy 
