@@ -85,19 +85,6 @@ T ← π(nome_missao)(R)
 ### Dialogo
 
 ### Missão
-
-- **Retorna todas as informações de uma missão** <br>
-R ← σ(nome_missao = ’Fuga’)(Missao) <br>
-T ← π(nome_missao, descricao, status)(R) <br>
-
-- **Retorna todas as missões desbloqueadas** <br>
-R ← σ(status = TRUE)(Missao) <br>
-T ← π(nome_missao, descricao, status)(R) <br>
-
-- **Retorna todas as missões bloqueadas** <br>
-R ← σ(status = FALSE)(Missao)<br>
-T ← π(nome_missao, descricao, status)(R)<br>
-
 ### Inventário
 
 - **Retorna todas as informações do inventário** <br>
