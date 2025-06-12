@@ -1,6 +1,6 @@
 -- Exibe todos os agentes penitenciários que capturaram um jogador específico
 SELECT APJ.id_personagem_jogador, AP.id_personagem, AP.nome, AP.nivel_de_perigo
-FROM agente_penitenciario_jogador AS APJ
+FROM agente_penitenciario_jogador APJ
 JOIN agente_penitenciario AP ON APJ.id_personagem_agente_penitenciario = AP.id_personagem 
 WHERE APJ.id_personagem_jogador = 1
 ORDER BY AP.nivel_de_perigo DESC
