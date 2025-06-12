@@ -122,7 +122,7 @@ WHERE id_personagem = 6;
 DELETE FROM consulta_personagem 
 WHERE id_personagem = 6;
 ```
-#### Objetivo principal
+#### Objetivo_Principal
 
 ``` SQL
     -- Inserção de dados na tabela Objetivo_Principal
@@ -173,7 +173,6 @@ WHERE noma_missao IN 'Túnel da Liberdade';
 -- Remover missão menos relevante
 DELETE FROM Missao
 WHERE noma_missao = 'Aliança Perigosa';
-
 
 
 ```

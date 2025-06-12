@@ -169,3 +169,26 @@ CREATE TABLE Objetivo_principal_missao (
     FOREIGN KEY (titulo_objetivo) REFERENCES Objetivo_Principal(titulo_objetivo),
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
+
+ CREATE TABLE Objetivo_Principal(
+        titulo_objetivo VARCHAR(255) PRIMARY KEY,
+        descricao VARCHAR(1000) NOT NULL
+    );
+
+ CREATE TABLE Missao(
+        nome_missao VARCHAR(255) PRIMARY KEY,
+        descricao VARCHAR(1000) NOT NULL,
+        status BOOLEAN DEFAULT false
+    );
+
+CREATE TABLE Dialogo(
+        id_dialogo INT PRIMARY KEY,
+        id_personagem INT,
+        nome_missao VARCHAR(255),
+        texto VARCHAR (500),
+        ordem INT,
+
+        FOREIGN KEY (id_personagem) REFERENCES Personagem(id_personagem),
+        FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
+
+    );
