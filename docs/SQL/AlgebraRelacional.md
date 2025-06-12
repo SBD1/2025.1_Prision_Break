@@ -97,3 +97,4 @@ T ← π(nome_missao)(R)
 | Versão| Data      | Descrição | Autor |
 | :-:   | :-:       | :--       | --    |
 | `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada na Algebra Relacional | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| `1.1`   | 11/06/2025 | Adiciona agente_penitenciario, agente_penitenciario_jogador, consulta_personagem e missao_sala| [Maria Alice](https://github.com/Maliz30)  |
