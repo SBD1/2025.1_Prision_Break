@@ -31,7 +31,7 @@ UPDATE Jogador
 SET velocidade = 8,
 WHERE id_personagem = 1;
 
--- Aumentar vida do personagem 
+-- Aumentar vida do jogador
 UPDATE Jogador
 SET vida = Vida + 25
 WHERE id_personagem = 1
