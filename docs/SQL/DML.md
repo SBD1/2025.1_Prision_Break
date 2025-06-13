@@ -355,42 +355,77 @@ DELETE FROM agente_penitenciario_jogador
 WHERE id_personagem_agente_penitenciario = 6;
 ```
 
-
-<!-- Template
-### 
+### Prisioneiro
 - Insert
 ``` sql
+INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, nome_gangue) VALUES
+    (8, 'Michael Scofield', 8, 100, 'Assalto a banco (planejado para entrar na prisão)', 2, 'Os Fox River Eight'),
+    (9, 'John Abruzzi', 6, 90, 'Homicídio e chefia em organização criminosa', 1, 'Mafia Abruzzi'),
+    (10, 'Theodore "T-Bag" Bagwell', 5, 80, 'Estupro, sequestro e assassinato', 1, 'Irmandade Ariana'),
+    (11, 'Fernando Sucre', 7, 95, 'Roubo à mão armada', 2, 'Os Fox River Eight'),
+    (12, 'Benjamin "C-Note" Franklin', 8, 93, 'Tráfico e deserção militar', 2, 'Os Justiceiros'),
+    (13, 'David "Tweener" Apolskis', 7, 85, 'Roubo e desacato', 2, 'Os Fox River Eight'),
+    (14, 'Carlos Ortega', 6, 88, 'Tráfico de drogas e agressão', 3, 'La Familia'); 
 ```
 
 - Update
 ``` sql
+-- Aumentar velocidade do prisioneiro
+UPDATE Prisioneiro
+SET velocidade = 10
+WHERE id_personagem = 8;
+
+-- Alterar sala do prisioneiro de forma aleatória
+UPDATE Prisioneiro
+SET id_sala = S.id_sala
+FROM (
+    SELECT id_sala FROM Sala ORDER BY RANDOM() LIMIT 1
+) AS S
+WHERE id_personagem = 8;
+
+-- Desvincular prisioneiros da gangue 
+UPDATE Prisioneiro
+SET nome_gangue = NULL
+WHERE nome_gangue = 'Os Fox River Eight';
 ```
 
 - Delete
 ``` sql
-``` -->
-
-
-<!-- Apagar código abaixo após refatorar a parte de cima -->
-<!-- 
-### Prisioneiro
-
-``` sql
-    INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, nome_gangue) VALUES
-
-    (1, 'Michael Scofield', 8, 100, 'Assalto a banco (planejado para entrar na prisão)', 101, 'Os Fox River Eight'),
-    (2, 'John Abruzzi', 6, 90, 'Homicídio e chefia em organização criminosa', 102, 'Mafia Abruzzi'),
-    (3, 'Theodore "T-Bag" Bagwell', 5, 80, 'Estupro, sequestro e assassinato', 103, 'Irmandade Ariana'),
-    (4, 'Fernando Sucre', 7, 95, 'Roubo à mão armada', 101, 'Os Fox River Eight'),
-    (5, 'Benjamin "C-Note" Franklin', 8, 93, 'Tráfico e deserção militar', 104, 'Os Justiceiros'),
-    (6, 'David "Tweener" Apolskis', 7, 85, 'Roubo e desacato', 105, 'Os Fox River Eight'),
-    (7, 'Carlos Ortega', 6, 88, 'Tráfico de drogas e agressão', 106, 'La Familia'); 
+DELETE FROM Prisioneiro
+WHERE id_personagem = 8;
 ```
 
-### Objetivo principal
+###  Dialogo
+- Insert
+``` sql
+INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUES
+    (1, 8, 'Fuga de Fox River', 'Lincoln, eu vou te tirar daqui. Confie em mim.', 1),
+    (2, 8, 'Fuga de Fox River', 'Precisamos do plano exato da penitenciária. Alguém tem acesso aos arquivos?', 2),
+    (3, 11, 'Fuga de Fox River', 'Michael, você tá maluco? Eles vão nos pegar!', 3),
+    (4, 8, 'Fuga de Fox River', 'Cada segundo conta. O túnel deve estar pronto em 72 horas.', 4),
+    (5, 9, 'Fuga de Fox River', 'Você tem meu avião, Scofield? Sem avião, sem ajuda.', 5),
+    (6, 9, 'Missão de Confiança', 'Na minha família, lealdade se prova com sangue.', 1),
+    (7, 8, 'Missão de Confiança', 'O que devo fazer para ganhar sua confiança, Abruzzi?', 2),
+    (8, 9, 'Missão de Confiança', 'Traga-me a cabeça do traidor da ala oeste. Literalmente.', 3);
+```
 
-``` SQL
-    -- Inserção de dados na tabela Objetivo_Principal
+- Update
+``` sql
+-- Mudança de dialogo
+UPDATE Dialogo
+SET texto = 'Lincoln eu te prometo que iremos sair daqu';
+WHERE id_dialogo = 1;
+```
+
+- Delete
+``` sql
+DELETE FROM Dialogo
+WHERE id_dialogo = 3;
+```
+
+### Objetivo Principal
+- Insert
+``` sql
 INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
     ('Libertar Lincoln', 'Objetivo principal de Michael Scofield: provar a inocência e libertar seu irmão Lincoln Burrows da prisão'),
     ('Sobreviver até a fuga', 'Manter-se vivo e fora do radar dos guardas até o momento da fuga planejada'),
@@ -400,53 +435,63 @@ INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
     ('Coletar recursos', 'Obter itens essenciais para a fuga, como ferramentas, uniformes e informações'),
     ('Distrair guardas', 'Criar distrações para permitir que partes críticas do plano sejam executadas'),
     ('Encontrar Sara', 'Localizar e resgatar a Dra. Sara Tancredi, aliada crucial para o plano de fuga');
+```
 
--- UPDATE (modificar descrição de um objetivo)
+- Update
+``` sql
+-- Modifica a descrição de um objetivo
 UPDATE Objetivo_Principal
 SET descricao = 'Provar a inocência e libertar seu irmão Lincoln Burrows da prisão, evitando sua execução'
 WHERE titulo_objetivo = 'Libertar Lincoln';
-
--- DELETE (remover objetivo menos relevante)
-DELETE FROM Objetivo_Principal
-WHERE titulo_objetivo = 'Distrair guardas';
-
 ```
 
-### Dialogo
-``` SQL
--- Inserindo na tabela diálogo
-INSERT TO Dialogo (
-    id_dialogo,
-    id_personagem,
-    nome_missao,
-    texto,
-    ordem
-) VALUES
--- Diálogos para a missão 'Fuga de Fox River'
-INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUES
-    (1, 1, 'Fuga de Fox River', 'Lincoln, eu vou te tirar daqui. Confie em mim.', 1),
-    (2, 1, 'Fuga de Fox River', 'Precisamos do plano exato da penitenciária. Alguém tem acesso aos arquivos?', 2),
-    (3, 4, 'Fuga de Fox River', 'Michael, você tá maluco? Eles vão nos pegar!', 3),
-    (4, 1, 'Fuga de Fox River', 'Cada segundo conta. O túnel deve estar pronto em 72 horas.', 4),
-    (5, 2, 'Fuga de Fox River', 'Você tem meu avião, Scofield? Sem avião, sem ajuda.', 5);
+- Delete
+``` sql
+DELETE FROM Objetivo_Principal_Missao 
+WHERE titulo_objetivo = 'Provar lealdade' AND nome_missao = 'Missão de Confiança';
+```
 
--- Diálogos para a missão 'Missão de Confiança'
-INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUES
-    (6, 2, 'Missão de Confiança', 'Na minha família, lealdade se prova com sangue.', 1),
-    (7, 13, 'Missão de Confiança', 'O que devo fazer para ganhar sua confiança, Abruzzi?', 2),
-    (8, 2, 'Missão de Confiança', 'Traga-me a cabeça do traidor da ala oeste. Literalmente.', 3);
+### Objetivo Principal - Missao
+- Insert
+``` sql
+INSERT INTO Objetivo_Principal_Missao (titulo_objetivo, nome_missao) VALUES
+	('Provar lealdade', 'Missão de Confiança'),
+    ('Coletar recursos', 'Aliança Perigosa'),
+    ('Sobreviver até a fuga', 'Túnel da Liberdade'),
+    ('Descobrir plano rival', 'Informante Infiltrado'),
+    ('Distrair guardas', 'Distração Programada'),
+    ('Encontrar Sara', 'Fuga de Fox River'),
+    ('Proteger a família', 'Rota Segura'),
+    ('Libertar Lincoln', 'Arquivos da Sona');
+```
 
--- Mudança de dialogo
-UPDATE Dialogo
-SET texto = 'Lincoln eu te prometo que iremos sair daqu';
-WHERE id_dialogo = 1;
+- Update: A tabela Objetivo_Principal_Missao não possui update pois não há regra de negócio para isso
 
--- DELETE dialogo
-DELETE FROM Dialogo
-WHERE id_dialogo = 3; -->
+- Delete
+``` sql
+DELETE FROM Objetivo_Principal_Missao 
+WHERE titulo_objetivo = 'Provar lealdade' AND nome_missao = 'Missão de Confiança';
+```
 
+### Missao - Sala
+- Insert
+``` sql
+INSERT INTO Missao_Sala (nome_missao, id_sala) VALUES
+	('Rota Segura', 3);
+```
 
+- Update
+``` sql
+-- Altera missão que libera uma sala específica
+UPDATE Missao_Sala
+SET nome_missao = 'Fuga de Fox River'
+WHERE id_sala = 1;
+```
 
+- Delete
+``` sql
+DELETE FROM Missao_Sala 
+WHERE nome_missao = 'Rota Segura' AND id_sala = 3;
 ```
 
 ## 📑 Histórico de versão
