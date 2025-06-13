@@ -61,14 +61,15 @@ CREATE TABLE Prisioneiro (
     id_sala         INT           NOT NULL,
     nome_gangue     VARCHAR(50)   NOT NULL,
 
-    PRIMARY KEY (id_personagem),
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
+    UNIQUE (id_personagem),
     UNIQUE (nome),
     FOREIGN KEY (id_sala)       REFERENCES Sala (id_sala),
     FOREIGN KEY (nome_gangue)   REFERENCES Gangue (nome_gangue)
 );
 
 CREATE TABLE Agente_Penitenciario (
-    id_personagem          INT         PRIMARY KEY,
+    id_personagem          INT         UNIQUE,
     id_sala                INT         NOT NULL,         			
     nome                   VARCHAR(50) DEFAULT 'Tira',
     velocidade             INT         DEFAULT 5,
@@ -78,17 +79,18 @@ CREATE TABLE Agente_Penitenciario (
     preco                  INT         DEFAULT 0,
     cargo                 VARCHAR(255) DEFAULT 'Carcereiro',
 
-    FOREIGN KEY (id_sala) REFERENCES Sala(id_sala), 
-    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem)
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
+    UNIQUE (id_personagem),
+    FOREIGN KEY (id_sala) REFERENCES Sala(id_sala)
 );
 
 CREATE TABLE Jogador (
     id_personagem     INT           NOT NULL,
     id_sala           INT           NOT NULL,
     id_inventario     INT           NOT NULL,
-    nome_missao       VARCHAR(255),     -- Deve poder ser null, pois o usuário inicia o jogo sem uma missão
-    titulo_objetivo   VARCHAR(255),     -- Deve poder ser null, pois o usuário inicia o jogo sem um objetivo
-    nome_gangue       VARCHAR(50),      -- Deve poder ser null, pois o usuário inicia o jogo sem uma gangue
+    nome_missao       VARCHAR(255),    
+    titulo_objetivo   VARCHAR(255),     
+    nome_gangue       VARCHAR(50),      
 
     nome              VARCHAR(50)   NOT NULL,
     velocidade        INT           DEFAULT 0,
@@ -96,8 +98,9 @@ CREATE TABLE Jogador (
     qtded_recurso     INT           DEFAULT 0,
     qtded_captura     INT           DEFAULT 0,
 
-    PRIMARY KEY (id_personagem),
+    UNIQUE (id_personagem),
     UNIQUE (nome),
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
     FOREIGN KEY (id_sala)           REFERENCES Sala (id_sala),
     FOREIGN KEY (id_inventario)     REFERENCES Inventario (id_inventario),
     FOREIGN KEY (nome_missao)       REFERENCES Missao (nome_missao),
@@ -128,7 +131,7 @@ CREATE TABLE Item_Loja (
     nome_gangue            VARCHAR(50)  NOT NULL,
     nome_item              VARCHAR(100) NOT NULL,
 
-    FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
+    FOREIGN KEY (nome_gangue) REFERENCES Loja(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
 
