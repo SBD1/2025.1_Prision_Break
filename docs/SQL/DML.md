@@ -26,7 +26,7 @@ INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded
 ```
 - Update
 ``` sql
--- Aumentar a velocidade do personagem 
+-- Aumentar a velocidade do jogador
 UPDATE Jogador
 SET velocidade = 8,
 WHERE id_personagem = 1;
@@ -36,27 +36,27 @@ UPDATE Jogador
 SET vida = Vida + 25
 WHERE id_personagem = 1
 
--- Aumentar quantidade de recurso do personagem
+-- Aumentar quantidade de recurso do jogador
 UPDATE Jogador
 SET qtded_recurso = qtded_recurso + 1
 WHERE id_personagem = 1
 
--- Aumentar quantidade de capturas do persoangem
+-- Aumentar quantidade de capturas do jogador
 UPDATE Jogador
 SET qtded_captura = qtded_captura + 1
 WHERE id_personagem = 1
 
--- Alterar sala que o personagem esta
+-- Alterar sala que o jogador esta
 UPDATE Jogador
 SET id_sala = 2
 WHERE id_personagem = 1;
 
--- Alterar a escolha da gangue do personagem
+-- Alterar a escolha da gangue do jogador
 UPDATE Jogador
 SET nome_gangue = 'Os Fox River Eight'
 WHERE id_personagem = 1;
 
--- Desvincular personagem da gangue
+-- Desvincular jogador da gangue
 UPDATE Jogador
 SET nome_gangue = NULL
 WHERE nome_gangue = 'Os Fox River Eight';
