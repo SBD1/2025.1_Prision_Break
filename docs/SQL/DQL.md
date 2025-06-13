@@ -463,11 +463,6 @@ GROUP BY L.nome_item, L.preco
 ORDER BY L.nome_item;
 ```
 
-### Item - Loja
-```sql
-
-```
-
 ### Missao - Sala
 ```sql
 -- Exibe todas as salas que uma missão desbloqueia
