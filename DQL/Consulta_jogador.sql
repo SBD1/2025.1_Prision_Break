@@ -1,10 +1,10 @@
--- Consultar todas as informações de um prisioneiro em especifico
+-- Consultar todas as informações de um jogador  em especifico
 SELECT *
 FROM Jogador
 Where nome= 'Mauricio' ;
 
 -- Consultar dados importantes para o jogador
-SELECT nome, velocidade, vida, qtded_recurso, qtded_captura, nome_item, id_sala
+SELECT nome, velocidade, vida, qtded_recurso, qtded_captura, nome_gangue, id_sala
 FROM Jogador
 Where nome= 'Mauricio' ;
 
