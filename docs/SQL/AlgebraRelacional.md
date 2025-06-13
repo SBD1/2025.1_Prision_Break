@@ -88,9 +88,78 @@ T ← π(nome_missao)(R)
 ### Inventário
 ### Sala
 
-### Instancia-Item
+### Item_Iventario
+
+- **Exibe todos os itens e suas informações de um inventário específico:** <br>
+INV ← ρ INV(Inventario) <br>
+II ← ρ II(Instancia_Item) <br>
+I ← ρ I(Item) <br>
+R ← INV ⨝ (INV.id_inventario = II.id_inventario) II <br>
+S ← R ⨝ (II.nome_item = I.nome_item) I <br>
+W ← σ(INV.id_inventario = 1)(S) <br>
+T ← π(INV.id_inventario, INV.qtd_itens, II.id_instancia, I.nome_item, I.descricao, I.durabilidade, II.nivel_de_gasto, I.utilidade, I.beneficio)(W)
+
+- **Exibe a quantidade total de cada item em um inventário específico:** <br>
+I ← ρ I(Item) <br>
+II ← ρ II(Instancia_Item) <br>
+R ← II ⨝ (II.nome_item = I.nome_item) I <br>
+S ← σ(II.id_inventario = 1)(R) <br>
+T ← γ(I.nome_item, I.descricao, I.durabilidade, COUNT(II.nome_item) → quantidade_total)(S)
+
+- **Exibe o total de itens e tipos diferentes em um inventário específico:** <br>
+INV ← ρ INV(Inventario) <br>
+II ← ρ II(Instancia_Item) <br>
+R ← INV ⨝ (INV.id_inventario = II.id_inventario) II <br>
+S ← σ(INV.id_inventario = 1)(R) <br>
+T ← γ(INV.id_inventario, COUNT(II.id_instancia) → total_itens, COUNT(DISTINCT II.nome_item) → tipos_diferentes_itens)(S)
+
+
+### Item
+
+- **Exibe todas as gangues que vendem um item específico:** <br>
+I ← ρ I(Item) <br>
+IL ← ρ IL(Item_Loja) <br>
+L ← ρ L(Loja) <br>
+R ← I ⨝ (I.nome_item = IL.nome_item) IL <br>
+S ← R ⨝ (IL.nome_gangue = L.nome_gangue) L <br>
+W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
+T ← π(I.nome_item, IL.nome_gangue)(W)
+
+- **Exibe todos os inventários que possuem um item específico:** <br>
+I ← ρ I(Item) <br>
+II ← ρ II(Instancia_Item) <br>
+INV ← ρ INV(Inventario) <br>
+R ← I ⨝ (I.nome_item = II.nome_item) II <br>
+S ← R ⨝ (II.id_inventario = INV.id_inventario) INV <br>
+W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
+T ← π(I.nome_item, INV.id_inventario)(W)
+
+
 ### Loja
-### Item-Loja
+
+- **Exibe todos os itens e suas informações de uma gangue específica:** <br>
+L ← ρ L(Loja) <br>
+IL ← ρ IL(Item_Loja) <br>
+I ← ρ I(Item) <br><br>
+R ← L ⨝ (L.nome_gangue = IL.nome_gangue) IL <br>
+S ← R ⨝ (IL.nome_item = I.nome_item) I <br>
+W ← σ(L.nome_gangue = 'Nome da Gangue')(S) <br>
+T ← π(L.nome_gangue, L.nome_item, I.descricao, L.preco, I.durabilidade, I.utilidade, I.beneficio)(W)
+
+- **Exibe o total de itens e valor total dos itens de uma gangue específica:** <br>
+L ← ρ L(Loja) <br>
+IL ← ρ IL(Item_Loja) <br>
+R ← L ⨝ (L.nome_gangue = IL.nome_gangue) IL <br>
+S ← σ(L.nome_gangue = 'Nome da Gangue')(R) <br>
+T ← γ(L.nome_gangue, COUNT(L.nome_item) → total_itens, SUM(L.preco) → valor_total)(S)
+
+- **Exibe a quantidade e valor total de cada item em uma loja de uma gangue específica:** <br>
+L ← ρ L(Loja) <br>
+IL ← ρ IL(Item_Loja) <br>
+R ← L ⨝ (L.nome_gangue = IL.nome_gangue AND L.nome_item = IL.nome_item) IL <br>
+S ← σ(L.nome_gangue = 'Nome da Gangue')(R) <br>
+T ← γ(L.nome_item, L.preco, COUNT(L.nome_item) → quantidade_item, SUM(L.preco) → valor_total_item)(S)
+
 
 ## 📑 Histórico de versão
 

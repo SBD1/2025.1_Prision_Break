@@ -436,6 +436,7 @@ INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
     ('Distrair guardas', 'Criar distrações para permitir que partes críticas do plano sejam executadas'),
     ('Encontrar Sara', 'Localizar e resgatar a Dra. Sara Tancredi, aliada crucial para o plano de fuga');
 ```
+```
 
 - Update
 ``` sql
@@ -501,5 +502,8 @@ WHERE nome_missao = 'Rota Segura' AND id_sala = 3;
 | `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada no DML | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.1`   | 07/06/2025 |adicionando dados a tabela jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.2`   | 09/06/2025 | Adiciona dados a tabela consulta_personagem, agente_penitenciario e agente_penitenciario_jogador | [Maria Alice](https://github.com/Maliz30)  |
-| `1.3`   | 09/06/2025 | Adiciona tabelas missao, diálogo e objetivo principal | [Ana Carolina](https://github.com/anawcarol)  |
-| `1.4`   | 12/06/2025 | Organiza tabelas e adiciona códigos pendentes que já estão no .sql | [Maria Alice](https://github.com/Maliz30)  |
+| `1.3`   | 09/06/2025 | Adiciona dados na tabelas missao, diálogo e objetivo principal | [Ana Carolina](https://github.com/anawcarol)  |
+| `1.4`   | 09/06/2025 | Adiciona dados na tabelas missão, inventário, sala | [Marllon Cardoso](https://github.com/m4rllon)  |
+| `1.5`   | 09/06/2025 | Adiciona dados na tabelas instancia-item, item, loja, item-loja| [Renann Gomes](https://github.com/renannOgomes) |
+| `1.6`   | 09/06/2025 | Organiza dados das tabelas e adiciona códigos pendentes que já estão no .sql |[Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| `1.7`   | 12/06/2025 | Organiza tabelas e atualiza códigos errados | [Maria Alice](https://github.com/Maliz30)  |
