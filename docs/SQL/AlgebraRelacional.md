@@ -152,17 +152,167 @@ R ← τ_{qtdd_recurso_gangue DESC}(T)
 T ← σ(nome_gangue = 'Os Fox River Eight')(gangue)
 
 
-### Objetivo principal
+### Objetivo_principal
+
+- **Exibe todos os objetivos:** <br>
+T ← π(*)(Objetivo_Principal) <br>
+
+- **Exibe algum objetivo específico com descrição** <br>
+R ← σ(titulo_objetivo = 'Libertar o prisioneiro')(Objetivo_Principal) <br>
+T ← π(titulo_objetivo, descricao)(R) <br>
+
+- **Exibe apenas os títulos dos objetivos** <br>
+T ← π(titulo_objetivo)(Objetivo_Principal) <br>
+
+- **Exibe quantos objetivos existem** <br>
+T ← γ(COUNT(∗) → total_objetivos)(Objetivo_Principal) <br>
+
+- **Exibe objetivos com determinada específica** <br>
+T ← σ(descricao LIKE '%família%')(Objetivo_Principal)
+
+- **Exibe se há objetivos duplicados** <br>
+R ← γ(titulo_objetivo, COUNT(∗) → contagem)(Objetivo_Principal) <br>
+T ← σ(contagem > 1)(R) <br>
+
+
 ### Objetivo_Principal_Missao
+
+- **Exibe todos os objetivos e suas missoes relacionadas** <br>
+OPM ← ρ OPM(Objetivo_Principal_Missao) <br>
+OP ← ρ OP(Objetivo_Principal) <br>
+M ← ρ M(Missao) <br>
+R ← OPM ⨝ (OPM.titulo_objetivo = OP.titulo_objetivo) OP <br>
+S ← R ⨝ (OPM.nome_missao = M.nome_missao) M <br>
+T ← π(OPM.titulo_objetivo, OP.descricao → descricao_objetivo, M.nome_missao, M.descricao → descricao_missao)(S) <br>
+
+- **Exibe quantas missoes estão associadas a cada objetivo** <br>
+OPM ← ρ OPM(Objetivo_Principal_Missao)<br>
+M ← ρ M(Missao) <br>
+R ← OPM ⨝ (OPM.nome_missao = M.nome_missao) M <br>
+S ← γ(M.nome_missao, COUNT(∗) → total_objetivos)(R) <br>
+T ← τ(total_objetivos DESC)(S)<br>
+
+- **Exibe objetivos que possuem pelo menos uma missao associada** <br>
+OP ← ρ OP(Objetivo_Principal)<br>
+OPM ← ρ OPM(Objetivo_Principal_Missao) <br>
+M ← ρ M(Missao) <br>
+R ← OP ⨝ (OP.titulo_objetivo = OPM.titulo_objetivo) OPM <br>
+S ← R ⨝ (OPM.nome_missao = M.nome_missao) M <br>
+W ← σ(M.status = TRUE)(S) <br>
+T ← π(OP.titulo_objetivo, OP.descricao)(W) <br>
+U ← δ(T)  -- Operador de distinção (DISTINCT) <br>
+
 ### Dialogo
+
+- **Exibe diálogos com nome da missao em ordem** <br> 
+T ← π(nome_missao, ordem, texto)(Dialogo) <br>
+U ← τ(nome_missao ASC, ordem ASC)(T) <br>
+
+- **Exibe diálogos de uma missao específica** <br>
+R ← σ(nome_missao = 'Fuga de Fox River')(Dialogo) <br>
+T ← τ(ordem ASC)(R) <br>
+
+- **Exibe diálogos de um personagem específico** <br>
+R ← σ(id_personagem = '9')(Dialogo) <br>
+T ← τ(ordem ASC)(R) <br>
+
+- **Exibe quantos diálogos cada personagem tem** <br>
+T ← γ(id_personagem, COUNT(∗) → qtd_dialogos)(Dialogo) <br>
+
+- **Exibe quantos diálogos existe por missao** <br>
+T ← γ(nome_missao, COUNT(∗) → qtd_dialogos)(Dialogo) <br>
+
+- **Exibe diálogos como nome e descricao da missao** <br>
+D ← ρ D(Dialogo)<br>
+M ← ρ M(Missao) <br>
+R ← D ⨝ (D.nome_missao = M.nome_missao) M <br>
+T ← π(D.id_dialogo, D.texto, D.ordem, D.nome_missao, M.descricao → descricao_missao)(R) <br>
+U ← τ(D.ordem ASC)(T) <br>
+
+- **Exibe diálogos e o tipo do personagem de cada um** <br>
+D ← ρ D(Dialogo)<br>
+CP ← ρ CP(Consulta_Personagem) <br>
+R ← D ⨝ (D.id_personagem = CP.id_personagem) CP <br>
+T ← π(D.texto, CP.tipo_personagem)(R) <br>
 
 ### Missão
 ### Inventário
 ### Sala
 
-### Instancia-Item
+### Item_Iventario
+
+- **Exibe todos os itens e suas informações de um inventário específico:** <br>
+INV ← ρ INV(Inventario) <br>
+II ← ρ II(Instancia_Item) <br>
+I ← ρ I(Item) <br>
+R ← INV ⨝ (INV.id_inventario = II.id_inventario) II <br>
+S ← R ⨝ (II.nome_item = I.nome_item) I <br>
+W ← σ(INV.id_inventario = 1)(S) <br>
+T ← π(INV.id_inventario, INV.qtd_itens, II.id_instancia, I.nome_item, I.descricao, I.durabilidade, II.nivel_de_gasto, I.utilidade, I.beneficio)(W)
+
+- **Exibe a quantidade total de cada item em um inventário específico:** <br>
+I ← ρ I(Item) <br>
+II ← ρ II(Instancia_Item) <br>
+R ← II ⨝ (II.nome_item = I.nome_item) I <br>
+S ← σ(II.id_inventario = 1)(R) <br>
+T ← γ(I.nome_item, I.descricao, I.durabilidade, COUNT(II.nome_item) → quantidade_total)(S)
+
+- **Exibe o total de itens e tipos diferentes em um inventário específico:** <br>
+INV ← ρ INV(Inventario) <br>
+II ← ρ II(Instancia_Item) <br>
+R ← INV ⨝ (INV.id_inventario = II.id_inventario) II <br>
+S ← σ(INV.id_inventario = 1)(R) <br>
+T ← γ(INV.id_inventario, COUNT(II.id_instancia) → total_itens, COUNT(DISTINCT II.nome_item) → tipos_diferentes_itens)(S)
+
+
+### Item
+
+- **Exibe todas as gangues que vendem um item específico:** <br>
+I ← ρ I(Item) <br>
+IL ← ρ IL(Item_Loja) <br>
+L ← ρ L(Loja) <br>
+R ← I ⨝ (I.nome_item = IL.nome_item) IL <br>
+S ← R ⨝ (IL.nome_gangue = L.nome_gangue) L <br>
+W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
+T ← π(I.nome_item, IL.nome_gangue)(W)
+
+- **Exibe todos os inventários que possuem um item específico:** <br>
+I ← ρ I(Item) <br>
+II ← ρ II(Instancia_Item) <br>
+INV ← ρ INV(Inventario) <br>
+R ← I ⨝ (I.nome_item = II.nome_item) II <br>
+S ← R ⨝ (II.id_inventario = INV.id_inventario) INV <br>
+W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
+T ← π(I.nome_item, INV.id_inventario)(W)
+
+
 ### Loja
-### Item-Loja
+
+- **Exibe todos os itens e suas informações de uma gangue específica:** <br>
+L ← ρ L(Loja) <br>
+IL ← ρ IL(Item_Loja) <br>
+I ← ρ I(Item) <br><br>
+R ← L ⨝ (L.nome_gangue = IL.nome_gangue) IL <br>
+S ← R ⨝ (IL.nome_item = I.nome_item) I <br>
+W ← σ(L.nome_gangue = 'Nome da Gangue')(S) <br>
+T ← π(L.nome_gangue, L.nome_item, I.descricao, L.preco, I.durabilidade, I.utilidade, I.beneficio)(W)
+
+- **Exibe o total de itens e valor total dos itens de uma gangue específica:** <br>
+L ← ρ L(Loja) <br>
+IL ← ρ IL(Item_Loja) <br>
+R ← L ⨝ (L.nome_gangue = IL.nome_gangue) IL <br>
+S ← σ(L.nome_gangue = 'Nome da Gangue')(R) <br>
+T ← γ(L.nome_gangue, COUNT(L.nome_item) → total_itens, SUM(L.preco) → valor_total)(S)
+
+- **Exibe a quantidade e valor total de cada item em uma loja de uma gangue específica:** <br>
+L ← ρ L(Loja) <br>
+IL ← ρ IL(Item_Loja) <br>
+R ← L ⨝ (L.nome_gangue = IL.nome_gangue AND L.nome_item = IL.nome_item) IL <br>
+S ← σ(L.nome_gangue = 'Nome da Gangue')(R) <br>
+T ← γ(L.nome_item, L.preco, COUNT(L.nome_item) → quantidade_item, SUM(L.preco) → valor_total_item)(S)
+
+
+
 
 ## 📑 Histórico de versão
 
@@ -170,4 +320,5 @@ T ← σ(nome_gangue = 'Os Fox River Eight')(gangue)
 | :-:   | :-:       | :--       | --    |
 | `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada na Algebra Relacional | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.1`   | 11/06/2025 | Adiciona agente_penitenciario, agente_penitenciario_jogador, consulta_personagem e missao_sala| [Maria Alice](https://github.com/Maliz30)  |
-| `1.2`   | 13/06/2025 |adicionando algebra relacional jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| `1.2`   | 13/06/2025 | Objetivo_Principal, Objetivo_Principal_Missao, Dialogo | [Ana Carolina](https://github.com/anawcarol)  |
+| `1.3`   | 13/06/2025 |adicionando algebra relacional jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
