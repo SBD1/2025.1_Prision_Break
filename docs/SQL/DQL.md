@@ -34,44 +34,45 @@ Where nome_gangue = 'Os Fox River Eight' ;
 
 ### Inventario
 ```sql
--- Consulta todo os itens de um iventário específico
-SELECT 
-    INV.id_inventario,
-    INV.qtd_itens,
-    II.id_instancia,
-    I.nome_item,
-    I.descricao,
-    I.durabilidade,
-    II.nivel_de_gasto,
-    I.utilidade,
-    I.beneficio
-FROM Inventario INV
-INNER JOIN Instancia_Item II ON INV.id_inventario = II.id_inventario
-INNER JOIN Item I ON II.nome_item = I.nome_item
-WHERE INV.id_inventario = 1  -- Substitua pelo ID do inventário
-ORDER BY I.nome_item;
+-- Retorna todas as informações do inventário
+SELECT
+    id_inventario,
+    qtd_itens,
+    is_full
+FROM
+    Inventario;
 
--- Consulta quantidade de todos os itens em um inventário
-SELECT 
-    I.nome_item,
-    COUNT(II.nome_item) as quantidade_total,
-    I.descricao,
-    I.durabilidade
-FROM Item I
-RIGHT JOIN Instancia_Item II ON I.nome_item = II.nome_item
-WHERE II.id_inventario = 1  -- Substitua pelo ID do inventário, se necessário
-GROUP BY I.nome_item, I.descricao, I.durabilidade
-ORDER BY quantidade_total DESC;
+-- Inventários de uma Sala Específica
+SELECT
+    I.id_inventario,
+    I.qtd_itens,
+    I.is_full
+FROM
+    Inventario AS I
+JOIN
+    Sala AS S ON I.id_inventario = S.id_inventario
+WHERE
+    S.id_sala = 1; -- Substitua '1' pelo ID da sala desejada
 
--- Consulta o total de itens em um inventário específico
-SELECT 
-    INV.id_inventario,
-    COUNT(II.id_instancia) as total_itens,
-    COUNT(DISTINCT II.nome_item) as tipos_diferentes_itens
-FROM Inventario INV
-INNER JOIN Instancia_Item II ON INV.id_inventario = II.id_inventario
-WHERE INV.id_inventario = 1  -- Substitua pelo ID do inventário
-GROUP BY INV.id_inventario;
+-- Apenas os Inventários Cheios
+SELECT
+    id_inventario,
+    qtd_itens,
+    is_full
+FROM
+    Inventario
+WHERE
+    is_full = TRUE;
+
+-- Apenas os Inventários que Não Estão Cheios
+SELECT
+    id_inventario,
+    qtd_itens,
+    is_full
+FROM
+    Inventario
+WHERE
+    is_full = FALSE;
 
 ```
 
@@ -173,8 +174,46 @@ JOIN
     instancia_item ii ON i.nome_item = ii.nome_item;
 ```
 
-### Sala (MARLLO)
+### Sala
 ```sql
+-- Retorna todas as informações das salas
+SELECT
+    id_sala,
+    id_inventario,
+    nome,
+    descricao,
+    nivel_perigo,
+    bloqueado
+FROM
+    Sala;
+
+-- Apenas as Salas que Não Estão Bloqueadas
+SELECT
+    id_sala,
+    id_inventario,
+    nome,
+    descricao,
+    nivel_perigo,
+    bloqueado
+FROM
+    Sala
+WHERE
+    bloqueado = FALSE;
+
+-- Apenas a Sala que um personagem Está Presente (Sala por ID do personagem)
+SELECT
+    S.id_sala,
+    S.nome AS nome_sala,
+    S.descricao AS descricao_sala,
+    S.nivel_perigo,
+    S.bloqueado,
+    J.nome AS nome_jogador
+FROM
+    Sala AS S
+JOIN
+    Jogador AS J ON S.id_sala = J.id_sala
+WHERE
+    J.id_personagem = 1; -- Substitua '1' pelo ID desejado
 ```
 
 ### Item
@@ -444,6 +483,44 @@ WHERE id_sala = 3
 
 ### Instancia Item
 ```sql
+-- Consulta todo os itens de um inventário específico
+SELECT 
+    INV.id_inventario,
+    INV.qtd_itens,
+    II.id_instancia,
+    I.nome_item,
+    I.descricao,
+    I.durabilidade,
+    II.nivel_de_gasto,
+    I.utilidade,
+    I.beneficio
+FROM Inventario INV
+INNER JOIN Instancia_Item II ON INV.id_inventario = II.id_inventario
+INNER JOIN Item I ON II.nome_item = I.nome_item
+WHERE INV.id_inventario = 1  -- Substitua pelo ID do inventário
+ORDER BY I.nome_item;
+
+-- Consulta quantidade de todos os itens em um inventário
+SELECT 
+    I.nome_item,
+    COUNT(II.nome_item) as quantidade_total,
+    I.descricao,
+    I.durabilidade
+FROM Item I
+RIGHT JOIN Instancia_Item II ON I.nome_item = II.nome_item
+WHERE II.id_inventario = 1  -- Substitua pelo ID do inventário, se necessário
+GROUP BY I.nome_item, I.descricao, I.durabilidade
+ORDER BY quantidade_total DESC;
+
+-- Consulta o total de itens em um inventário específico
+SELECT 
+    INV.id_inventario,
+    COUNT(II.id_instancia) as total_itens,
+    COUNT(DISTINCT II.nome_item) as tipos_diferentes_itens
+FROM Inventario INV
+INNER JOIN Instancia_Item II ON INV.id_inventario = II.id_inventario
+WHERE INV.id_inventario = 1  -- Substitua pelo ID do inventário
+GROUP BY INV.id_inventario;
 ```
 
 ### Dialogo
@@ -584,6 +661,7 @@ WHERE
 
 ## 📑 Histórico de versão
 
-| Versão| Data      | Descrição | Autor |
-| :-:   | :-:       | :--       | --    |
-| `1.0`   | 05/06/2025 |Criação da introdução e metodologia utilizada no DQL | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| Versão |    Data    | Descrição                                            | Autor                                                |
+| :----: | :--------: | :--------------------------------------------------- | ---------------------------------------------------- |
+| `1.0`  | 05/06/2025 | Criação da introdução e metodologia utilizada no DQL | [Mayara A. Oliveira](https://github.com/Mayara-tech) |
+| `1.1`  | 13/06/2025 | Adiciona códigos pendentes que já estavam no .sql    | [Maria Alice](https://github.com/Maliz30)            |
