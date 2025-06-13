@@ -464,6 +464,6 @@ DROP TABLE Objetivo_principal_missao RESTRICT;
 | `1.1`   | 07/06/2025 |adicionando tabelas jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
 | `1.2`   | 09/06/2025 | Adiciona dados a tabela consulta_personagem, agente_penitenciario e agente_penitenciario_jogador | [Maria Alice](https://github.com/Maliz30)  |
 | `1.3`   | 09/06/2025 | Adiciona tabelas missao, diálogo e objetivo principal | [Ana Carolina](https://github.com/anawcarol)  |
-| `1.4`   | 07/06/2025 | Adicionando tabelas missão, inventário, sala | [Marllon Cardoso](https://github.com/m4rllon)  |
-| `1.5`   | 07/06/2025 | Adicionando tabelas instancia-item, item, loja, item-loja| [Renann Gomes](https://github.com/renannOgomes) |
+| `1.4`   | 09/06/2025 | Adicionando tabelas missão, inventário, sala | [Marllon Cardoso](https://github.com/m4rllon)  |
+| `1.5`   | 09/06/2025 | Adicionando tabelas instancia-item, item, loja, item-loja| [Renann Gomes](https://github.com/renannOgomes) |
 | `1.6`   | 12/06/2025 | Organiza tabelas e adiciona códigos pendentes que já estão no .sql | [Maria Alice](https://github.com/Maliz30)  |
