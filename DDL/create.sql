@@ -122,6 +122,7 @@ CREATE TABLE Loja (
     preco                  INT             NOT NULL,
     nome_item              VARCHAR(100)    NOT NULL,
 
+    UNIQUE (nome_gangue),
     FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
