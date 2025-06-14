@@ -12,7 +12,12 @@ Posteriormente, o modelo foi submetido à normalização para eliminar redundân
 
 ## Modelo Relacional
 
-![](../assets/modelorelacional.png){:  display: block; margin: 0 auto;" }
+![Modelo Relacional](../assets/modelorelacional3.png){:  display: block; margin: 0 auto;" }
+
+Caso não seja possível visualizar o Diagrama Entidade relacionamento pela imagem, tente pelo iframe do draw.io logo abaixo:
+
+<iframe frameborder="0" style="width:100%;height:1637px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=000000&layers=1&nav=1&title=DER_Prision_Break.drawio&page-id=yQuUzBaqXDNsPbDaUIF-&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1wi6IxcUiXtU1OVYFu6NfL4SPxfWGVimA%26export%3Ddownload"></iframe>
+
 
 ## 📑 Histórico de Versões
 
@@ -20,4 +25,5 @@ Posteriormente, o modelo foi submetido à normalização para eliminar redundân
 |--------|---------|-----------|--------|
 |`1.0`| 21/04/2025 | Criação da página do modelo relacional| [Mayara Alves](https://github.com/Mayara-tech)| 
 |`2.0`| 01/05/2025 | Criação do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|
-|`2.1`| 02/05/2025 | Criação do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|`
+|`2.1`| 02/05/2025 | Ajuste do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|
+|`3.0`| 13/06/2025 | Altera imagem do Modelo Relacional e adiciona embed | [Maria Alice](https://github.com/Maliz30)| 
