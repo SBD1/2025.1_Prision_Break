@@ -1,4 +1,5 @@
 -- Inserts que inicializam o jogo
+
 INSERT INTO gangue (nome_gangue, descricao, qtdd_membros, qtdd_recurso_gangue) VALUES
     ('Os Fox River Eight', 'Grupo formado pelos fugitivos de Fox River. Unidos pela fuga, cada membro tem uma habilidade estratégica.', 8, 60),
     ('Mafia Abruzzi', 'Facção italiana comandada por John Abruzzi, envolvida com crimes organizados e tráfico de influência dentro da prisão.', 10, 45),
@@ -7,20 +8,17 @@ INSERT INTO gangue (nome_gangue, descricao, qtdd_membros, qtdd_recurso_gangue) V
     ('Os Justiceiros', 'Prisioneiros que agem sob o pretexto de justiça interna, combatendo delatores e traidores. Inspirados em atitudes de C-Note.', 7, 28);
 
 INSERT INTO inventario (id_inventario, qtd_itens, is_full) VALUES
-    (1, 20, FALSE),
-    (2, 5, FALSE),
-    (3, 100, FALSE),
-    (4, 10, FALSE),
-    (5, 5, FALSE);
+	(100, 0, FALSE),		--Jogador
+	(101, 0, FALSE),		--Cela do Jogador
+	(102, 3, FALSE),		--Pátio Central
+	(103, 0, FALSE);		--Enfermaria
 
 INSERT INTO sala (id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado) VALUES
-    (1, 1, 'Cela de Detenção', 'Pequena cela com uma cama e um lavatório.', 0, FALSE),
-    (2, 2, 'Pátio Central', 'Área aberta para recreação, com segurança reforçada.', 5, FALSE),
-    (3, 3, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, FALSE),
-    (4, 5, 'Sala para telefonemas', 'Local onde os detentos podem fazer ligações.', 5, FALSE);
+    (1, 101, 'Cela de Detenção', 'Pequena cela com uma cama e um lavatório.', 0, FALSE),
+    (2, 102, 'Pátio Central', 'Área aberta para recreação, com segurança reforçada.', 5, FALSE),
+    (3, 103, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, TRUE);
 
 INSERT INTO Missao (nome_missao, descricao, status) VALUES
-    ('Fuga', 'Fuja da prisão.', false),
     ('Missão de Confiança', 'Ganhar a confiança de um membro influente da máfia para obter recursos essenciais', false),
     ('Aliança Perigosa', 'Fazer uma aliança temporária com uma gangue rival para obter acesso a áreas restritas', false),
     ('Túnel da Liberdade', 'Construir um túnel secreto que leve para fora dos muros da prisão', false),
@@ -30,65 +28,76 @@ INSERT INTO Missao (nome_missao, descricao, status) VALUES
     ('Rota Segura', 'Estabelecer um caminho seguro após a fuga, evitando captura pelos agentes penitenciários', false),
     ('Arquivos da Sona', 'Obter documentos secretos que provam a conspiração contra Lincoln Burrows', false);
 
--- Inserindo em Item -> Tem que ser criada após missão
 INSERT INTO Item (nome_item, descricao, durabilidade, pode_ser_vendido, nome_missao, utilidade, beneficio) VALUES
-	('Chave Inglesa', 'Ferramenta para apertar parafusos', 100, TRUE, 'Fuga', 'Abrir portas', 'Facilita fuga'),
-	('Lanterna', 'Ilumina ambientes escuros', 80, TRUE, 'Fuga', 'Iluminar', 'Ajuda em missões noturnas'),
-	('Mapa', 'Mostra a planta da prisão', 50, FALSE, 'Fuga', 'Navegação', 'Evita se perder');
+	('Chave Inglesa', 'Ferramenta para apertar parafusos', 100, TRUE, 'Missão de Confiança', 'Abrir portas', 'Facilita fuga'),
+	('Lanterna', 'Ilumina ambientes escuros', 80, TRUE, 'Missão de Confiança', 'Iluminar', 'Ajuda em missões noturnas'),
+	('Mapa', 'Mostra a planta da prisão', 50, TRUE, 'Missão de Confiança', 'Navegação', 'Evita se perder');
 
--- Inserindo em Instancia_Item
 INSERT INTO Instancia_Item (id_instancia, nivel_de_gasto, id_inventario, nome_item) VALUES
-	(1, 10, 1, 'Chave Inglesa'),
-	(2, 5, 2, 'Lanterna'),
-	(3, 2, 3, 'Mapa');
+	(1, 10, 102, 'Chave Inglesa'),
+	(2, 5, 102, 'Lanterna'),
+	(3, 2, 102, 'Mapa');
 
--- Inserindo em Item_Loja
-INSERT INTO Item_Loja (id_compra, nome_gangue, nome_item) VALUES
-    (1, 'Mafia Abruzzi', 'Chave Inglesa'),
-    (2, 'Irmandade Ariana', 'Lanterna'),
-    (3, 'La Familia', 'Mapa');
-
--- Inserindo em Loja
 INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
-    ('Mafia Abruzzi', 150.00, 'Chave Inglesa'),
-    ('Irmandade Ariana', 75.50, 'Lanterna'),
-    ('La Familia', 200.00, 'Mapa');
+	('Mafia Abruzzi', 150.00, 'Chave Inglesa'),
+	('La Familia', 75.50, 'Lanterna'),
+	('Os Fox River Eight', 200.00, 'Mapa');
+    
+INSERT INTO Item_Loja (id_compra, nome_gangue, nome_item) VALUES
+	(1, 'Mafia Abruzzi', 'Chave Inglesa'),
+	(2, 'La Familia', 'Lanterna'),
+	(3, 'Os Fox River Eight', 'Mapa');
 
-INSERT INTO Consulta_Personagem (id_personagem, tipo_personagem) VALUES
-    (8, 'PR'),
-    (9, 'PR'), 
-    (10, 'PR'), 
-    (11, 'PR'); 
 
--- Agente_Penitenciario
+INSERT INTO Consulta_Personagem (
+    tipo_personagem
+) VALUES
+    ('J'),
+    ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'),
+    ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P');
+
+INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue) VALUES
+    (1, 'Mauricio', 9, 100, 5, 0, 1, 100, NULL, NULL, NULL);
+
+-- Outros exemplos de inserção
+--    (11, 'Gabriel Souza', 8, 95, 4, 1, 102, 2, 'Fuga de Fox River', 'Sobreviver até a fuga', 'Os Fox River Eight'),
+--    (12, 'Rafael Costa', 7, 92, 3, 3, 103, 3, 'Rota Segura', 'Proteger a família', 'Os Justiceiros'),
+--    (13, 'Matheus Oliveira', 8, 90, 2, 2, 104, 4, 'Missão de Confiança', 'Provar lealdade', 'Mafia Abruzzi'),
+--    (14, 'João Almeida', 6, 85, 1, 1, 105, 5, 'Informante Infiltrado', 'Descobrir plano rival', 'La Familia');
+	
 INSERT INTO Agente_Penitenciario(
-    id_personagem,
-    id_sala,
-    nome,
-    velocidade,
-    nivel_de_perigo,
-    nivel_de_alerta,
-    corrupto,
-    preco,
+    id_personagem, 
+    id_sala, 
+    nome, 
+    velocidade, 
+    nivel_de_perigo, 
+    nivel_de_alerta, 
+    corrupto, 
+    preco, 
     cargo
 ) VALUES
-    (1, 2, 'Agente A', 4, 5, 5, true, 5, 'Guarda'),
-    (2, 2, 'Agente B', 8, 7, 6, false, 0, 'Policial Chefe'),
-    (3, 2, 'Agente C', 6, 5, 5, true, 20, 'Carcereiro'),
-    (4, 2, 'Agente D', 3, 4, 4, true, 10, 'Guarda'),
-    (5, 2, 'Agente E', 10, 8, 8, false, 0, 'Diretor');
+    (2, 1, 'Brad Bellick', DEFAULT, 4, DEFAULT, true, 5, DEFAULT),
+    (3, 2, 'Alex Mahone', DEFAULT, 8, DEFAULT, DEFAULT, DEFAULT, 'Policial Chefe'),
+    (4, 1, 'Paul Kellerman', DEFAULT, 6, DEFAULT, true, 20, DEFAULT),
+    (5, 3, 'Donald Self', DEFAULT, 3, DEFAULT, true, 10, DEFAULT),
+    (6, 2, 'Warden Pope', DEFAULT, 10, DEFAULT, DEFAULT, DEFAULT, 'Diretor'),
+    (7, 3, 'Sara Tancredi', DEFAULT, 0, DEFAULT, DEFAULT, DEFAULT, 'Médica');
+
+INSERT INTO Agente_Penitenciario_Jogador(
+    id_personagem_jogador,		
+    id_personagem_agente_penitenciario 
+) VALUES
+	(1, 2);
 
 INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, nome_gangue) VALUES
-    (1001, 'João Ligeiro', 5, 80, 'Pequeno Furto', 2, 'Mafia Abruzzi'),
-    (1002, 'Maria Silenciosa', 7, 75, 'Invasão', 2, 'Mafia Abruzzi'),
-    (1003, 'Carlos Esperto', 6, 90, 'Fraude', 2, 'Mafia Abruzzi'),
-    (1004, 'Ana Forte', 4, 110, 'Agressão', 2, 'Irmandade Ariana'),
-    (1005, 'Pedro Sombra', 8, 70, 'Evasão Fiscal', 2, 'Mafia Abruzzi'),
-    (1006, 'Sofia Vigilante', 5, 85, 'Vandalismo', 2, 'Mafia Abruzzi'),
-    (1007, 'Marcelo Desenhista', 3, 60, 'Falsificação', 2, 'La Familia'),
-    (1008, 'Beatriz Rápida', 9, 95, 'Roubo de Informações', 2, 'La Familia'),
-    (1009, 'Fernando Mudo', 2, 50, 'Contrabando', 2, 'La Familia'),
-    (1010, 'Gabriela Ágil', 7, 88, 'Sequestro', 2, 'Irmandade Ariana');
+    (8, 'Michael Scofield', 8, 100, 'Assalto a banco (planejado para entrar na prisão)', 2, 'Os Fox River Eight'),
+    (9, 'John Abruzzi', 6, 90, 'Homicídio e chefia em organização criminosa', 1, 'Mafia Abruzzi'),
+    (10, 'Theodore "T-Bag" Bagwell', 5, 80, 'Estupro, sequestro e assassinato', 1, 'Irmandade Ariana'),
+    (11, 'Fernando Sucre', 7, 95, 'Roubo à mão armada', 2, 'Os Fox River Eight'),
+    (12, 'Benjamin "C-Note" Franklin', 8, 93, 'Tráfico e deserção militar', 2, 'Os Justiceiros'),
+    (13, 'David "Tweener" Apolskis', 7, 85, 'Roubo e desacato', 2, 'Os Fox River Eight'),
+    (14, 'Carlos Ortega', 6, 88, 'Tráfico de drogas e agressão', 3, 'La Familia'); 
+
 INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUES
     (1, 8, 'Fuga de Fox River', 'Lincoln, eu vou te tirar daqui. Confie em mim.', 1),
     (2, 8, 'Fuga de Fox River', 'Precisamos do plano exato da penitenciária. Alguém tem acesso aos arquivos?', 2),
@@ -100,10 +109,6 @@ INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUE
     (8, 9, 'Missão de Confiança', 'Traga-me a cabeça do traidor da ala oeste. Literalmente.', 3);
 
 INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
-    ('Escapar da Prisão', 'Encontrar uma maneira de sair da prisão sem ser detectado pelos guardas.'),
-    ('Coletar Recursos', 'Reunir itens essenciais como ferramentas, mapas e suprimentos para a fuga.'),
-    ('Desativar Alarmes', 'Localizar e desativar os sistemas de alarme da prisão para garantir uma saída silenciosa.'),
-    ('Subornar Guarda', 'Conseguir informações ou ajuda de um guarda corrupto oferecendo algo em troca.'),
     ('Libertar Lincoln', 'Objetivo principal de Michael Scofield: provar a inocência e libertar seu irmão Lincoln Burrows da prisão'),
     ('Sobreviver até a fuga', 'Manter-se vivo e fora do radar dos guardas até o momento da fuga planejada'),
     ('Proteger a família', 'Garantir a segurança da família enquanto o plano de fuga está em andamento'),
@@ -112,10 +117,6 @@ INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES
     ('Coletar recursos', 'Obter itens essenciais para a fuga, como ferramentas, uniformes e informações'),
     ('Distrair guardas', 'Criar distrações para permitir que partes críticas do plano sejam executadas'),
     ('Encontrar Sara', 'Localizar e resgatar a Dra. Sara Tancredi, aliada crucial para o plano de fuga');
-
-INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue) VALUES
-    (1, 'Michael Scofield', 10, 100, 50, 0, 1, 4, 'Fuga', 'Escapar da Prisão', 'Mafia Abruzzi');
-
 
 INSERT INTO Objetivo_Principal_Missao (titulo_objetivo, nome_missao) VALUES
 	('Provar lealdade', 'Missão de Confiança'),
