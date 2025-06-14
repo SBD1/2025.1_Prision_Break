@@ -1,0 +1,2193 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../DML/">
+      
+      
+        <link rel="next" href="../AlgebraRelacional/">
+      
+      
+      <link rel="icon" href="../../assets/icon1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>DQL - Data Query Language - Prision Break</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dql-linguagem-de-consulta-de-dados" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Prision Break" class="md-header__button md-logo" aria-label="Prision Break" data-md-component="logo">
+      
+  <img src="../../assets/icon1.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prision Break
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DQL - Data Query Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SBD1/2025.1_Prision_Break" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2025.1_Prision_Break
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Planejamento/cronograma/" class="md-tabs__link">
+          
+  
+  
+  Planejamento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Atas/ata/" class="md-tabs__link">
+          
+  
+  
+  Atas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Modelagem/MER/" class="md-tabs__link">
+          
+  
+  
+  Modelagem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../DDL/" class="md-tabs__link">
+          
+  
+  
+  Linguagem SQL
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Prision Break" class="md-nav__button md-logo" aria-label="Prision Break" data-md-component="logo">
+      
+  <img src="../../assets/icon1.png" alt="logo">
+
+    </a>
+    Prision Break
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SBD1/2025.1_Prision_Break" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2025.1_Prision_Break
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Planejamento
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Planejamento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Planejamento/cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cronograma
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Planejamento/Ferramentas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Planejamento/metodologia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metodologia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Planejamento/pol%C3%ADticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Políticas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Atas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Atas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Atas/ata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Atas/ata2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Atas/ata3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Atas/ata4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Atas/ata5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Atas/ata6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 06
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modelagem
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modelagem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Modelagem/MER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MER - Modelo Entidade Relacionamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Modelagem/DER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DER - Diagrama Entidade Relacionamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Modelagem/MREL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo Relacional
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Modelagem/DIC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dicionário de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linguagem SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Linguagem SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DDL - Data Definition Language
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DML/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DML - Data Manipulation Language
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    DQL - Data Query Language
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    DQL - Data Query Language
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dql-das-tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      DQL das Tabelas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DQL das Tabelas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gangue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gangue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inventario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetivo-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo Principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missao
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sala" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sala
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consulta-personagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Personagem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prisioneiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prisioneiro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agente-penitenciario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agente Penitenciario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jogador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agente-penitenciario-jogador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agente Penitenciario - Jogador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loja" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loja
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missao-sala" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missao - Sala
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instancia-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instancia Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dialogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dialogo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetivo-principal-missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo principal - Missao
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      📑 Histórico de versão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlgebraRelacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algebra Relacional
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dql-das-tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      DQL das Tabelas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DQL das Tabelas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gangue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gangue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inventario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetivo-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo Principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missao
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sala" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sala
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consulta-personagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Personagem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prisioneiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prisioneiro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agente-penitenciario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agente Penitenciario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jogador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jogador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agente-penitenciario-jogador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agente Penitenciario - Jogador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loja" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loja
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missao-sala" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missao - Sala
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instancia-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instancia Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dialogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dialogo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetivo-principal-missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo principal - Missao
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      📑 Histórico de versão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dql-linguagem-de-consulta-de-dados">DQL - Linguagem de Consulta de Dados</h1>
+<h2 id="introducao">Introdução</h2>
+<p>O DQL - Linguagem de Consulta de Dados (Data Query Language), é um dos subconjuntos da linguagem SQL e tem como principal objetivo consultar dados armazenados em um banco relacional. Através da DQL, é possível recuperar informações específicas das tabelas de forma eficiente, utilizando filtros, ordenações e junções entre dados relacionados.</p>
+<p>O principal e único comando da DQL é o SELECT, que permite extrair dados de uma ou mais tabelas com base em critérios definidos.A DQL é, portanto, a interface entre o usuário e os dados já armazenados, permitindo a leitura, análise e visualização das informações.Por meio de consultas SQL bem definidas, é possível compreender o funcionamento interno do jogo, acompanhar o progresso dos jogadores, analisar estatísticas como recursos acumulados, capturas realizadas e status das missões.</p>
+<h2 id="metodologia">Metodologia</h2>
+<p>Para a realização das consultas, foi utilizado o sistema gerenciador de banco de dados PostgreSQL, com base na estrutura previamente construída por meio dos modelos Entidade-Relacionamento e Relacional. As instruções da Linguagem de Consulta de Dados (DQL) foram aplicadas utilizando o comando SELECT, com variações de filtragem, agrupamento e ordenação.</p>
+<p>As consultas foram realizadas diretamente no ambiente SQL do PostgreSQL, com o objetivo de extrair informações relevantes das tabelas criadas, como dados de jogadores, prisioneiros e suas respectivas gangues, missões e salas.</p>
+<h2 id="dql-das-tabelas">DQL das Tabelas</h2>
+<h3 id="gangue">Gangue</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consultar informação de todas as gangues ordenados por quantidade de membros</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">gangue</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">qtdd_membros</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- Consultar gangues ordenadas pelo mais fortes (maiores recursos)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">gangue</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">qtdd_recurso_gangue</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- Consultar todas as informações de uma gangue em especifico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">gangue</span>
+<span class="k">Where</span><span class="w"> </span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Os Fox River Eight&#39;</span><span class="w"> </span><span class="p">;</span>
+</code></pre></div>
+<h3 id="inventario">Inventario</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Retorna todas as informações do inventário</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">qtd_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_full</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Inventario</span><span class="p">;</span>
+
+<span class="c1">-- Inventários de uma Sala Específica</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">qtd_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">is_full</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Inventario</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">I</span>
+<span class="k">JOIN</span>
+<span class="w">    </span><span class="n">Sala</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- Substitua &#39;1&#39; pelo ID da sala desejada</span>
+
+<span class="c1">-- Apenas os Inventários Cheios</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">qtd_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_full</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Inventario</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="n">is_full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">TRUE</span><span class="p">;</span>
+
+<span class="c1">-- Apenas os Inventários que Não Estão Cheios</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">qtd_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_full</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Inventario</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="n">is_full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">FALSE</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="objetivo-principal">Objetivo Principal</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consultar todos os objetivos </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span><span class="p">;</span>
+
+<span class="c1">-- Consultar algum objetivo em especifico com sua descrição</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">titulo_objetivo</span><span class="p">,</span><span class="w"> </span><span class="n">descricao</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Libertar o prisioneiro&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar apenas os títulos dos objetivos</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span><span class="p">;</span>
+
+<span class="c1">-- Consultar quantos objetivos existem</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span><span class="p">;</span>
+
+<span class="c1">-- Consultar objetivos que possuem a palavra &#39;família&#39; na descrição</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">descricao</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%família%&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar objetivos em ordem alfabética</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span>
+
+<span class="c1">-- Consultar quantas vezes cada objetivo aparece</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">titulo_objetivo</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">quantidade</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">titulo_objetivo</span>
+
+<span class="c1">-- Consultar se há objetivos duplicados</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">titulo_objetivo</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Objetivo_Principal</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">titulo_objetivo</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="missao">Missao</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consultar todas as missoes</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">missao</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missoes ativas</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">missao</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missoes inativas</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">missao</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="c1">-- Consultar quantas missoes estao ativas e inativas</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">missao</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missoes com seus respectivos objetivos</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">o</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">op</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_objetivo</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal_missao</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">;</span>
+
+<span class="c1">-- Consultar as salas asscociadas a cada missao</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nome_sala</span><span class="p">,</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">nivel_perigo</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao_sala</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ms</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">sala</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ms</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id_sala</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missoes e seus itens associados</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ii</span><span class="p">.</span><span class="n">id_instancia</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ii</span><span class="p">.</span><span class="n">nivel_de_gasto</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">item</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">instancia_item</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ii</span><span class="p">.</span><span class="n">nome_item</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="sala">Sala</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Retorna todas as informações das salas</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">id_sala</span><span class="p">,</span>
+<span class="w">    </span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="p">,</span>
+<span class="w">    </span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nivel_perigo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">bloqueado</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Sala</span><span class="p">;</span>
+
+<span class="c1">-- Apenas as Salas que Não Estão Bloqueadas</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">id_sala</span><span class="p">,</span>
+<span class="w">    </span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="p">,</span>
+<span class="w">    </span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nivel_perigo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">bloqueado</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Sala</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="n">bloqueado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">FALSE</span><span class="p">;</span>
+
+<span class="c1">-- Apenas a Sala que um personagem Está Presente (Sala por ID do personagem)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">id_sala</span><span class="p">,</span>
+<span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nome_sala</span><span class="p">,</span>
+<span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_sala</span><span class="p">,</span>
+<span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">nivel_perigo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">bloqueado</span><span class="p">,</span>
+<span class="w">    </span><span class="n">J</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nome_jogador</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Sala</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">S</span>
+<span class="k">JOIN</span>
+<span class="w">    </span><span class="n">Jogador</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">J</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">J</span><span class="p">.</span><span class="n">id_sala</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="n">J</span><span class="p">.</span><span class="n">id_personagem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- Substitua &#39;1&#39; pelo ID desejado</span>
+</code></pre></div>
+<h3 id="item">Item</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consulta as gangues que vendem determinado item</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span><span class="p">,</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="n">I</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Item_Loja</span><span class="w"> </span><span class="n">IL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Loja</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Chave Inglesa&#39;</span><span class="w">  </span><span class="c1">-- Substitua pelo nome do item desejado</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span><span class="p">;</span>
+
+<span class="c1">-- Consulta todos os inventários que possuem um item específico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="n">I</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Instancia_Item</span><span class="w"> </span><span class="n">II</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Inventario</span><span class="w"> </span><span class="n">INV</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Chave Inglesa&#39;</span><span class="w">  </span><span class="c1">-- Substitua pelo nome do item desejado</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="consulta-personagem">Consulta Personagem</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Lista todos os personagens cadastrados</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">consulta_personagem</span>
+
+<span class="c1">-- Exibe o tipo de um personagem específico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">tipo_personagem</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">consulta_personagem</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_personagem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+<h3 id="prisioneiro">Prisioneiro</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consultar informação de todos os prisioneiros em ordem alfabetica</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Prisioneiro</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nome</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- Consultar todas as informações de um prisioneiro em especifico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Prisioneiro</span>
+<span class="k">Where</span><span class="w"> </span><span class="n">nome</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Michael Scofield&#39;</span><span class="w"> </span><span class="p">;</span>
+
+<span class="c1">-- Consultar todos os dados dos prisioneiros que estão na sala</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">prisioneiro</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar apenas nome e gangue dos prisioneiros que estão na sala</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">nome_gangue</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">prisioneiro</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar todas as gangues que estão na sala </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">nome_gangue</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">prisioneiro</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar onde esta o prisioneiro </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">prisioneiro</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">sala</span><span class="p">.</span><span class="n">nome</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">prisioneiro</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">sala</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">prisioneiro</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sala</span><span class="p">.</span><span class="n">id_sala</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">prisioneiro</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Michael Scofield&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar localização de todos os prisioneiros em ordem alfabetica</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">prisioneiro</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">sala</span><span class="p">.</span><span class="n">nome</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">prisioneiro</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">sala</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">prisioneiro</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sala</span><span class="p">.</span><span class="n">id_sala</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">prisioneiro</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="agente-penitenciario">Agente Penitenciario</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consulta todas as informações de um agente penitenciário</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_personagem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="c1">-- Verifica se um policial específico é corrupto e qual o seu preço</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">corrupto</span><span class="p">,</span><span class="w"> </span><span class="n">preco</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_personagem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="c1">-- Exibe os agentes penitenciários que estão na sala, ordenados pelo seu nível de perigo</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id_personagem</span><span class="p">,</span><span class="w"> </span><span class="n">id_sala</span><span class="p">,</span><span class="w"> </span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">velocidade</span><span class="p">,</span><span class="w"> </span><span class="n">nivel_de_perigo</span><span class="p">,</span><span class="w"> </span><span class="n">nivel_de_alerta</span><span class="p">,</span><span class="w"> </span><span class="n">cargo</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nivel_de_perigo</span><span class="w"> </span><span class="k">DESC</span>
+
+<span class="c1">-- Exibe a quantidade de agentes na sala</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id_sala</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">agentes_na_sala</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span>
+
+<span class="c1">-- Exibe os agentes penitenciarios e as informações referentes as salas em que eles estão</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">id_personagem</span><span class="p">,</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nome_agente</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">id_sala</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nome_sala</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">nivel_perigo</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nivel_perigo_sala</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario</span><span class="w"> </span><span class="n">AP</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">sala</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">id_sala</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">id_sala</span><span class="w"> </span><span class="k">ASC</span>
+</code></pre></div>
+<h3 id="jogador">Jogador</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consultar todas as informações de um prisioneiro em especifico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Jogador</span>
+<span class="k">Where</span><span class="w"> </span><span class="n">nome</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="w"> </span><span class="p">;</span>
+
+<span class="c1">-- Consultar dados importantes para o jogador</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">velocidade</span><span class="p">,</span><span class="w"> </span><span class="n">vida</span><span class="p">,</span><span class="w"> </span><span class="n">qtded_recurso</span><span class="p">,</span><span class="w"> </span><span class="n">qtded_captura</span><span class="p">,</span><span class="w"> </span><span class="n">nome_item</span><span class="p">,</span><span class="w"> </span><span class="n">id_sala</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Jogador</span>
+<span class="k">Where</span><span class="w"> </span><span class="n">nome</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="w"> </span><span class="p">;</span>
+
+<span class="c1">-- Consultar informações dos itens do inventario </span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">durabilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">pode_ser_vendido</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">utilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">beneficio</span><span class="p">,</span>
+<span class="w">    </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">nivel_de_gasto</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">jogador</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">instancia_item</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar itens que estão no inventario</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">jogador</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">instancia_item</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar informações de um item especifico que esta no inventario</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">durabilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">pode_ser_vendido</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">utilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">beneficio</span><span class="p">,</span>
+<span class="w">    </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">nivel_de_gasto</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">jogador</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">instancia_item</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">instancia_item</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Chave inglesa&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missão do jogador</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">missao</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">missao</span><span class="p">.</span><span class="n">status</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">jogador</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">missao</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">missao</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar objetivo principal do jogador</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">jogador</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">objetivo_principal</span><span class="p">.</span><span class="n">descricao</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">jogador</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">objetivo_principal</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">objetivo_principal</span><span class="p">.</span><span class="n">titulo_objetivo</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Consultar objetivo da missão</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">o</span><span class="p">.</span><span class="n">descricao</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">jogador</span><span class="w"> </span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">objetivo_principal_missao</span><span class="w"> </span><span class="n">opm</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">objetivo_principal</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">titulo_objetivo</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">jogador</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Mauricio&#39;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="agente-penitenciario-jogador">Agente Penitenciario - Jogador</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Exibe todos os agentes penitenciários que capturaram um jogador específico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">APJ</span><span class="p">.</span><span class="n">id_personagem_jogador</span><span class="p">,</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">id_personagem</span><span class="p">,</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">nivel_de_perigo</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario_jogador</span><span class="w"> </span><span class="n">APJ</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">agente_penitenciario</span><span class="w"> </span><span class="n">AP</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">APJ</span><span class="p">.</span><span class="n">id_personagem_agente_penitenciario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">id_personagem</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">APJ</span><span class="p">.</span><span class="n">id_personagem_jogador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">AP</span><span class="p">.</span><span class="n">nivel_de_perigo</span><span class="w"> </span><span class="k">DESC</span>
+
+<span class="c1">-- Exibe quantas vezes um jogador foi capturado</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id_personagem_jogador</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">qtdd_capturas</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario_jogador</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_personagem_jogador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id_personagem_jogador</span>
+
+<span class="c1">-- Exibe quantas vezes um jogador foi capturado por um agente específico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id_personagem_jogador</span><span class="p">,</span><span class="w"> </span><span class="n">id_personagem_agente_penitenciario</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">qtdd_capturas</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">agente_penitenciario_jogador</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_personagem_jogador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">id_personagem_agente_penitenciario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id_personagem_jogador</span><span class="p">,</span><span class="w"> </span><span class="n">id_personagem_agente_penitenciario</span>
+</code></pre></div>
+<h3 id="loja">Loja</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Busca todos os itens de uma gangue especifica na loja, incluindo detalhes do item</span>
+<span class="c1">-- e o preço de cada item na loja</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="p">,</span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">preco</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">durabilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">utilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">beneficio</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Loja</span><span class="w"> </span><span class="n">L</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Item_Loja</span><span class="w"> </span><span class="n">IL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nome da Gangue&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Conta itens de uma loja de uma gangue</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">preco</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">valor_total</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Loja</span><span class="w"> </span><span class="n">L</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Item_Loja</span><span class="w"> </span><span class="n">IL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nome da Gangue&#39;</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="p">;</span>
+
+<span class="c1">-- Conta quantidade de cada item de uma loja especifica de uma gangue</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">quantidade_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">preco</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">preco_unidade</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">preco</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">valor_total_item</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Loja</span><span class="w"> </span><span class="n">L</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Item_Loja</span><span class="w"> </span><span class="n">IL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_gangue</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IL</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_gangue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nome da Gangue&#39;</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">preco</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nome_item</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="missao-sala">Missao - Sala</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Exibe todas as salas que uma missão desbloqueia</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">missao_sala</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Rota Segura&#39;</span>
+
+<span class="c1">-- Exibe as missões necessárias para desbloquear uma sala</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">nome_missao</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">missao_sala</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_sala</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+</code></pre></div>
+<h3 id="instancia-item">Instancia Item</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consulta todo os itens de um inventário específico</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="n">INV</span><span class="p">.</span><span class="n">qtd_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="n">II</span><span class="p">.</span><span class="n">id_instancia</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">durabilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">II</span><span class="p">.</span><span class="n">nivel_de_gasto</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">utilidade</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">beneficio</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Inventario</span><span class="w"> </span><span class="n">INV</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Instancia_Item</span><span class="w"> </span><span class="n">II</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">-- Substitua pelo ID do inventário</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">;</span>
+
+<span class="c1">-- Consulta quantidade de todos os itens em um inventário</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">II</span><span class="p">.</span><span class="n">nome_item</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">quantidade_total</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">I</span><span class="p">.</span><span class="n">durabilidade</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="n">I</span>
+<span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Instancia_Item</span><span class="w"> </span><span class="n">II</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">nome_item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">-- Substitua pelo ID do inventário, se necessário</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">nome_item</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">.</span><span class="n">durabilidade</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantidade_total</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- Consulta o total de itens em um inventário específico</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">II</span><span class="p">.</span><span class="n">id_instancia</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_itens</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">nome_item</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">tipos_diferentes_itens</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Inventario</span><span class="w"> </span><span class="n">INV</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Instancia_Item</span><span class="w"> </span><span class="n">II</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">II</span><span class="p">.</span><span class="n">id_inventario</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">-- Substitua pelo ID do inventário</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">INV</span><span class="p">.</span><span class="n">id_inventario</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="dialogo">Dialogo</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Contulstar todos os diálogos</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span><span class="p">;</span>
+
+<span class="c1">-- Consultar todos os diálogos com nome da missão e ordem </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">nome_missao</span><span class="p">,</span><span class="w"> </span><span class="n">ordem</span><span class="p">,</span><span class="w"> </span><span class="n">texto</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nome_missao</span><span class="p">,</span><span class="w"> </span><span class="n">ordem</span><span class="p">;</span>
+
+<span class="c1">-- Consultar diálogos de uma missao específica</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Fuga de Fox River&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ordem</span><span class="p">;</span>
+
+<span class="c1">-- Conultar diálogos de um personagem específico</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w">  </span><span class="n">Dialogo</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id_personagem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;9&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ordem</span><span class="p">;</span>
+
+<span class="c1">-- Consultar quantos dialogos cada personagem tem</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id_personagem</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">qtd_dialogos</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id_personagem</span><span class="p">;</span>
+
+<span class="c1">-- Consultar quantos dialogo existem por missao</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id_personagem</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">qtd_dialogos</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nome_missao</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missoes com mais de tres dialogos</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">nome_missao</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">qtd_dialogos</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nome_missao</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+
+<span class="c1">-- Consultar se há dialogos repetidos</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">texto</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Dialogo</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">texto</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">-- Consultar o texto dos dialogos com o nome e descricao da missao</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">D</span><span class="p">.</span><span class="n">id_dialogo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">D</span><span class="p">.</span><span class="n">texto</span><span class="p">,</span>
+<span class="w">    </span><span class="n">D</span><span class="p">.</span><span class="n">ordem</span><span class="p">,</span>
+<span class="w">    </span><span class="n">D</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">M</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_missao</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Dialogo</span><span class="w"> </span><span class="n">D</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Missao</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">D</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<span class="w">    </span><span class="n">D</span><span class="p">.</span><span class="n">ordem</span><span class="p">;</span>
+
+<span class="c1">-- Consultar dialogos e tipo do personagem</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">D</span><span class="p">.</span><span class="n">texto</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CP</span><span class="p">.</span><span class="n">tipo_personagem</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Dialogo</span><span class="w"> </span><span class="n">D</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Consulta_Personagem</span><span class="w"> </span><span class="n">CP</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">D</span><span class="p">.</span><span class="n">id_personagem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CP</span><span class="p">.</span><span class="n">id_personagem</span><span class="p">;</span>
+
+<span class="c1">-- Consultar missoes pela quantidade de dialogos</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">descricao</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_dialogos</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">dialogo</span><span class="w"> </span><span class="n">d</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">descricao</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<span class="w">    </span><span class="n">total_dialogos</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="objetivo-principal-missao">Objetivo principal - Missao</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Consulta para listar todos objetivos e suas missoes relacionadas</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">op</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_missao</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal_missao</span><span class="w"> </span><span class="n">opm</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">titulo_objetivo</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">;</span>
+
+<span class="c1">-- Consulta para contar quantas missoes estao associados a um objetivo especiridco</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_objetivos</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal_missao</span><span class="w"> </span><span class="n">opm</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<span class="w">    </span><span class="n">total_objetivos</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- Consultar todas as missoes com seus objetivos</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">opm</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">,</span>
+<span class="w">    </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">op</span><span class="p">.</span><span class="n">descricao</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">descricao_objetivo</span>
+<span class="k">FROM</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal_missao</span><span class="w"> </span><span class="n">opm</span>
+<span class="k">JOIN</span><span class="w"> </span>
+<span class="w">    </span><span class="n">objetivo_principal</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">titulo_objetivo</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<span class="w">    </span><span class="n">opm</span><span class="p">.</span><span class="n">nome_missao</span><span class="p">;</span>
+
+<span class="c1">-- consultar objetivos que possuem pelo menos uma missao ativa</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">    </span><span class="n">op</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="p">,</span>
+<span class="w">    </span><span class="n">op</span><span class="p">.</span><span class="n">descricao</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">objetivo_principal</span><span class="w"> </span><span class="n">op</span>
+<span class="k">JOIN</span>
+<span class="w">    </span><span class="n">objetivo_principal_missao</span><span class="w"> </span><span class="n">opm</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">titulo_objetivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">titulo_objetivo</span>
+<span class="k">JOIN</span>
+<span class="w">    </span><span class="n">missao</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">opm</span><span class="p">.</span><span class="n">nome_missao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">nome_missao</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">TRUE</span><span class="p">;</span><span class="w">  </span><span class="c1">-- Missões ativas</span>
+</code></pre></div>
+<h2 id="historico-de-versao">📑 Histórico de versão</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Versão</th>
+<th style="text-align: center;">Data</th>
+<th style="text-align: left;">Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>1.0</code></td>
+<td style="text-align: center;">05/06/2025</td>
+<td style="text-align: left;">Criação da introdução e metodologia utilizada no DQL</td>
+<td><a href="https://github.com/Mayara-tech">Mayara A. Oliveira</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>1.1</code></td>
+<td style="text-align: center;">13/06/2025</td>
+<td style="text-align: left;">Adiciona códigos pendentes que já estavam no .sql</td>
+<td><a href="https://github.com/Maliz30">Maria Alice</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../DML/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: DML - Data Manipulation Language">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                DML - Data Manipulation Language
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../AlgebraRelacional/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Algebra Relacional">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Algebra Relacional
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
