@@ -187,7 +187,7 @@ A construção do dicionário de dados seguiu os seguintes passos:
 
 | Nome        | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio |
 | ----------- | ------------------------------------------ | ------------ | ------- | --------------------- |
-| nome_gangue | Identificador da gangue que é dona da loja | int          |         | FK, Not Null                    |
+| nome_gangue | Identificador da gangue que é dona da loja | int          |         | FK, Unique, Not Null                    |
 | nome_item   | Identificador do item vendido              | varchar      | 100     | FK, Not Null                    |
 | preco       | Preço do item da loja                      | int          |         | Not Null              |
 
