@@ -214,7 +214,7 @@ DROP TABLE Prisioneiro RESTRICT;
 - Create
 ```sql
 CREATE TABLE Agente_Penitenciario (
-    id_personagem          INT         UNIQUE,
+    id_personagem          INT         NOT NULL,
     id_sala                INT         NOT NULL,         			
     nome                   VARCHAR(50) DEFAULT 'Tira',
     velocidade             INT         DEFAULT 5,
@@ -412,16 +412,16 @@ DROP TABLE Instancia_Item RESTRICT;
 
 - Create
 ```sql
-    CREATE TABLE Dialogo(
-        id_dialogo       INT     PRIMARY KEY,
-        id_personagem    INT,
-        nome_missao      VARCHAR(255),
-        texto            VARCHAR (500),
-        ordem            INT,
+CREATE TABLE Dialogo(
+    id_dialogo       INT            PRIMARY KEY,
+    id_personagem    INT,
+    nome_missao      VARCHAR(255),
+    texto            VARCHAR (500)  NOT NULL,
+    ordem            INT            NOT NULL,
 
-        FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
-        FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
-    );
+    FOREIGN KEY (id_personagem)     REFERENCES Consulta_Personagem(id_personagem),
+    FOREIGN KEY (nome_missao)       REFERENCES Missao(nome_missao)
+);
 ```
 
 - Alter

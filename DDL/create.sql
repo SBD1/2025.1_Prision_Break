@@ -69,7 +69,7 @@ CREATE TABLE Prisioneiro (
 );
 
 CREATE TABLE Agente_Penitenciario (
-    id_personagem          INT         UNIQUE,
+    id_personagem          INT         NOT NULL,
     id_sala                INT         NOT NULL,         			
     nome                   VARCHAR(50) DEFAULT 'Tira',
     velocidade             INT         DEFAULT 5,
@@ -155,14 +155,14 @@ CREATE TABLE Instancia_Item (
 );
 
 CREATE TABLE Dialogo(
-    id_dialogo       INT     PRIMARY KEY,
+    id_dialogo       INT            PRIMARY KEY,
     id_personagem    INT,
     nome_missao      VARCHAR(255),
-    texto            VARCHAR (500),
-    ordem            INT,
+    texto            VARCHAR (500)  NOT NULL,
+    ordem            INT            NOT NULL,
 
-    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
-    FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
+    FOREIGN KEY (id_personagem)     REFERENCES Consulta_Personagem(id_personagem),
+    FOREIGN KEY (nome_missao)       REFERENCES Missao(nome_missao)
 );
 
 CREATE TABLE Objetivo_principal_missao (
