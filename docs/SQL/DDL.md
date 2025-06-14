@@ -181,20 +181,21 @@ DROP TABLE Consulta_personagem RESTRICT;
 
 - Create
 ```sql
-    CREATE TABLE Prisioneiro (
-        id_personagem   INT           NOT NULL,
-        nome            VARCHAR(50)   NOT NULL,
-        velocidade      INT           DEFAULT 0,
-        vida            INT           DEFAULT 0,
-        crime           VARCHAR(255)  DEFAULT NULL,
-        id_sala         INT           NOT NULL,
-        nome_gangue     VARCHAR(50)   NOT NULL,
+CREATE TABLE Prisioneiro (
+    id_personagem   INT           NOT NULL,
+    nome            VARCHAR(50)   NOT NULL,
+    velocidade      INT           DEFAULT 0,
+    vida            INT           DEFAULT 0,
+    crime           VARCHAR(255)  DEFAULT NULL,
+    id_sala         INT           NOT NULL,
+    nome_gangue     VARCHAR(50)   NOT NULL,
 
-        PRIMARY KEY (id_personagem),
-        UNIQUE (nome),
-        FOREIGN KEY (id_sala)       REFERENCES Sala (id_sala),
-        FOREIGN KEY (nome_gangue)   REFERENCES Gangue (nome_gangue)
-    );
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
+    UNIQUE (id_personagem),
+    UNIQUE (nome),
+    FOREIGN KEY (id_sala)       REFERENCES Sala (id_sala),
+    FOREIGN KEY (nome_gangue)   REFERENCES Gangue (nome_gangue)
+);
 ```
 
 - Alter
@@ -212,20 +213,21 @@ DROP TABLE Prisioneiro RESTRICT;
 
 - Create
 ```sql
-    CREATE TABLE Agente_Penitenciario (
-        id_personagem          INT         PRIMARY KEY,
-        id_sala                INT         NOT NULL,         			
-        nome                   VARCHAR(50) DEFAULT 'Tira',
-        velocidade             INT         DEFAULT 5,
-        nivel_de_perigo        INT         DEFAULT 5,
-        nivel_de_alerta        INT         DEFAULT 5,
-        corrupto               BOOLEAN     DEFAULT false, 
-        preco                  INT         DEFAULT 0,
-        cargo                 VARCHAR(255) DEFAULT 'Carcereiro',
+CREATE TABLE Agente_Penitenciario (
+    id_personagem          INT         NOT NULL,
+    id_sala                INT         NOT NULL,         			
+    nome                   VARCHAR(50) DEFAULT 'Tira',
+    velocidade             INT         DEFAULT 5,
+    nivel_de_perigo        INT         DEFAULT 5,
+    nivel_de_alerta        INT         DEFAULT 5,
+    corrupto               BOOLEAN     DEFAULT false, 
+    preco                  INT         DEFAULT 0,
+    cargo                 VARCHAR(255) DEFAULT 'Carcereiro',
 
-        FOREIGN KEY (id_sala) REFERENCES Sala(id_sala), 
-        FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem)
-    );
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
+    UNIQUE (id_personagem),
+    FOREIGN KEY (id_sala) REFERENCES Sala(id_sala)
+);
 ```
 
 - Alter
@@ -244,28 +246,29 @@ DROP TABLE Agente_Penitenciario RESTRICT;
 
 - Create
 ```sql
-    CREATE TABLE Jogador (
-        id_personagem     INT           NOT NULL,
-        id_sala           INT           NOT NULL,
-        id_inventario     INT           NOT NULL,
-        nome_missao       VARCHAR(255),     
-        titulo_objetivo   VARCHAR(255),     
-        nome_gangue       VARCHAR(50),      
+CREATE TABLE Jogador (
+    id_personagem     INT           NOT NULL,
+    id_sala           INT           NOT NULL,
+    id_inventario     INT           NOT NULL,
+    nome_missao       VARCHAR(255),    
+    titulo_objetivo   VARCHAR(255),     
+    nome_gangue       VARCHAR(50),      
 
-        nome              VARCHAR(50)   NOT NULL,
-        velocidade        INT           DEFAULT 0,
-        vida              INT           DEFAULT 0,
-        qtded_recurso     INT           DEFAULT 0,
-        qtded_captura     INT           DEFAULT 0,
+    nome              VARCHAR(50)   NOT NULL,
+    velocidade        INT           DEFAULT 0,
+    vida              INT           DEFAULT 0,
+    qtded_recurso     INT           DEFAULT 0,
+    qtded_captura     INT           DEFAULT 0,
 
-        PRIMARY KEY (id_personagem),
-        UNIQUE (nome),
-        FOREIGN KEY (id_sala)           REFERENCES Sala (id_sala),
-        FOREIGN KEY (id_inventario)     REFERENCES Inventario (id_inventario),
-        FOREIGN KEY (nome_missao)       REFERENCES Missao (nome_missao),
-        FOREIGN KEY (titulo_objetivo)   REFERENCES Objetivo_principal (titulo_objetivo),
-        FOREIGN KEY (nome_gangue)       REFERENCES Gangue (nome_gangue)
-    );
+    UNIQUE (id_personagem),
+    UNIQUE (nome),
+    FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
+    FOREIGN KEY (id_sala)           REFERENCES Sala (id_sala),
+    FOREIGN KEY (id_inventario)     REFERENCES Inventario (id_inventario),
+    FOREIGN KEY (nome_missao)       REFERENCES Missao (nome_missao),
+    FOREIGN KEY (titulo_objetivo)   REFERENCES Objetivo_principal (titulo_objetivo),
+    FOREIGN KEY (nome_gangue)       REFERENCES Gangue (nome_gangue)
+);
 ```
 
 - Alter
@@ -338,7 +341,7 @@ DROP TABLE Loja RESTRICT;
         nome_gangue            VARCHAR(50)  NOT NULL,
         nome_item              VARCHAR(100) NOT NULL,
 
-        FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
+        FOREIGN KEY (nome_gangue) REFERENCES Loja(nome_gangue),
         FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
     );
 ```
@@ -409,16 +412,16 @@ DROP TABLE Instancia_Item RESTRICT;
 
 - Create
 ```sql
-    CREATE TABLE Dialogo(
-        id_dialogo       INT     PRIMARY KEY,
-        id_personagem    INT,
-        nome_missao      VARCHAR(255),
-        texto            VARCHAR (500),
-        ordem            INT,
+CREATE TABLE Dialogo(
+    id_dialogo       INT            PRIMARY KEY,
+    id_personagem    INT,
+    nome_missao      VARCHAR(255),
+    texto            VARCHAR (500)  NOT NULL,
+    ordem            INT            NOT NULL,
 
-        FOREIGN KEY (id_personagem) REFERENCES Consulta_Personagem(id_personagem),
-        FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
-    );
+    FOREIGN KEY (id_personagem)     REFERENCES Consulta_Personagem(id_personagem),
+    FOREIGN KEY (nome_missao)       REFERENCES Missao(nome_missao)
+);
 ```
 
 - Alter
