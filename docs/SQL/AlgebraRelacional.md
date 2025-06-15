@@ -236,8 +236,59 @@ R ← D ⨝ (D.id_personagem = CP.id_personagem) CP <br>
 T ← π(D.texto, CP.tipo_personagem)(R) <br>
 
 ### Missão
+- **Consultar todas as missoes**<br>
+T ← π(*) (missao)<br>
+
+- **Consultar missoes ativas**<br>
+T ← σ(status = true)(missao)<br>
+
+- **Consultar missoes inativas**<br>
+T ← σ(status = false)(missao)<br>
+
+- **Consultar quantas missoes estao ativas e inativas**
+T ← γ_{status} ( COUNT(*) → total ) (missao)
+
+- **Consultar missoes com seus respectivos objetivos** <br>
+T ← π(missao ⨝ missao.nome_missao = objetivo_principal_missao.nome_missao objetivo_principal_missao) ⨝ (objetivo_principal_missao.titulo_objetivo = objetivo_principal.titulo_objetivo objetivo_principal)<br>
+R ← π(m.nome_missao, m.descricao, o.titulo_objetivo, op.descricao)(T)<br>
+
+- **Consultar as salas asscociadas a cada missao**<br>
+T ← π(missao ⨝ missao.nome_missao = missao_sala.nome_missao missao_sala) ⨝ (missao_sala.id_sala = sala.id_sala sala)<br>
+R ← π(missao.nome_missao, sala.nome, sala.nivel_perigo)(T)<br>
+
+- **Consultar missoes e seus itens associados**
+T ← π(missao ⨝ missao.nome_missao = item.nome_missao item) ⨝ (item.nome_item = instancia_item.nome_item instancia_item)
+R ← π(missao.nome_missao, missao.descricao, item.nome_item, instancia_item.id_instancia, instancia_item.nivel_de_gasto) (T)
+
 ### Inventário
+
+- **Retorna todas as informações do inventário** <br>
+T ← π(id_inventario, qtd_itens, is_full)(Inventario) <br>
+
+- **Apenas os Inventários Cheios** <br>
+R ← (σ (is_full = TRUE)(Inventario)) <br>
+T ← π (id_inventario, qtd_itens, is_full)(R) <br>
+
+- **Apenas os Inventários que Não Estão Cheios** <br>
+R ← σ(is_full = FALSE)(Inventario) <br>
+T ← π(id_inventario, qtd_itens, is_full)(R) <br>
+
 ### Sala
+
+- **Inventário de uma Sala Específica** <br>
+R ← σ(S.id_sala = 1)(Inventario⋈I.id_inventario = S.id_inventario Sala)
+T ← π(I.id_inventario, I.qtd_itens, I.is_full)(R) <br>
+
+- **Retorna todas as informações das salas** <br>
+T ← π(id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)(Sala) <br>
+
+- **Apenas as Salas que Não Estão Bloqueadas** <br>
+R ← σ(bloqueado = FALSE)(Sala) <br>
+T ← π(id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)(R) <br>
+
+- **Apenas a Sala que um personagem Está Presente** <br>
+R ← σ(J.id_personagem = 1)(Sala⋈S.id_sala = J.id_sala)(Jogador) <br>
+T ← π(S.id_sala, S.nome, S.descricao, S.nivel_perigo, S.bloqueado, J.nome)(R) <br>
 
 ### Item_Iventario
 
