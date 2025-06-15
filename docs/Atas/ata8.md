@@ -15,7 +15,7 @@ Reunião realizada via Discord.
 | 200025058 | Mayara Alves de Oliveira            | x        |
 | 200043030 | Renann de Oliveira Gomes            | ✓        |
 
-<p align="center"><strong> Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong> Fonte: </strong> Maria Alice, 2025</p>
 
 <!-- 
 
@@ -45,7 +45,7 @@ Na tabela 2 consta o horário de início e o horário de término da reunião.
 | -------------- | --------------- |
 | 20:00          | 22:00           |
 
-<p align="center"><strong>Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong>Fonte: </strong> Maria Alice, 2025</p>
 
 
 ## Pautas
