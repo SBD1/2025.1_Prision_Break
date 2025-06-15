@@ -6,7 +6,7 @@ Siga os passos abaixo para configurar e iniciar o projeto:
     Abra seu terminal e clone o repositório para sua máquina local:
     ```bash
     git clone https://github.com/SBD1/2025.1_Prision_Break.git
-    cd 2025.1_Prision_Break
+    cd ./2025.1_Prision_Break/game
     ```
 
 2.  **Verifique os Scripts SQL:**
@@ -16,7 +16,7 @@ Siga os passos abaixo para configurar e iniciar o projeto:
 3.  **Inicie os Serviços Docker (Banco de Dados e Aplicação Python):**
     Na raiz do projeto (onde está o arquivo `docker-compose.yml`), execute o seguinte comando:
     ```bash
-    docker-compose up -d --build
+    docker compose up -d --build
     ```
     * `docker-compose up`: Inicia os serviços definidos no `docker-compose.yml`.
     * `-d`: Inicia os contêineres em modo "detached" (em segundo plano), liberando seu terminal.
