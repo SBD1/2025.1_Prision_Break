@@ -1729,8 +1729,78 @@ T ← π(D.texto, CP.tipo_personagem)(R) <br></p>
 </li>
 </ul>
 <h3 id="missao">Missão</h3>
+<ul>
+<li>
+<p><strong>Consultar todas as missoes</strong><br>
+T ← π(*) (missao)<br></p>
+</li>
+<li>
+<p><strong>Consultar missoes ativas</strong><br>
+T ← σ(status = true)(missao)<br></p>
+</li>
+<li>
+<p><strong>Consultar missoes inativas</strong><br>
+T ← σ(status = false)(missao)<br></p>
+</li>
+<li>
+<p><strong>Consultar quantas missoes estao ativas e inativas</strong>
+T ← γ_{status} ( COUNT(*) → total ) (missao)</p>
+</li>
+<li>
+<p><strong>Consultar missoes com seus respectivos objetivos</strong> <br>
+T ← π(missao ⨝ missao.nome_missao = objetivo_principal_missao.nome_missao objetivo_principal_missao) ⨝ (objetivo_principal_missao.titulo_objetivo = objetivo_principal.titulo_objetivo objetivo_principal)<br>
+R ← π(m.nome_missao, m.descricao, o.titulo_objetivo, op.descricao)(T)<br></p>
+</li>
+<li>
+<p><strong>Consultar as salas asscociadas a cada missao</strong><br>
+T ← π(missao ⨝ missao.nome_missao = missao_sala.nome_missao missao_sala) ⨝ (missao_sala.id_sala = sala.id_sala sala)<br>
+R ← π(missao.nome_missao, sala.nome, sala.nivel_perigo)(T)<br></p>
+</li>
+<li>
+<p><strong>Consultar missoes e seus itens associados</strong>
+T ← π(missao ⨝ missao.nome_missao = item.nome_missao item) ⨝ (item.nome_item = instancia_item.nome_item instancia_item)
+R ← π(missao.nome_missao, missao.descricao, item.nome_item, instancia_item.id_instancia, instancia_item.nivel_de_gasto) (T)</p>
+</li>
+</ul>
 <h3 id="inventario">Inventário</h3>
+<ul>
+<li>
+<p><strong>Retorna todas as informações do inventário</strong> <br>
+T ← π(id_inventario, qtd_itens, is_full)(Inventario) <br></p>
+</li>
+<li>
+<p><strong>Apenas os Inventários Cheios</strong> <br>
+R ← (σ (is_full = TRUE)(Inventario)) <br>
+T ← π (id_inventario, qtd_itens, is_full)(R) <br></p>
+</li>
+<li>
+<p><strong>Apenas os Inventários que Não Estão Cheios</strong> <br>
+R ← σ(is_full = FALSE)(Inventario) <br>
+T ← π(id_inventario, qtd_itens, is_full)(R) <br></p>
+</li>
+</ul>
 <h3 id="sala">Sala</h3>
+<ul>
+<li>
+<p><strong>Inventário de uma Sala Específica</strong> <br>
+R ← σ(S.id_sala = 1)(Inventario⋈I.id_inventario = S.id_inventario Sala)
+T ← π(I.id_inventario, I.qtd_itens, I.is_full)(R) <br></p>
+</li>
+<li>
+<p><strong>Retorna todas as informações das salas</strong> <br>
+T ← π(id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)(Sala) <br></p>
+</li>
+<li>
+<p><strong>Apenas as Salas que Não Estão Bloqueadas</strong> <br>
+R ← σ(bloqueado = FALSE)(Sala) <br>
+T ← π(id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)(R) <br></p>
+</li>
+<li>
+<p><strong>Apenas a Sala que um personagem Está Presente</strong> <br>
+R ← σ(J.id_personagem = 1)(Sala⋈S.id_sala = J.id_sala)(Jogador) <br>
+T ← π(S.id_sala, S.nome, S.descricao, S.nivel_perigo, S.bloqueado, J.nome)(R) <br></p>
+</li>
+</ul>
 <h3 id="item_iventario">Item_Iventario</h3>
 <ul>
 <li>
