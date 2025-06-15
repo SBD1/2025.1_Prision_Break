@@ -236,34 +236,29 @@ R ← D ⨝ (D.id_personagem = CP.id_personagem) CP <br>
 T ← π(D.texto, CP.tipo_personagem)(R) <br>
 
 ### Missão
+- **Consultar todas as missoes**<br>
+T ← π(*) (missao)<br>
 
-- **Consultar todas as missões** <br>
-T ← Missao <br>
+- **Consultar missoes ativas**<br>
+T ← σ(status = true)(missao)<br>
 
-- **Consultar missões ativas** <br>
-T ← σ(status = TRUE)(Missao)<br>
+- **Consultar missoes inativas**<br>
+T ← σ(status = false)(missao)<br>
 
-- **Consultar missões inativas** <br>
-T ← σ(status = FALSE)(Missao) <br>
+- **Consultar quantas missoes estao ativas e inativas**
+T ← γ_{status} ( COUNT(*) → total ) (missao)
 
-- **Consultar quantas missões estão ativas e inativas** <br>
-T ← G(status, COUNT(*) AS total)(Missao) <br>
-G é usada para a operação de Agregação (GROUP BY). <br>
+- **Consultar missoes com seus respectivos objetivos** <br>
+T ← π(missao ⨝ missao.nome_missao = objetivo_principal_missao.nome_missao objetivo_principal_missao) ⨝ (objetivo_principal_missao.titulo_objetivo = objetivo_principal.titulo_objetivo objetivo_principal)<br>
+R ← π(m.nome_missao, m.descricao, o.titulo_objetivo, op.descricao)(T)<br>
 
-- **Consultar missões com seus respectivos objetivos** <br>
-S ← Objetivo_principal_missao ⋈ o.titulo_objetivo op.titulo_objetivo(Objetivo_Principal) <br>
-R ← (Missao⋈m.nome_missao = o.nome_missao)(S)​ <br>
-T ← π(m.nome_missao, m.descricao, o.titulo_objetivo, op.descricao)(R) <br>
+- **Consultar as salas asscociadas a cada missao**<br>
+T ← π(missao ⨝ missao.nome_missao = missao_sala.nome_missao missao_sala) ⨝ (missao_sala.id_sala = sala.id_sala sala)<br>
+R ← π(missao.nome_missao, sala.nome, sala.nivel_perigo)(T)<br>
 
-- **Consultar as salas associadas a cada missão** <br>
-S ← (Missao_Sala⋈ms.id_sala = s.id_sala)(Sala) <br>
-R ← (Missao⋈m.nome_missao = ms.nome_missao)(S) <br>
-T ← π(m.nome_missao, s.nome, s.nivel_perigo)(R) <br>
-
-- **Consultar todas as missões** <br>
-S ← (Item⋈i.nome_item = ii.nome_item)(Instancia_Item) <br>
-R ← (Missao ⋈ m.nome_missao = i.nome_missao)(S) <br>
-T ← π(m.nome_missao, m.descricao, i.nome_item, ii.id_instancia, ii.nivel_de_gasto)(R) <br>
+- **Consultar missoes e seus itens associados**
+T ← π(missao ⨝ missao.nome_missao = item.nome_missao item) ⨝ (item.nome_item = instancia_item.nome_item instancia_item)
+R ← π(missao.nome_missao, missao.descricao, item.nome_item, instancia_item.id_instancia, instancia_item.nivel_de_gasto) (T)
 
 ### Inventário
 
