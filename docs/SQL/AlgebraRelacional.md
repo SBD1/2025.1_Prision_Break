@@ -336,7 +336,6 @@ S ← R ⨝ (II.id_inventario = INV.id_inventario) INV <br>
 W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
 T ← π(I.nome_item, INV.id_inventario)(W)
 
-
 ### Loja
 
 - **Exibe todos os itens e suas informações de uma gangue específica:** <br>
@@ -373,3 +372,4 @@ T ← γ(L.nome_item, L.preco, COUNT(L.nome_item) → quantidade_item, SUM(L.pre
 | `1.1`   | 11/06/2025 | Adiciona agente_penitenciario, agente_penitenciario_jogador, consulta_personagem e missao_sala| [Maria Alice](https://github.com/Maliz30)  |
 | `1.2`   | 13/06/2025 | Objetivo_Principal, Objetivo_Principal_Missao, Dialogo | [Ana Carolina](https://github.com/anawcarol)  |
 | `1.3`   | 13/06/2025 |adicionando algebra relacional jogador, prisioneiro e gangue | [Mayara A. Oliveira](https://github.com/Mayara-tech)  |
+| `1.4`   | 15/06/2025 |adicionando algebra relacional de Inventário, Sala e Missao | [Marllon Cardoso](https://github.com/m4rllon)  |

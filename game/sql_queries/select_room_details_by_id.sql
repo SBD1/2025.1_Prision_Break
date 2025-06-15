@@ -1,0 +1,1 @@
+SELECT nome, descricao FROM Sala WHERE id_sala = %s;

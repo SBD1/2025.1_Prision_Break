@@ -1,0 +1,1 @@
+UPDATE Jogador SET id_sala = %s WHERE id_personagem = %s;
