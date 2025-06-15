@@ -15,7 +15,7 @@ Reunião realizada via Discord.
 | 200025058 | Mayara Alves de Oliveira            | ✓        |
 | 200043030 | Renann de Oliveira Gomes            | x        |
 
-<p align="center"><strong> Fonte: </strong> xxx, 2025</p>
+<p align="center"><strong> Fonte: </strong> Maria Alice, 2025</p>
 
 <!-- 
 
