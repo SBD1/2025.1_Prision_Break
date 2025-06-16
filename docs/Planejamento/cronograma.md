@@ -54,4 +54,4 @@ O cronograma desenvolvido estruturar o planejamento da equipe para a realizaçã
 | Versão |    Data    |                          Descrição                           |                 Autor(es)                 |
 | :----: | :--------: | :----------------------------------------------------------: | :---------------------------------------: |
 | `1.0`  | 21/04/2025 | Adição do cronograma de desenvolvimento do módulo 1 ao pages | [Maria Alice](https://github.com/Maliz30) |
-| `1.0`  | 05/06/2025 | Adição do cronograma de desenvolvimento do módulo 2 ao pages |  [Mayara Alves](https://github.com/mayara-tech) |
+| `1.1`  | 05/06/2025 | Adição do cronograma de desenvolvimento do módulo 2 ao pages |  [Mayara Alves](https://github.com/mayara-tech) |
