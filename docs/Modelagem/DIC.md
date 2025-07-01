@@ -108,10 +108,10 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | --------------- | ------------------------------------------------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id_sala         | Identificador único da sala                                                                            | int          |         | PK                    |
 | id_inventario   | Identificador único do inventário. Pode ser um inventário de sala ou o inventário pessoal do jogador.  | int          |         | FK, Not Null          |
-| norte           | Identificador da sala que fica ao norte da sala atual.                                                 | int          |         | FK                    |
-| sul             | Identificador da sala que fica ao sul da sala atual.                                                   | int          |         | FK                    |
-| leste           | Identificador da sala que fica ao leste da sala atual.                                                 | int          |         | FK                    |
-| oeste           | Identificador da sala que fica ao oeste da sala atual.                                                 | int          |         | FK                    |
+| norte           | Identificador da sala que fica ao norte da sala atual.                                                 | int          |         | FK, Default           |
+| sul             | Identificador da sala que fica ao sul da sala atual.                                                   | int          |         | FK, Default           |
+| leste           | Identificador da sala que fica ao leste da sala atual.                                                 | int          |         | FK, Default           |
+| oeste           | Identificador da sala que fica ao oeste da sala atual.                                                 | int          |         | FK, Default           |
 | nome            | Nome da sala                                                                                           | varchar      | 50      | Not Null              |
 | descricao       | Texto que descreve a sala                                                                              | varchar      | 1000    | Not Null              |
 | nivel_de_perigo | Nível de perígo da sala. É um intervalo de 0 a 10 que informa a probabilidade do usuário ser capturado | int          |         |                       |
