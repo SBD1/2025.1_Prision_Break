@@ -48,23 +48,23 @@ def start_game(conn, cursor):
             print("Digite '0' para sair da navegação.")
 
             # 3. Mostrar todas as salas disponíveis (acesso liberado), exceto a atual
-            query_available_rooms = load_sql_query('select_available_rooms_excluding_current')
+            query_available_rooms = load_sql_query('select_available_rooms')
             if not query_available_rooms: break
             cursor.execute(query_available_rooms, (id_sala_atual,))
             available_rooms_data = cursor.fetchall()
 
             if not available_rooms_data:
-                print("Não há outras salas acessíveis no momento.")
+                print("Não há para onde ir no momento.")
                 input("\nPressione Enter para continuar...") # Pausa antes de tentar novamente ou sair
                 break # Não há para onde ir
             
             # Mapeia IDs para detalhes da sala para fácil validação
-            rooms_map = {room_id: {'nome': nome, 'descricao': desc}
-                         for room_id, nome, desc in available_rooms_data}
+            rooms_map = {room_id: {'nome': nome, 'direcao': dir, 'status': status,}
+                         for room_id, nome, status, dir  in available_rooms_data}
 
             # Exibe as salas disponíveis em formato de tabela
-            headers = ["ID da Sala", "Nome da Sala", "Descrição"]
-            display_data = [[id_s, nome_s, desc_s] for id_s, nome_s, desc_s in available_rooms_data]
+            headers = ["ID da Sala", "Nome da Sala", "Direção", "Status"]
+            display_data = [[id_s, nome_s, dir_s, ('Bloqueada' if status_s else 'Liberada')] for id_s, nome_s, status_s, dir_s in available_rooms_data]
             print(tabulate(display_data, headers=headers, tablefmt="grid"))
             print("--------------------------")
 
@@ -85,9 +85,14 @@ def start_game(conn, cursor):
 
             # Validação: A sala escolhida existe e está na lista de salas acessíveis?
             if escolha_sala_id not in rooms_map:
-                print(f"ID de sala inválido ou sala não acessível: {escolha_sala_id}.")
+                print(f"A sala {escolha_sala_id} não está disponível, escolha outra.")
                 pause_and_clear()
                 continue # Volta ao início do loop
+
+            if rooms_map[escolha_sala_id]['status']:
+                print(f"A sala '{rooms_map[escolha_sala_id]['nome']}' (ID: {escolha_sala_id}) está bloqueada. Escolha outra sala.")
+                pause_and_clear()
+                continue
 
             # 5. Mudar o id da sala do jogador (UPDATE)
             query_update_player_room = load_sql_query('update_player_room')

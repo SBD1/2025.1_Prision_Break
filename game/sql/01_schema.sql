@@ -30,12 +30,20 @@ CREATE TABLE IF NOT EXISTS Consulta_Personagem (
 
 CREATE TABLE IF NOT EXISTS Sala (
     id_sala              INT           PRIMARY KEY,
+    norte                INT           DEFAULT NULL,
+    sul                  INT           DEFAULT NULL,
+    leste                INT           DEFAULT NULL,
+    oeste                INT           DEFAULT NULL,
     id_inventario        INT           NOT NULL,
     nome                 VARCHAR(50)   NOT NULL,
     descricao            VARCHAR(1000) NOT NULL,
     nivel_perigo         INT           CHECK (nivel_perigo >= 0 AND nivel_perigo <= 10),
     bloqueado            BOOLEAN       DEFAULT FALSE,
-    FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario)
+    FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario),
+    FOREIGN KEY (norte)   REFERENCES Sala(id_sala),
+    FOREIGN KEY (sul)     REFERENCES Sala(id_sala),
+    FOREIGN KEY (leste)   REFERENCES Sala(id_sala),
+    FOREIGN KEY (oeste)   REFERENCES Sala(id_sala)
 );
 
 CREATE TABLE IF NOT EXISTS Item (
