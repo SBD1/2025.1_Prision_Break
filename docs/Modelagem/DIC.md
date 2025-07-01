@@ -54,6 +54,7 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | nome_missao     | Identificador único da missão                                               | varchar      | 255     | FK                    |
 | titulo_objetivo | Objetivo principal escolhido pelo jogador                                   | varchar      | 255     | FK                    |
 | nome_gangue     | Identificador da gangue                                                     | varchar      | 50      | FK                    |
+| id_cela         | Identificador da cela do jogador                                            | int          |         | FK                    |
 | nome            | Nome do personagem                                                          | varchar      | 50      | Not Null              |
 | velocidade      | Velocidade máxima do personagem                                             | int          |         | Default               |
 | vida            | Quantidade de vida do jogador (0 a 100)                                     | int          |         | Default               |
@@ -234,6 +235,6 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | `1.1`      | 30/05/2025 | Criação do Dicionário de Dados                        | [Maria Alice](https://github.com/Maliz30) e [Marllon Cardoso](https://github.com/m4rllon) |
 | `1.2`      | 09/05/2025 | Adiciona tabela ObjetivoPrincipalMissao               | [Maria Alice](https://github.com/Maliz30)                                                 |
 | `2.0`      | 13/06/2025 | Corrige dicionário de dados após criação das tabelas  | [Maria Alice](https://github.com/Maliz30)                                                 |
-| `3.0`      | 30/06/2025 | Adiciona norte, sul, leste e oeste na tabela de salas | [Maria Alice](https://github.com/Maliz30)                                                 |
+| `3.0`      | 30/06/2025 | Adiciona norte, sul, leste e oeste na tabela de salas, e cela do jogador | [Maria Alice](https://github.com/Maliz30)                                                 |
 
 
