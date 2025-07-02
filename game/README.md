@@ -18,7 +18,7 @@ Siga os passos abaixo para configurar e iniciar o projeto:
     ```bash
     docker compose up -d --build
     ```
-    * `docker-compose up`: Inicia os serviços definidos no `docker-compose.yml`.
+    * `docker compose up`: Inicia os serviços definidos no `docker-compose.yml`.
     * `-d`: Inicia os contêineres em modo "detached" (em segundo plano), liberando seu terminal.
     * `--build`: Garante que a imagem da sua aplicação Python será construída (ou reconstruída se houver alterações no `Dockerfile` ou `requirements.txt`).
     * **O que acontece:** Este comando baixará a imagem do PostgreSQL, construirá a imagem da sua aplicação Python, e iniciará ambos os contêineres. O contêiner do PostgreSQL será inicializado e executará seus scripts SQL automaticamente. O contêiner da aplicação Python ficará "vivo" esperando por comandos (devido ao `tail -f /dev/null` no `docker-compose.yml`).
@@ -40,4 +40,4 @@ Siga os passos abaixo para configurar e iniciar o projeto:
 Quando você terminar de usar o projeto, você pode parar e remover os contêineres para liberar recursos do sistema:
 
 ```bash
-docker-compose down
+docker compose down
