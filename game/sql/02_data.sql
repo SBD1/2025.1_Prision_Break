@@ -169,7 +169,7 @@ INSERT INTO Consulta_Personagem (
     tipo_personagem
 ) VALUES
     ('J'),
-    ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'),
+    ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'),
     ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P');
 
 INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue) VALUES
@@ -191,7 +191,7 @@ INSERT INTO Agente_Penitenciario(
     (4, 1, 'Paul Kellerman', DEFAULT, 6, DEFAULT, true, 20, DEFAULT),
     (5, 3, 'Donald Self', DEFAULT, 3, DEFAULT, true, 10, DEFAULT),
     (6, 18, 'Warden Pope', DEFAULT, 10, DEFAULT, DEFAULT, DEFAULT, 'Diretor'),
-    (7, 14, 'Sara Tancredi', DEFAULT, 0, DEFAULT, DEFAULT, DEFAULT, 'Médica');
+    (7, 14, 'Sara Tancredi', DEFAULT, 0, DEFAULT, DEFAULT, DEFAULT, 'Médica'),
     --Guardas genéricos
     (8, 25, 'Guarda Miller', 5, 5, 5, false, NULL, 'Carcereiro'),
     (9, 28, 'Guarda Evans', 5, 6, 5, false, NULL, 'Carcereiro'),
@@ -214,13 +214,13 @@ INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, 
     (24, 'Benjamin "C-Note" Franklin', 8, 93, 'Tráfico e deserção militar', 2, 'Os Justiceiros'),
     (25, 'David "Tweener" Apolskis', 7, 85, 'Roubo e desacato', 2, 'Os Fox River Eight'),
     (26, 'Carlos Ortega', 6, 88, 'Tráfico de drogas e agressão', 3, 'La Familia'),
-    (27, 'Lincoln Burrows (O Irmão)', 6, 120, 'Acusado de assassinato', 2, "Os Fox River Eight"),
+    (27, 'Lincoln Burrows (O Irmão)', 6, 100, 'Acusado de assassinato', 2, 'Os Fox River Eight'),
     (28, 'Hector', 6, 90, 'Tráfico e extorsão', 13, 'La Familia'),
     (29, 'Eduardo (Líder)', 5, 100, 'Liderança de gangue', 6, 'La Familia'),
-    (30, 'Samuel, o Velho', 3, 80, 'Contrabando (múltiplas sentenças)', 10, "Mafia Abruzzi"),
-    (31, 'Javier, o Informante', 5, 85, 'Roubo e falsificação', 4, "La Familia"),
-    (32, 'Silas, o Isolado', 7, 100, 'Agressão grave a um guarda', 8, "Irmandade Ariana"),
-    (33, 'Charles, o Intelectual', 4, 80, 'Fraude e lavagem de dinheiro', 10, "Os Fox River Eight");
+    (30, 'Samuel, o Velho', 3, 80, 'Contrabando (múltiplas sentenças)', 10, 'Mafia Abruzzi'),
+    (31, 'Javier, o Informante', 5, 85, 'Roubo e falsificação', 4, 'La Familia'),
+    (32, 'Silas, o Isolado', 7, 100, 'Agressão grave a um guarda', 8, 'Irmandade Ariana'),
+    (33, 'Charles, o Intelectual', 4, 80, 'Fraude e lavagem de dinheiro', 10, 'Os Fox River Eight');
 
 INSERT INTO Dialogo (id_dialogo, id_personagem, nome_missao, texto, ordem) VALUES
     -- ########## OBJETIVO: RESGATAR O IRMÃO ##########
@@ -354,6 +354,6 @@ INSERT INTO Missao_Sala (nome_missao, id_sala) VALUES
         ('Ecos da Cela 17', 19), 
         ('Escalada Silenciosa', 19),
     -- Liberam as Áreas Externas
-    ('A Chave Dourada', 22),
-    ('Passeio ao Luar', 21),
-    ('Laços de Sangue', 22);
+	    ('A Chave Dourada', 22),
+	    ('Passeio ao Luar', 21),
+	    ('Laços de Sangue', 22);

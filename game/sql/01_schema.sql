@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Item (
     descricao            VARCHAR(500)  NOT NULL,
     durabilidade         INT           DEFAULT 1,
     pode_ser_vendido     BOOLEAN       DEFAULT FALSE,
-    nome_missao          VARCHAR(255)  NOT NULL,
+    nome_missao          VARCHAR(255)  DEFAULT NULL,
     utilidade            VARCHAR(500)  DEFAULT NULL,
     beneficio            VARCHAR(500)  DEFAULT NULL,
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS Loja (
     nome_gangue          VARCHAR(50)   NOT NULL,
     preco                INT           NOT NULL,
     nome_item            VARCHAR(100)  NOT NULL,
-    UNIQUE (nome_gangue),
+    PRIMARY KEY (nome_gangue, nome_item),
     FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS Item_Loja (
     id_compra              INT          PRIMARY KEY,
     nome_gangue            VARCHAR(50)  NOT NULL,
     nome_item              VARCHAR(100) NOT NULL,
-    FOREIGN KEY (nome_gangue) REFERENCES Loja(nome_gangue),
+    FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
 
