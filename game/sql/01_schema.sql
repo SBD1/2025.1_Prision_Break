@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Item (
     descricao            VARCHAR(500)  NOT NULL,
     durabilidade         INT           DEFAULT 1,
     pode_ser_vendido     BOOLEAN       DEFAULT FALSE,
-    nome_missao          VARCHAR(255)  NOT NULL,
+    nome_missao          VARCHAR(255)  DEFAULT NULL,
     utilidade            VARCHAR(500)  DEFAULT NULL,
     beneficio            VARCHAR(500)  DEFAULT NULL,
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
