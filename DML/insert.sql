@@ -33,15 +33,23 @@ INSERT INTO Item (nome_item, descricao, durabilidade, pode_ser_vendido, nome_mis
 	('Lanterna', 'Ilumina ambientes escuros', 80, TRUE, 'Missão de Confiança', 'Iluminar', 'Ajuda em missões noturnas'),
 	('Mapa', 'Mostra a planta da prisão', 50, TRUE, 'Missão de Confiança', 'Navegação', 'Evita se perder');
 
+-- Inicializar inventário do jogador
+-- Adiciona itens ao inventário inicial do jogador, permitindo que sejam vendidos ou utilizados.
 INSERT INTO Instancia_Item (id_instancia, nivel_de_gasto, id_inventario, nome_item) VALUES
 	(1, 10, 102, 'Chave Inglesa'),
 	(2, 5, 102, 'Lanterna'),
-	(3, 2, 102, 'Mapa');
+	(3, 2, 102, 'Mapa'),
+    (4, 0, 100, 'Chave Inglesa'),
+    (5, 0, 100, 'Lanterna');
 
+-- Inicializar estoque da loja
+-- Adiciona itens ao estoque inicial da loja, permitindo que sejam comprados pelos jogadores.
 INSERT INTO Item_Loja (id_compra, nome_gangue, nome_item) VALUES
 	(1, 'Mafia Abruzzi', 'Chave Inglesa'),
 	(2, 'La Familia', 'Lanterna'),
-	(3, 'Os Fox River Eight', 'Mapa');
+	(3, 'Os Fox River Eight', 'Mapa'),
+    (4, 'Os Fox River Eight', 'Chave Inglesa'),
+    (5, 'La Familia', 'Lanterna');
 
 INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
 	('Mafia Abruzzi', 150.00, 'Chave Inglesa'),
