@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
     titulo_objetivo   VARCHAR(255)  DEFAULT NULL,     
     nome_gangue       VARCHAR(50)   DEFAULT NULL,      
     nome              VARCHAR(50)   NOT NULL,
-    dificuldade_jogo  VARCHAR(1),
+    dificuldade_jogo  VARCHAR(1) DEFAULT 'M',
     modificador_equipamento        INT           DEFAULT 0,
     vida              INT           DEFAULT 0,
     qtded_recurso     INT           DEFAULT 0,
