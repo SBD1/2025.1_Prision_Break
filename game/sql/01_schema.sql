@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS Gangue (
 );
 
 CREATE TABLE IF NOT EXISTS Inventario (
-    id_inventario        INT           PRIMARY KEY,
-    qtd_itens            INT           NOT NULL,
+    id_inventario        SERIAL        PRIMARY KEY,
+    qtd_itens            INT           DEFAULT 0,
     is_full              BOOLEAN       DEFAULT FALSE
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Consulta_Personagem (
 );
 
 CREATE TABLE IF NOT EXISTS Sala (
-    id_sala              INT           PRIMARY KEY,
+    id_sala              SERIAL        PRIMARY KEY,
     norte                INT           DEFAULT NULL,
     sul                  INT           DEFAULT NULL,
     leste                INT           DEFAULT NULL,
@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS Jogador (
     id_personagem     INT           NOT NULL,
     id_sala           INT           NOT NULL,
     id_inventario     INT           NOT NULL,
-    nome_missao       VARCHAR(255),    
-    titulo_objetivo   VARCHAR(255),     
-    nome_gangue       VARCHAR(50),      
+    nome_missao       VARCHAR(255)  DEFAULT NULL,    
+    titulo_objetivo   VARCHAR(255)  DEFAULT NULL,     
+    nome_gangue       VARCHAR(50)   DEFAULT NULL,      
     nome              VARCHAR(50)   NOT NULL,
     velocidade        INT           DEFAULT 0,
     vida              INT           DEFAULT 0,
