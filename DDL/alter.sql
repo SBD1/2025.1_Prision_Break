@@ -18,3 +18,17 @@ ALTER TABLE Objetivo_principal_missao       [DROP CONSTRAINT | DROP COLUMN] [ADD
 ALTER TABLE Objetivo_Principal              [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
 ALTER TABLE Missao          [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
 ALTER TABLE Dialogo         [DROP CONSTRAINT | DROP COLUMN] [ADD CONSTRAINT | ADD COLUMN];
+
+
+
+-- Adiciona colunas para rastrear compras/vendas
+ALTER TABLE Instancia_Item ADD COLUMN preco_compra DECIMAL(10,2);
+ALTER TABLE Instancia_Item ADD COLUMN gangue_vendedora VARCHAR(50);
+
+-- Adiciona constraints para o sistema de loja
+ALTER TABLE Instancia_Item ADD CONSTRAINT fk_inventario 
+FOREIGN KEY (id_inventario) REFERENCES Inventario(id_inventario);
+
+-- Adiciona verificação de preço positivo
+ALTER TABLE Loja ADD CONSTRAINT check_preco_positivo 
+CHECK (preco > 0);

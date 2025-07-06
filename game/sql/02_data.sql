@@ -202,22 +202,14 @@ INSERT INTO Missao (nome_missao, descricao, status) VALUES
 INSERT INTO Item (nome_item, descricao, durabilidade, pode_ser_vendido, nome_missao, utilidade, beneficio) VALUES
 	('Chave Inglesa', 'Ferramenta para apertar parafusos', 100, TRUE, 'Missão de Confiança', 'Abrir portas', 'Facilita fuga'),
 	('Lanterna', 'Ilumina ambientes escuros', 80, TRUE, 'Missão de Confiança', 'Iluminar', 'Ajuda em missões noturnas'),
-	('Mapa', 'Mostra a planta da prisão', 50, TRUE, 'Missão de Confiança', 'Navegação', 'Evita se perder');
+	('Mapa', 'Mostra a planta da prisão', 50, TRUE, 'Missão de Confiança', 'Navegação', 'Evita se perder'),
+    ('Faca', 'Uma faca improvisada, útil para defesa ou corte.', 70, TRUE, 'Aliança Perigosa', 'Ferramenta de corte', 'Aumenta dano em combate'); -- Adicionado o item 'Faca'
 
--- INSERT INTO Instancia_Item (id_instancia, nivel_de_gasto, id_inventario, nome_item) VALUES
--- 	(1, 10, 102, 'Chave Inglesa'),
--- 	(2, 5, 102, 'Lanterna'),
--- 	(3, 2, 102, 'Mapa');
-
-INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
-	('Mafia Abruzzi', 150.00, 'Chave Inglesa'),
-	('La Familia', 75.50, 'Lanterna'),
-	('Os Fox River Eight', 200.00, 'Mapa');
-    
-INSERT INTO Item_Loja (id_compra, nome_gangue, nome_item) VALUES
-	(1, 'Mafia Abruzzi', 'Chave Inglesa'),
-	(2, 'La Familia', 'Lanterna'),
-	(3, 'Os Fox River Eight', 'Mapa');
+INSERT INTO Loja (nome_gangue, preco, nome_item, quantidade_disponivel) VALUES
+	('Mafia Abruzzi', 150, 'Chave Inglesa', 5),
+	('La Familia', 75, 'Lanterna', 10),
+	('Os Fox River Eight', 200, 'Mapa', 3),
+    ('Mafia Abruzzi', 50, 'Faca', 7);
 
 
 INSERT INTO Consulta_Personagem (

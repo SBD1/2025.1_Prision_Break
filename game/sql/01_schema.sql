@@ -117,22 +117,18 @@ CREATE TABLE IF NOT EXISTS Agente_Penitenciario_Jogador (
     FOREIGN KEY (id_personagem_agente_penitenciario) REFERENCES Agente_Penitenciario(id_personagem)
 );
 
+-- Tabela Loja corrigida: Agora nome_gangue e nome_item formam a chave primária
 CREATE TABLE IF NOT EXISTS Loja (
     nome_gangue          VARCHAR(50)   NOT NULL,
     preco                INT           NOT NULL,
     nome_item            VARCHAR(100)  NOT NULL,
-    UNIQUE (nome_gangue),
+    quantidade_disponivel INT          DEFAULT 0, -- Coluna renomeada para consistência
+    PRIMARY KEY (nome_gangue, nome_item), -- Chave primária composta
     FOREIGN KEY (nome_gangue) REFERENCES Gangue(nome_gangue),
     FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
 );
 
-CREATE TABLE IF NOT EXISTS Item_Loja (
-    id_compra              INT          PRIMARY KEY,
-    nome_gangue            VARCHAR(50)  NOT NULL,
-    nome_item              VARCHAR(100) NOT NULL,
-    FOREIGN KEY (nome_gangue) REFERENCES Loja(nome_gangue),
-    FOREIGN KEY (nome_item) REFERENCES Item(nome_item)
-);
+-- A tabela Item_Loja foi removida por ser redundante com a nova estrutura de Loja
 
 CREATE TABLE IF NOT EXISTS Missao_Sala (
     nome_missao          VARCHAR(255)  NOT NULL,
