@@ -2,6 +2,42 @@ from modules.utils import load_sql_query, clear_console, pause_and_clear
 from modules.start_game import start_game
 from psycopg2 import Error
 
+
+def atualizar_dificuldade_jogador(conn, cursor, novo_dificuldade, jogador_id):
+    query_template = load_sql_query('change_difficulty')
+    if not query_template:
+        return
+
+    try:
+        cursor.execute(query_template, (novo_dificuldade, jogador_id))
+        conn.commit()
+        if cursor.rowcount > 0:
+            print(f"Dificuldade do jogador {jogador_id} alterada para '{novo_dificuldade}' com sucesso.")
+        else:
+            print(f"Nenhum jogador encontrado com ID {jogador_id} ou dificuldade já é '{novo_dificuldade}'.")
+    except Error as e:
+        conn.rollback()
+        print(f"Erro ao atualizar dificuldade do jogador: {e}")
+    except Exception as e:
+        conn.rollback()
+        print(f"Um erro inesperado ocorreu ao atualizar dificuldade: {e}")
+
+
+def change_difficulty_console(conn, cursor, jogador_id):
+    clear_console()
+
+    print(f"Escolha em qual dificuldade deseja jogar:")
+    difc = input(f"Escolha F para Fácil, M para Médio ou D para difícil:").upper()
+
+    while not difc:
+        print("Você deve selecionar uma dificuldade.")
+        difc = input(f"Escolha F para Fácil, M para Médio ou D para difícil:").upper()
+
+    atualizar_dificuldade_jogador(conn, cursor, difc, jogador_id)
+
+    clear_console()
+
+
 def iniciar_jogo(conn, cursor):
     print("\n--- Criar personagem ---")
 
@@ -28,6 +64,8 @@ def iniciar_jogo(conn, cursor):
         while True:
             choice = input("\nDeseja editar essas informações? [S/N]: ").upper()
             if choice == 'N':
+                change_difficulty_console(conn, cursor, id_jogador)
+
                 print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
                 clear_console()
                 start_game(conn, cursor)
@@ -89,6 +127,8 @@ def iniciar_jogo(conn, cursor):
                 if cursor.rowcount <= 0:
                     print("Erro: Nenhum jogador encontrado para atualizar ou gangue não alterada.")
                 
+                
+
                 print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
                 clear_console()
                 start_game(conn, cursor)

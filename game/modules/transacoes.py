@@ -19,7 +19,7 @@ def comprar_item(conn, id_jogador, id_loja):
         return
 
     try:
-        sql = load_sql_query("sql/compra_item.sql")
+        sql = load_sql_query("compra_item.sql")
         execute_procedure(conn, sql, (id_jogador, nome_item, nome_gangue))
         print(f"Você comprou o item '{nome_item}' da loja '{nome_gangue}' com sucesso!")
     except Exception as e:
@@ -40,7 +40,7 @@ def comprar_item(conn, id_jogador, id_loja):
 
 def vender_item(conn, id_jogador, id_instancia_item, nome_gangue_loja):
     try:
-        sql = load_sql_query("sql/venda_item.sql")
+        sql = load_sql_query("venda_item.sql")
         execute_procedure(conn, sql, (id_jogador, id_instancia_item, nome_gangue_loja))
         print("Item vendido com sucesso!")
     except Exception as e:

@@ -126,7 +126,7 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
     ('Os Fox River Eight', 30, 'Espelho de Bolso'),
     ('Os Justiceiros', 40, 'Livro de Apostas');
 
-CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 5, 100, 10, 0);
+CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 'M', 0, 100, 10, 0);
 
 CALL criar_agente_penitenciario(1, 'Brad Bellick', 4, 4, 0, true, 5, 'Carcereiro');
 CALL criar_agente_penitenciario(19, 'Alex Mahone', 8, 8, 0, false, NULL, 'Policial Chefe');
@@ -297,3 +297,8 @@ INSERT INTO Missao_Sala (nome_missao, id_sala) VALUES
 	    ('A Chave Dourada', 22),
 	    ('Passeio ao Luar', 21),
 	    ('Laços de Sangue', 22);
+
+INSERT INTO Modificador_dificuldade (tag_dificuldade, modificador) VALUES
+    ('F', 10),
+    ('M', 20),
+    ('D', 35);

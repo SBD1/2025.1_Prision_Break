@@ -3,7 +3,6 @@ import os
 from modules.utils import clear_console, pause_and_clear
 from modules.db_operations import conectar_bd
 from modules.jogo import iniciar_jogo
-from modules.transacoes import exibir_loja
 
 # --- Configurações do Banco de Dados ---
 # Elas serão lidas das variáveis de ambiente (mantidas aqui no arquivo principal)
@@ -35,8 +34,7 @@ def menu_principal():
         escolha = input("Digite sua opção: ")
 
         if escolha == '1':
-        #    iniciar_jogo(conn, cursor) 
-            exibir_loja(conn, cursor, 1)
+            iniciar_jogo(conn, cursor) 
             pause_and_clear()
         elif escolha == '2':
             pause_and_clear() # Usa a função do módulo utils
