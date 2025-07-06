@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS Prisioneiro (
     FOREIGN KEY (nome_gangue)   REFERENCES Gangue (nome_gangue)
 );
 
+
 CREATE TABLE IF NOT EXISTS Agente_Penitenciario (
     id_personagem          INT         NOT NULL,
     id_sala                INT         NOT NULL,         			
@@ -87,7 +88,8 @@ CREATE TABLE IF NOT EXISTS Jogador (
     titulo_objetivo   VARCHAR(255),     
     nome_gangue       VARCHAR(50),      
     nome              VARCHAR(50)   NOT NULL,
-    velocidade        INT           DEFAULT 0,
+    dificuldade_jogo  VARCHAR(1),
+    modificador_equipamento        INT           DEFAULT 0,
     vida              INT           DEFAULT 0,
     qtded_recurso     INT           DEFAULT 0,
     qtded_captura     INT           DEFAULT 0,
@@ -98,7 +100,13 @@ CREATE TABLE IF NOT EXISTS Jogador (
     FOREIGN KEY (id_inventario)     REFERENCES Inventario (id_inventario),
     FOREIGN KEY (nome_missao)       REFERENCES Missao (nome_missao),
     FOREIGN KEY (titulo_objetivo)   REFERENCES Objetivo_principal (titulo_objetivo),
-    FOREIGN KEY (nome_gangue)       REFERENCES Gangue (nome_gangue)
+    FOREIGN KEY (nome_gangue)       REFERENCES Gangue (nome_gangue),
+    CONSTRAINT chk_dificuldade CHECK (dificuldade_jogo IN ('F', 'M', 'D'))
+);
+
+CREATE TABLE IF NOT EXISTS Modificador_dificuldade (
+    tag_dificuldade VARCHAR(1) PRIMARY KEY,
+    modificador INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Agente_Penitenciario_Jogador (
@@ -158,4 +166,15 @@ CREATE TABLE IF NOT EXISTS Objetivo_principal_missao (
     nome_missao          VARCHAR(255)  NOT NULL,
     FOREIGN KEY (titulo_objetivo) REFERENCES Objetivo_Principal(titulo_objetivo),
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
+);
+
+CREATE TABLE IF NOT EXISTS LogCaptura (
+    log_id            SERIAL        PRIMARY KEY,
+    jogador_id        INT           NOT NULL,
+    data_captura      TIMESTAMP     DEFAULT NOW(),
+    sala_antiga       INT           NOT NULL,
+    sala_nova         INT           NOT NULL,
+    FOREIGN KEY (jogador_id) REFERENCES Jogador(id_personagem),
+    FOREIGN KEY (sala_antiga) REFERENCES Sala(id_sala),
+    FOREIGN KEY (sala_nova) REFERENCES Sala(id_sala)
 );

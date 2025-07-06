@@ -16,7 +16,7 @@ INSERT INTO inventario (id_inventario, qtd_itens, is_full) VALUES
 INSERT INTO sala (id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado) VALUES
     (1, 101, 'Cela de Detenção', 'Pequena cela com uma cama e um lavatório.', 0, FALSE),
     (2, 102, 'Pátio Central', 'Área aberta para recreação, com segurança reforçada.', 5, FALSE),
-    (3, 103, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, TRUE);
+    (3, 103, 'Enfermaria', 'Local onde os detentos recebem cuidados médicos. Acesso restrito.', 2, FALSE);
 
 INSERT INTO Missao (nome_missao, descricao, status) VALUES
     ('Missão de Confiança', 'Ganhar a confiança de um membro influente da máfia para obter recursos essenciais', false),
@@ -56,8 +56,8 @@ INSERT INTO Consulta_Personagem (
     ('AP'), ('AP'), ('AP'), ('AP'), ('AP'), ('AP'),
     ('P'), ('P'), ('P'), ('P'), ('P'), ('P'), ('P');
 
-INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue) VALUES
-    (1, 'Mauricio', 9, 100, 5, 0, 1, 100, NULL, NULL, NULL);
+INSERT INTO Jogador (id_personagem, nome, dificuldade_jogo, modificador_equipamento, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue) VALUES
+    (1, 'Mauricio', 'F', 0, 100, 5, 0, 1, 100, NULL, NULL, NULL);
 
 -- Outros exemplos de inserção
 --    (11, 'Gabriel Souza', 8, 95, 4, 1, 102, 2, 'Fuga de Fox River', 'Sobreviver até a fuga', 'Os Fox River Eight'),
@@ -65,6 +65,14 @@ INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded
 --    (13, 'Matheus Oliveira', 8, 90, 2, 2, 104, 4, 'Missão de Confiança', 'Provar lealdade', 'Mafia Abruzzi'),
 --    (14, 'João Almeida', 6, 85, 1, 1, 105, 5, 'Informante Infiltrado', 'Descobrir plano rival', 'La Familia');
 	
+INSERT INTO Modificador_dificuldade (
+    tag_dificuldade,
+    modificador
+) VALUES 
+    ('F', 10),
+    ('M', 20),
+    ('D', 35);
+
 INSERT INTO Agente_Penitenciario(
     id_personagem, 
     id_sala, 
