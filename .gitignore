@@ -1,2 +1,6 @@
 site
 site/*
+
+# Python cache files
+__pycache__/
+game/modules/__pycache__

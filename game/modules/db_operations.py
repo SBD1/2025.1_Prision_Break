@@ -3,6 +3,27 @@ from psycopg2 import Error
 from tabulate import tabulate
 from .utils import load_sql_query # Importa a função do módulo 'utils'
 
+def execute_procedure(conn, procedure_call, parameters=None):
+    """
+    Executa um procedimento armazenado no banco de dados.
+    
+    Args:
+        conn: Conexão com o banco de dados
+        procedure_call: SQL do procedimento a ser executado
+        parameters: Parâmetros para o procedimento (tupla)
+    """
+    try:
+        cursor = conn.cursor()
+        if parameters:
+            cursor.execute(procedure_call, parameters)
+        else:
+            cursor.execute(procedure_call)
+        conn.commit()
+        cursor.close()
+    except Error as e:
+        conn.rollback()
+        raise e
+
 # Funções que já existiam, agora neste arquivo
 def conectar_bd(db_host, db_name, db_user, db_password): # Agora aceita as credenciais como parâmetros
     """Tenta estabelecer uma conexão com o banco de dados PostgreSQL."""
