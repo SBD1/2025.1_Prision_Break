@@ -133,7 +133,7 @@ A construção do MER seguiu uma abordagem sistemática, iniciando pela identifi
 
 #### Sala vai para sala 
 - Uma sala entra em um ou n sala.
-- Um sala sai de uma sala.
+- Uma sala sai de uma sala.
 
 #### Missão é pré-requisito de sala 
 - Uma missão é pre-requisito de zero ou n salas. 
