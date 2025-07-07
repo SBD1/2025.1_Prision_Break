@@ -26,7 +26,7 @@ O cronograma desenvolvido estruturar o planejamento da equipe para a realizaçã
 
 ## Módulo 2
 
-<p align="center"><strong> Tabela 1: Cronograma para a entrega do módulo 2 </strong></p>
+<p align="center"><strong> Tabela 2: Cronograma para a entrega do módulo 2 </strong></p>
 
 | Data       | Descrição                                                               |
 | ---------- | ----------------------------------------------------------------------- |
@@ -49,9 +49,33 @@ O cronograma desenvolvido estruturar o planejamento da equipe para a realizaçã
 
 - **Álgebra Relacional** – Representação formal das consultas realizadas no banco de dados, expressando de maneira matemática as operações de seleção, projeção, junção, agrupamento e outras, fundamentais para a análise e validação dos dados do sistema.
 
+## Módulo 3
+
+<p align="center"><strong> Tabela 3: Cronograma para a entrega do módulo 3 </strong></p>
+
+| Data       | Descrição                                                               |
+| ---------- | ----------------------------------------------------------------------- |
+| 16/06/2025 | Decidir últimos detalhes da lógica do jogo                              |
+| 23/06/2025 | Criação da store de procedure e triggers                                |
+| 30/06/2025 | Revisar store de procedure e triggers                                   |
+| 30/06/2025 | Ajuste na lógica do jogo                                                |
+| 05/07/2025 | Correção dos ajuste nas etapas anteriores - Modelagem e SQL             |
+| 05/07/2025 | Teste do jogo                                                           |
+| 07/07/2025 | Elaborar da documentação                                                |
+| 17/07/2025 | Gravar apresentação                                                     |
+
+#### Entregáveis:
+
+- **Stored Procedures** – Conjuntos de instruções SQL encapsulados que automatizam comportamentos recorrentes no sistema, como conclusão de missões, recompensas, desbloqueio de salas e negociação com agentes. As procedures otimizam a lógica de negócio diretamente no banco, reduzindo complexidade no lado da aplicação e garantindo integridade nas ações.
+
+- **Triggers** – Mecanismos que reagem automaticamente a eventos específicos no banco de dados (como atualizações ou inserções), permitindo acionar logicamente as procedures de forma automática. Elas garantem que ações importantes, como atribuição de recompensas ou liberação de conteúdo, sejam executadas no momento correto, sem depender da intervenção manual ou da aplicação.
+
+- **Dinâmica do Jogo Integrada ao Banco de Dados** – Implementação de regras de jogo diretamente no banco, promovendo interatividade entre os dados e os eventos do jogador. Isso inclui sistemas como: progressão automática de missões, desbloqueio de novas salas conforme o avanço, uso estratégico de recursos, interação com agentes penitenciários corruptos e adaptação das condições do ambiente conforme as escolhas do jogador.
+
 ## 📑 Histórico de Versões
 
 | Versão |    Data    |                          Descrição                           |                 Autor(es)                 |
 | :----: | :--------: | :----------------------------------------------------------: | :---------------------------------------: |
 | `1.0`  | 21/04/2025 | Adição do cronograma de desenvolvimento do módulo 1 ao pages | [Maria Alice](https://github.com/Maliz30) |
 | `1.1`  | 05/06/2025 | Adição do cronograma de desenvolvimento do módulo 2 ao pages |  [Mayara Alves](https://github.com/mayara-tech) |
+| `1.2`  | 16/06/2025 | Adição do cronograma de desenvolvimento do módulo 3 ao pages |  [Mayara Alves](https://github.com/mayara-tech) |

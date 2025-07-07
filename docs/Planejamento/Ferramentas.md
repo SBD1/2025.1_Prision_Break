@@ -19,6 +19,9 @@ A **Tabela 1** detalha as ferramentas que utilizamos durante todo o projeto:
 | ![GoogleMeet](../assets/GoogleMeet.png)| Google Meet | Plataforma para realização das reuniões do projeto gravadas. |
 | ![LucidChart](../assets/lucidchart.png)| Lucidchart | Plataforma para criação dos diagramas de entidade-relacionamento |
 | ![Miro](../assets/miro.png)| Miro | Plataforma para criação dos diagramas de entidade-relacionamento |
+| ![PostgreSQL](../assets/postgresql.png)| PostgreSQL | Sistema de gerenciamento de banco de dados relacional de código aberto |
+| ![VSCode](../assets/vscode.png)| VSCode | editor de código-fonte desenvolvido pela Microsoft |
+
   
 
 ## Bibliografia
@@ -28,6 +31,8 @@ A **Tabela 1** detalha as ferramentas que utilizamos durante todo o projeto:
 >LUCIDCHART. Disponível em: [Lucidchart](https://www.lucidchart.com/).Acesso em: 14 de abril de 2025.</br>
 >MIRO. Disponível em: [Miro](https://miro.com/app/).Acesso em: 14 de abril de 2025.</br>
 >DISCORD. Disponível em: [Discord](https://discord.com/).Acesso em: 14 de abril de 2025.</br>
+>POSTGRESQL. Disponível em: [PostgreSQL](https://www.postgresql.org/).Acesso em: 14 de abril de 2025.</br>
+>VSCODE. Disponível em: [VSCode](https://code.visualstudio.com/).Acesso em: 14 de abril de 2025.</br>
 
 ## 📑 Histórico de Versões
 
