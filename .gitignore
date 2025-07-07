@@ -1,2 +1,10 @@
 site
 site/*
+game/modules/__pycache__/*
+game/modules/__pycache__
+
+game/modules/__pycache__/__init__.cpython-39.pyc
+game/modules/__pycache__/utils.cpython-39.pyc
+game/modules/__pycache__/start_game.cpython-39.pyc
+game/modules/__pycache__/jogo.cpython-39.pyc
+game/modules/__pycache__/db_operations.cpython-39.pyc
