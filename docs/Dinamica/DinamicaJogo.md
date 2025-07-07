@@ -13,6 +13,105 @@ A aplicação, escrita em Python (app_console.py), funciona como uma interface d
 
 ## Dinâmica 
 
+O projeto é organizado em módulos que controlam diferentes aspectos do jogo:
+
+- **`jogo.py`** – Criação e configuração do personagem.
+- **`start_game.py`** – Loop principal de navegação e ações do jogador.
+- **`captura.py`** – Sistema de risco ao mover-se para outras salas.
+- **`transacoes.py`** – Lógica de compra e venda de itens.
+- **`move_npc.py`** – Movimentação automática de NPCs.
+- **`utils.py`** – Funções utilitárias para o sistema.
+- **`db_operations.py`** – Operações diretas com o banco de dados.
+
+### Criação do Jogador (`jogo.py`)
+
+No início da partida, o jogador define seu nome, gangue, dificuldade e objetivo principal. Essas informações são persistidas com comandos SQL dinâmicos:
+
+```python
+query_update_player_name = load_sql_query('update_player_field') % ('nome', '%s', '%s')
+cursor.execute(query_update_player_name, (novo_nome, ID_JOGADOR))
+```
+
+A função `escolher_objetivo_principal` busca e exibe os objetivos disponíveis com `tabulate` e `textwrap`.
+
+
+### Navegação (`start_game.py`)
+
+A função `start_game` permite ao jogador navegar pelas salas e visualizar informações do ambiente:
+
+```python
+cursor.execute(query_available_rooms, (id_sala_atual,))
+available_rooms_data = cursor.fetchall()
+```
+
+O jogador escolhe uma sala e, caso ela esteja desbloqueada, o sistema atualiza seu ID no banco:
+
+```python
+cursor.execute(query_update_player_room, (escolha_sala_id, id_jogador))
+conn.commit()
+```
+
+### Sistema de Captura (`captura.py`)
+
+A função `tentar_mudar_sala` verifica o nível de perigo da sala:
+
+```python
+if nivel_perigo_sala > NIVEL_PERIGO_ALTO_LIMITE:
+    print("!!! ALERTA DE PERIGO !!!")
+```
+
+Futuramente, esse sistema será integrado com lógica baseada em agentes e modificadores de dificuldade.
+
+
+### Loja e Inventário (`transacoes.py`)
+
+A compra de itens envolve confirmação do jogador e execução de procedure:
+
+```python
+execute_procedure(conn, sql, (id_jogador, nome_item, nome_gangue))
+```
+
+A função `listar_loja` exibe os itens e permite que o jogador selecione e compre com base no ID.
+
+
+### Movimento de NPCs (`move_npc.py`)
+
+NPCs (prisioneiros e agentes) se movimentam automaticamente em segundo plano:
+
+```python
+thread_movimentacao = threading.Thread(target=loop_movimentacao, daemon=True)
+thread_movimentacao.start()
+```
+
+Eles são movidos por procedures no banco chamadas ciclicamente a cada 10 segundos.
+
+
+### Utilitários e Banco
+
+#### `utils.py`
+
+- `clear_console()`: limpa a tela
+- `load_sql_query()`: carrega arquivos `.sql`
+- `pause_and_clear()`: pausa e limpa
+- `quit_application()`: encerra o jogo
+
+#### `db_operations.py`
+
+Centraliza a comunicação com o banco:
+
+```python
+def executar_query_update(conn, cursor, query_sql: str, params: tuple = None) -> int:
+    try:
+        cursor.execute(query_sql, params)
+        conn.commit()
+        return cursor.rowcount
+    except Error as e:
+        conn.rollback()
+        print(f"Erro ao executar UPDATE/INSERT/DELETE: {e}")
+        return 0
+```
+
+
 ## 📑 Histórico de Versões
 
 | **Versão**   |   **Data**   | **Descrição** | **Autor** |

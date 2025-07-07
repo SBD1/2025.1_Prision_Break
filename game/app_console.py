@@ -3,7 +3,6 @@ import os
 from modules.utils import clear_console, pause_and_clear
 from modules.db_operations import conectar_bd
 from modules.jogo import iniciar_jogo
-from modules.transacoes import exibir_loja
 
 # --- Configurações do Banco de Dados ---
 # Elas serão lidas das variáveis de ambiente (mantidas aqui no arquivo principal)
@@ -27,30 +26,49 @@ def menu_principal():
     cursor = conn.cursor()
 
     while True:
-        clear_console() # Usa a função do módulo utils
-        print("\n=== Menu da Aplicação Prision Break ===")
+        clear_console()
+        print(f"==========================================================================================")
+        print(f"[ PRISON BREAK ] Menu da Aplicação\n")
         print("1. Iniciar jogo")
         print("2. Opções")
         print("3. Sair")
+        print(f"==========================================================================================\n")
+
         escolha = input("Digite sua opção: ")
 
         if escolha == '1':
-        #    iniciar_jogo(conn, cursor) 
-            exibir_loja(conn, cursor, 1)
-            pause_and_clear()
+            clear_console()
+            iniciar_jogo(conn, cursor) 
+            # exibir_loja(conn, cursor, 1)
         elif escolha == '2':
-            pause_and_clear() # Usa a função do módulo utils
+            clear_console()
+            opcoes_menu()
         elif escolha == '3':
-            print("Fechando a aplicação. Até logo!")
+            print("Saindo do jogo. Até logo!")
             break
         else:
             print("Opção inválida. Tente novamente.")
-            pause_and_clear() # Usa a função do módulo utils
+            pause_and_clear()
 
     if conn:
         cursor.close()
         conn.close()
         print("Conexão com o banco de dados fechada.")
+
+def opcoes_menu():
+    clear_console()
+    print(f"==========================================================================================")
+    print(f"[ PRISON BREAK ] Opções do Jogo\n")
+    print("0. Voltar ao menu principal")
+    print(f"==========================================================================================\n")
+
+    escolha = input("Digite sua opção: ")
+
+    if escolha == '0':
+        return
+    else:
+        print("Opção inválida. Tente novamente.")
+        pause_and_clear()
 
 if __name__ == "__main__":
     menu_principal()

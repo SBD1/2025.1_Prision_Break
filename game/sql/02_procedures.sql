@@ -7,7 +7,8 @@ CREATE OR REPLACE PROCEDURE criar_jogador(
         p_titulo_objetivo VARCHAR(255) DEFAULT NULL,
         p_nome_missao VARCHAR(255) DEFAULT NULL,
         p_nome_gangue VARCHAR(50) DEFAULT NULL,
-        p_velocidade INT DEFAULT 0,
+        dificuldade_jogo VARCHAR(1) DEFAULT 'M',
+        p_modificador_equipamento INT DEFAULT 0,
         p_vida INT DEFAULT 0,
         p_recursos INT DEFAULT 0,
         p_captura INT DEFAULT 0
@@ -54,11 +55,12 @@ CREATE OR REPLACE PROCEDURE criar_jogador(
         INSERT INTO Inventario DEFAULT VALUES
             RETURNING id_inventario INTO r_id_inventario;
 
-        INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue)
+        INSERT INTO Jogador (id_personagem, nome, dificuldade_jogo, modificador_equipamento, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue)
             VALUES (
                 r_id_personagem,
                 p_nome,
-                p_velocidade,
+                dificuldade_jogo,
+                p_modificador_equipamento,
                 p_vida,
                 p_recursos,
                 p_captura,
