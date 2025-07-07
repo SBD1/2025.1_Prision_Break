@@ -1,5 +1,7 @@
 # ⛓️ Prision Break
 
+![Capa do jogo](/assets/CapaJogo.png)
+
 ## Sobre o Projeto
 
 <p align="justify"> &emsp;&emsp; Este repositório é dedicada ao desenvolvimento do Jogo inspirado na famosa serie de televisão <a href="https://www.youtube.com/watch?v=C2ssQOyVJqQ"> Prision Break</a> da turma de sistema de banco de dados 1 da Faculdade do Gama - Universidade de Brasília (FTEC-UnB) durante o 1º semestre de 2025. O objetivo do projeto é aplicar os conceitos aprendidos em sala de aula sobre banco de dados na criação de jogo no estilo RPG.</p>
@@ -12,8 +14,6 @@
 <p align="justify"> &emsp;&emsp; Após uma série de eventos misteriosos e uma conspiração que abala as estruturas do sistema penitenciário, o mundo mergulha em um caos silencioso. O jogador acorda dentro de uma prisão de segurança máxima, sem lembrança de como foi parar ali. Cada parede carrega segredos, alianças perigosas e um sistema corrupto que esconde algo muito maior do que aparenta.</p>
 
 <p align="justify"> &emsp;&emsp; Neste RPG de sobrevivência e estratégia, inspirado na série Prison Break, você assume o papel de um prisioneiro determinado a escapar. Mas sair não é o único desafio — descobrir a verdade por trás da conspiração e ajudar outros presos confiáveis será essencial para sobreviver. Toda decisão influencia o rumo da sua história, e o perigo pode vir tanto de guardas quanto de outros detentos.</p>
-
-## :interrobang: Como jogar?
 
 ## :handshake: Colaboradores
 
