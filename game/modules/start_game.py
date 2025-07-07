@@ -37,7 +37,9 @@ def start_game(conn, cursor):
             current_room_details = cursor.fetchone()
 
             if current_room_details:
-                nome_sala_atual, descricao_sala_atual = current_room_details
+                nome_sala_atual = current_room_details[1]
+                descricao_sala_atual = current_room_details[2]
+
                 print(f"\nVocê está atualmente na sala: '{nome_sala_atual}'")
                 print(f"Descrição: {descricao_sala_atual}")
             else:
