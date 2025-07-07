@@ -196,3 +196,22 @@ def get_table_columns(cursor, table_name: str) -> list:
     except Error as e:
         print(f"Erro ao obter colunas da tabela '{table_name}': {e}")
         return []
+    
+def execute_procedure(conn, sql_proc: str, params: tuple = None):
+    """
+    Executa uma stored procedure no banco de dados.
+
+    Args:
+        conn: Objeto de conexão com o banco de dados.
+        sql_proc (str): A string SQL para chamar a procedure (ex: "CALL minha_procedure(%s, %s)").
+        params (tuple, optional): Parâmetros para a procedure. Default é None.
+    """
+    cursor = conn.cursor()
+    try:
+        cursor.execute(sql_proc, params)
+        conn.commit()
+    except Error as e:
+        conn.rollback()
+        raise Exception(f"Erro ao executar procedure: {e}")
+    finally:
+        cursor.close()
