@@ -15,7 +15,7 @@ BEGIN
     WHERE id_personagem = p_id_agente;
 
     IF NOT FOUND THEN
-        RAISE NOTICE 'Agente não encontrado.';
+        RAISE NOTICE 'Agente penitenciario não encontrado.';
         RETURN;
     END IF;
 

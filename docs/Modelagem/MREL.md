@@ -12,7 +12,7 @@ Posteriormente, o modelo foi submetido à normalização para eliminar redundân
 
 ## Modelo Relacional
 
-![Modelo Relacional](../assets/modelorelacional4.png){:  display: block; margin: 0 auto;" }
+![Modelo Relacional](../assets/modelorelacional5.png){:  display: block; margin: 0 auto;" }
 
 Caso não seja possível visualizar o Diagrama Entidade relacionamento pela imagem, tente pelo iframe do draw.io logo abaixo:
 
@@ -28,3 +28,5 @@ Caso não seja possível visualizar o Diagrama Entidade relacionamento pela imag
 |`2.1`| 02/05/2025 | Ajuste do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|
 |`3.0`| 13/06/2025 | Altera imagem do Modelo Relacional e adiciona embed | [Maria Alice](https://github.com/Maliz30)| 
 |`4.0`| 30/06/2025 | Adiciona norte, sul, leste e oeste na tabela de salas | [Maria Alice](https://github.com/Maliz30)| 
+|`5.0`| 30/06/2025 | Modifica Jogador e adiciona Modificador_dificuldade | [Marllon Cardoso](https://github.com/m4rllon)| 
+|`5.1`| 07/07/2025 | Atualiza modelo relaciona |[Maria Alice](https://github.com/Maliz30)| 
