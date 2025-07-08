@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../DQL/">
+        <link rel="prev" href="../../SQL/AlgebraRelacional/">
       
       
-        <link rel="next" href="../../Dinamica/Procedures/">
+        <link rel="next" href="../Triggers/">
       
       
       <link rel="icon" href="../../assets/icon1.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Algebra Relacional - Prision Break</title>
+        <title>Stored Procedures - Prision Break</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#algebra-relacional" class="md-skip">
+        <a href="#introducao" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Algebra Relacional
+              Stored Procedures
             
           </span>
         </div>
@@ -289,13 +289,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../DDL/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../SQL/DDL/" class="md-tabs__link">
           
   
   
@@ -311,11 +309,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Dinamica/Procedures/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -955,29 +955,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -990,7 +985,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Linguagem SQL
@@ -1004,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DDL/" class="md-nav__link">
+      <a href="../../SQL/DDL/" class="md-nav__link">
         
   
   
@@ -1027,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DML/" class="md-nav__link">
+      <a href="../../SQL/DML/" class="md-nav__link">
         
   
   
@@ -1050,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DQL/" class="md-nav__link">
+      <a href="../../SQL/DQL/" class="md-nav__link">
         
   
   
@@ -1070,6 +1065,82 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/AlgebraRelacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algebra Relacional
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dinâmica
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Dinâmica
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
     
   
   
@@ -1079,15 +1150,13 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    Algebra Relacional
+    Stored Procedures
     
   </span>
   
@@ -1100,7 +1169,7 @@
   
   
   <span class="md-ellipsis">
-    Algebra Relacional
+    Stored Procedures
     
   </span>
   
@@ -1112,8 +1181,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1141,154 +1208,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#algebra-relacional-por-tabela" class="md-nav__link">
+  <a href="#stored-procedures" class="md-nav__link">
     <span class="md-ellipsis">
-      Álgebra Relacional por tabela
+      Stored procedures
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Álgebra Relacional por tabela">
+    <nav class="md-nav" aria-label="Stored procedures">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#consulta_personagem" class="md-nav__link">
+  <a href="#criar-personagens" class="md-nav__link">
     <span class="md-ellipsis">
-      Consulta_Personagem
+      Criar personagens
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agente_penitenciario" class="md-nav__link">
+  <a href="#comprar-item" class="md-nav__link">
     <span class="md-ellipsis">
-      Agente_Penitenciario
+      Comprar item
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agente_penitenciario_jogador" class="md-nav__link">
+  <a href="#vender-item" class="md-nav__link">
     <span class="md-ellipsis">
-      Agente_Penitenciario_Jogador
+      Vender item
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#missao_sala" class="md-nav__link">
+  <a href="#concluir-missao" class="md-nav__link">
     <span class="md-ellipsis">
-      Missao_Sala
+      Concluir missão
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jogador" class="md-nav__link">
+  <a href="#subornar-agente-penitenciario" class="md-nav__link">
     <span class="md-ellipsis">
-      Jogador
+      Subornar agente penitenciario
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#prisioneiro" class="md-nav__link">
+  <a href="#mover-npc" class="md-nav__link">
     <span class="md-ellipsis">
-      Prisioneiro
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gangue" class="md-nav__link">
-    <span class="md-ellipsis">
-      Gangue
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#objetivo_principal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objetivo_principal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#objetivo_principal_missao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objetivo_Principal_Missao
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dialogo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dialogo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#missao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Missão
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inventario" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inventário
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sala" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sala
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#item_iventario" class="md-nav__link">
-    <span class="md-ellipsis">
-      Item_Iventario
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#item" class="md-nav__link">
-    <span class="md-ellipsis">
-      Item
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loja" class="md-nav__link">
-    <span class="md-ellipsis">
-      Loja
+      Mover NPC
     </span>
   </a>
   
@@ -1300,9 +1277,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historico-de-versao" class="md-nav__link">
+  <a href="#historico-de-versoes" class="md-nav__link">
     <span class="md-ellipsis">
-      📑 Histórico de versão
+      📑 Histórico de Versões
     </span>
   </a>
   
@@ -1317,54 +1294,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Dinâmica
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            Dinâmica
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -1372,30 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Dinamica/Procedures/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Stored Procedures
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Dinamica/Triggers/" class="md-nav__link">
+      <a href="../Triggers/" class="md-nav__link">
         
   
   
@@ -1418,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Dinamica/DinamicaJogo/" class="md-nav__link">
+      <a href="../DinamicaJogo/" class="md-nav__link">
         
   
   
@@ -1623,8 +1529,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1651,154 +1555,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#algebra-relacional-por-tabela" class="md-nav__link">
+  <a href="#stored-procedures" class="md-nav__link">
     <span class="md-ellipsis">
-      Álgebra Relacional por tabela
+      Stored procedures
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Álgebra Relacional por tabela">
+    <nav class="md-nav" aria-label="Stored procedures">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#consulta_personagem" class="md-nav__link">
+  <a href="#criar-personagens" class="md-nav__link">
     <span class="md-ellipsis">
-      Consulta_Personagem
+      Criar personagens
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agente_penitenciario" class="md-nav__link">
+  <a href="#comprar-item" class="md-nav__link">
     <span class="md-ellipsis">
-      Agente_Penitenciario
+      Comprar item
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agente_penitenciario_jogador" class="md-nav__link">
+  <a href="#vender-item" class="md-nav__link">
     <span class="md-ellipsis">
-      Agente_Penitenciario_Jogador
+      Vender item
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#missao_sala" class="md-nav__link">
+  <a href="#concluir-missao" class="md-nav__link">
     <span class="md-ellipsis">
-      Missao_Sala
+      Concluir missão
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jogador" class="md-nav__link">
+  <a href="#subornar-agente-penitenciario" class="md-nav__link">
     <span class="md-ellipsis">
-      Jogador
+      Subornar agente penitenciario
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#prisioneiro" class="md-nav__link">
+  <a href="#mover-npc" class="md-nav__link">
     <span class="md-ellipsis">
-      Prisioneiro
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gangue" class="md-nav__link">
-    <span class="md-ellipsis">
-      Gangue
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#objetivo_principal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objetivo_principal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#objetivo_principal_missao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objetivo_Principal_Missao
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dialogo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dialogo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#missao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Missão
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inventario" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inventário
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sala" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sala
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#item_iventario" class="md-nav__link">
-    <span class="md-ellipsis">
-      Item_Iventario
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#item" class="md-nav__link">
-    <span class="md-ellipsis">
-      Item
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loja" class="md-nav__link">
-    <span class="md-ellipsis">
-      Loja
+      Mover NPC
     </span>
   </a>
   
@@ -1810,9 +1624,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historico-de-versao" class="md-nav__link">
+  <a href="#historico-de-versoes" class="md-nav__link">
     <span class="md-ellipsis">
-      📑 Histórico de versão
+      📑 Histórico de Versões
     </span>
   </a>
   
@@ -1837,481 +1651,589 @@
   
 
 
-<h1 id="algebra-relacional">Algebra Relacional</h1>
+  <h1>Stored Procedures</h1>
+
 <h2 id="introducao">Introdução</h2>
-<p>A Álgebra Relacional é um modelo teórico e formal de manipulação de dados em bancos de dados relacionais. Ela define um conjunto de operações matemáticas aplicadas a relações (tabelas), permitindo a criação de novas relações a partir de dados existentes. Essas operações incluem seleção (σ), projeção (π), união (∪), diferença (-), produto cartesiano (×), junção (⨝), entre outras.</p>
-<p>Ao contrário da SQL, que é uma linguagem prática e implementável, a Álgebra Relacional oferece uma base teórica que permite analisar, validar e prever os resultados de consultas e manipulações de forma precisa e lógica</p>
+<p>As Stored Procedures (Procedimentos Armazenados) são blocos de código SQL que encapsulam operações lógicas e rotinas do sistema, permitindo sua reutilização de forma estruturada e segura dentro do banco de dados. No contexto do jogo Prision Break, essas procedures são responsáveis por automatizar regras de negócio importantes, como a conclusão de missões, concessão de recompensas ao jogador, desbloqueio de novas salas e negociação com agentes penitenciários corruptos.</p>
+<p>Utilizar procedures melhora a organização da lógica do sistema, reduz acoplamentos com a aplicação Python e garante que ações críticas ocorram de forma padronizada, segura e eficiente. Além disso, facilita a manutenção do código e o controle sobre os dados do jogo, já que todas as ações sensíveis passam a ser centralizadas no próprio banco.</p>
 <h2 id="metodologia">Metodologia</h2>
-<p>A aplicação da Álgebra Relacional neste projeto foi realizada com base na estrutura conceitual do banco de dados relacional desenvolvido previamente, a partir do modelo Entidade-Relacionamento. As operações foram construídas em notação algébrica, simulando a execução de consultas sobre as tabelas do jogo, como Jogador, Prisioneiro, Gangue, Sala e Missao.</p>
-<p>Foram utilizadas operações fundamentais como seleção (σ) para aplicar filtros, projeção (π) para escolher colunas específicas, e junção natural (⨝) para unir informações relacionadas entre diferentes tabelas. </p>
-<h2 id="algebra-relacional-por-tabela">Álgebra Relacional por tabela</h2>
-<h3 id="consulta_personagem">Consulta_Personagem</h3>
-<ul>
-<li>
-<p><strong>Lista todos os personagens cadastrados:</strong> <br>
-T ← π(*)(consulta_personagem)</p>
-</li>
-<li>
-<p><strong>Exibe o tipo de um personagem específico:</strong> <br>
-R ← σ(id_personagem = 5)(consulta_personagem)   <br>
-T ← π(tipo_personagem)(R)</p>
-</li>
-</ul>
-<h3 id="agente_penitenciario">Agente_Penitenciario</h3>
-<ul>
-<li>
-<p><strong>Consulta todas as informações de um agente penitenciário:</strong> <br>
-T ← σ(id_personagem = 2)(agente_penitenciario)</p>
-</li>
-<li>
-<p><strong>Verifica se um policial específico é corrupto e qual o seu preço:</strong> <br>
-R ← σ(id_personagem = 2)(agente_penitenciario)   <br>
-T ← π(corrupto, preco)(R) </p>
-</li>
-<li>
-<p><strong>Exibe os agentes penitenciários que estão na sala, ordenados pelo seu nível de perigo:</strong> <br>
-R ← σ(id_sala = 2)(agente_penitenciario)   <br>
-T ← π(id_personagem, id_sala, nome, velocidade, nivel_de_perigo, nivel_de_alerta, cargo)(R)</p>
-</li>
-<li>
-<p><strong>Exibe a quantidade de agentes na sala:</strong> <br>
-R ← σ(id_sala = 2)(agente_penitenciario)   <br>
-S ← γ(id_sala, COUNT(∗) → agentes_na_sala(R)) <br>
-T ← π(id_sala, agentes_na_sala)(S)</p>
-</li>
-<li>
-<p><strong>Exibe os agentes penitenciarios e as informações referentes as salas em que eles estão:</strong> <br>
-AP ← ρ AP(nome → nome_agente) (agente_penitenciario) <br>
-S ← ρ S(nome → nome_sala, nivel_perigo → nivel_perigo_sala) (sala) <br><br>
-R ← AP ⨝ (AP.id_sala = S.id_sala) S <br>
-T ← π(AP.id_personagem, nome_agente, S.id_sala, nome_sala, nivel_perigo_sala)(R)</p>
-</li>
-</ul>
-<h3 id="agente_penitenciario_jogador">Agente_Penitenciario_Jogador</h3>
-<ul>
-<li>
-<p><strong>Exibe todos os agentes penitenciários que capturaram um jogador específico:</strong> <br>
-APJ ← ρ APJ(agente_penitenciario_jogador) <br>
-AP ← ρ AP(agente_penitenciario) <br><br>
-W ← APJ ⨝ (APJ.id_personagem_agente_penitenciario = AP.id_personagem) AP <br>
-T ← σ(APJ.id_personagem_jogador = 1) W</p>
-</li>
-<li>
-<p><strong>Exibe quantas vezes um jogador foi capturado:</strong> <br>
-R ← σ(id_personagem_jogador = 1)(agente_penitenciario_jogador) <br>
-S ← γ(id_personagem_jogador, COUNT(∗) → qtdd_capturas(R)) <br>
-T ← π(id_personagem_jogador, qtdd_capturas)(S)</p>
-</li>
-<li>
-<p><strong>Exibe quantas vezes um jogador foi capturado por um agente específico:</strong> <br>
-R ← σ(id_personagem_jogador = 1 AND id_personagem_agente_penitenciario = 2)(agente_penitenciario_jogador) <br>
-S ← γ(id_personagem_jogador, id_personagem_agente_penitenciario, COUNT(∗) → qtdd_capturas(R)) <br>
-T ← π(id_personagem_jogador, id_personagem_agente_penitenciario, qtdd_capturas)(S)</p>
-</li>
-</ul>
-<h3 id="missao_sala">Missao_Sala</h3>
-<ul>
-<li>
-<p><strong>Exibe todas as salas que uma missão desbloqueia:</strong> <br>
-T ← σ(nome_missao = 'Rota Segura')(missao_sala) <br></p>
-</li>
-<li>
-<p><strong>Exibe as missões necessárias para desbloquear uma sala:</strong> <br>
-R ← σ(id_sala = 3)(missao_sala) <br>
-T ← π(nome_missao)(R)</p>
-</li>
-</ul>
-<h3 id="jogador">Jogador</h3>
-<ul>
-<li>
-<p><strong>Consultar todas as informações de um jogador em especifico:</strong><br>
-T ← σ(nome = 'Mauricio')(Jogador)</p>
-</li>
-<li>
-<p><strong>Consultar dados importantes para o jogador:</strong><br>
-T ← σ(nome = 'Mauricio')(Jogador)<br>
-R ← π(nome, velocidade, vida, qtded_recurso, qtded_captura, nome_gangue, id_sala)(T)</p>
-</li>
-<li>
-<p><strong>Consultar objetivo da missão do jogador:</strong><br>
-T ← σ(jogador.nome = 'Mauricio')(jogador ⨝ jogador.nome_missao = missao.nome_missao missao)<br>
-R ← π(jogador.nome_missao, missao.descricao, missao.status)(T)</p>
-</li>
-<li>
-<p><strong>Consultar objetivo principal do jogador:</strong><br>
-T ← σ(jogador.nome = 'Mauricio')(jogador ⨝ jogador.titulo_objetivo = objetivo_principal.titulo_objetivo objetivo_principal)<br>
-R ← π(jogador.titulo_objetivo, objetivo_principal.descricao)(T)</p>
-</li>
-<li>
-<p><strong>Consultar missão do jogador:</strong><br>
-T ← σ(jogador.nome = 'Mauricio')(jogador ⨝ jogador.nome_missao = missao.nome_missao missao)<br>
-R ← π(jogador.nome_missao, missao.descricao, missao.status)</p>
-</li>
-<li>
-<p><strong>Consultar informações de um item especifico que esta no inventario:</strong><br>
-T ← σ(jogador.nome = 'Mauricio' ∧ item.nome_item = 'Chave inglesa')((jogador ⨝ jogador.id_inventario = instancia_item.id_inventario instancia_item)⨝ instancia_item.nome_item = item.nome_item item)<br>
-R ← π(item.nome_item, item.descricao, item.durabilidade, item.pode_ser_vendido,item.utilidade, item.beneficio, instancia_item.nivel_de_gasto)(T)</p>
-</li>
-<li>
-<p><strong>Consultar itens que estão no inventario:</strong><br>
-T ← σ(jogador.nome = 'Mauricio')((jogador ⨝ jogador.id_inventario = instancia_item.id_inventario instancia_item) ⨝ instancia_item.nome_item = item.nome_item item)<br>
-R ← π(item.nome_item)(T)</p>
-</li>
-<li>
-<p><strong>Consultar informações dos itens do inventario:</strong> <br>
-T ← σ(jogador.nome = 'Mauricio')((jogador ⨝ jogador.id_inventario = instancia_item.id_inventario instancia_item) ⨝ instancia_item.nome_item = item.nome_item item)<br>
-R ← π(item.nome_item, item.descricao, item.durabilidade, item.pode_ser_vendido, item.utilidade, item.beneficio, instancia_item.nivel_de_gasto)(T)</p>
-</li>
-</ul>
-<h3 id="prisioneiro">Prisioneiro</h3>
-<ul>
-<li>
-<p><strong>Consultar informação de todos os prisioneiros em ordem alfabetica:</strong><br>
-T ← π(*)(prisioneiro) <br>
-R ← τ_{nome ASC}(T)</p>
-</li>
-<li>
-<p><strong>Consultar todas as informações de um prisioneiro em especifico:</strong><br>
-T ← σ(nome = 'Michael Scofield')(prisioneiro)</p>
-</li>
-<li>
-<p><strong>Consultar todos os dados dos prisioneiros que estão na sala:</strong><br>
-T ← σ(id_sala = 1)(prisioneiro)</p>
-</li>
-<li>
-<p><strong>Consultar apenas nome e gangue dos prisioneiros que estão na sala:</strong><br>
-T ← σ(id_sala = 1)(prisioneiro)<br>
-R ← π(nome, nome_gangue)(T)</p>
-</li>
-<li>
-<p><strong>Consultar todas as gangues que estão na sala:</strong> <br>
-T ← σ(id_sala = 1)(prisioneiro)<br>
-R ← π(nome_gangue)(T)</p>
-</li>
-<li>
-<p><strong>Consultar onde esta o prisioneiro:</strong><br>
-T ← (prisioneiro ⨝ prisioneiro.id_sala = sala.id_sala sala)<br>
-R ← σ(prisioneiro.nome = 'Michael Scofield')(T)<br>
-Z ← π(prisioneiro.nome, sala.nome)(R)</p>
-</li>
-<li>
-<p><strong>Consultar localização de todos os prisioneiros em ordem alfabetica:</strong><br>
-T ← π(prisioneiro.nome, sala.nome)(prisioneiro ⨝ prisioneiro.id_sala = sala.id_sala sala)<br>
-R ← τ_{prisioneiro.nome ASC}(T)</p>
-</li>
-</ul>
-<h3 id="gangue">Gangue</h3>
-<ul>
-<li>
-<p><strong>Consultar informação de todas as gangues ordenados por quantidade de membros:</strong><br>
-T ← π(*)(gangue) <br>
-R ← τ_{qtdd_membros DESC}(T)</p>
-</li>
-<li>
-<p><strong>Consultar gangues ordenadas pelo mais fortes (maiores recursos):</strong><br>
-T ← π(*)(gangue)<br>
-R ← τ_{qtdd_recurso_gangue DESC}(T)</p>
-</li>
-<li>
-<p><strong>Consultar todas as informações de uma gangue em especifico:</strong><br>
-T ← σ(nome_gangue = 'Os Fox River Eight')(gangue)</p>
-</li>
-</ul>
-<h3 id="objetivo_principal">Objetivo_principal</h3>
-<ul>
-<li>
-<p><strong>Exibe todos os objetivos:</strong> <br>
-T ← π(*)(Objetivo_Principal) <br></p>
-</li>
-<li>
-<p><strong>Exibe algum objetivo específico com descrição</strong> <br>
-R ← σ(titulo_objetivo = 'Libertar o prisioneiro')(Objetivo_Principal) <br>
-T ← π(titulo_objetivo, descricao)(R) <br></p>
-</li>
-<li>
-<p><strong>Exibe apenas os títulos dos objetivos</strong> <br>
-T ← π(titulo_objetivo)(Objetivo_Principal) <br></p>
-</li>
-<li>
-<p><strong>Exibe quantos objetivos existem</strong> <br>
-T ← γ(COUNT(∗) → total_objetivos)(Objetivo_Principal) <br></p>
-</li>
-<li>
-<p><strong>Exibe objetivos com determinada específica</strong> <br>
-T ← σ(descricao LIKE '%família%')(Objetivo_Principal)</p>
-</li>
-<li>
-<p><strong>Exibe se há objetivos duplicados</strong> <br>
-R ← γ(titulo_objetivo, COUNT(∗) → contagem)(Objetivo_Principal) <br>
-T ← σ(contagem &gt; 1)(R) <br></p>
-</li>
-</ul>
-<h3 id="objetivo_principal_missao">Objetivo_Principal_Missao</h3>
-<ul>
-<li>
-<p><strong>Exibe todos os objetivos e suas missoes relacionadas</strong> <br>
-OPM ← ρ OPM(Objetivo_Principal_Missao) <br>
-OP ← ρ OP(Objetivo_Principal) <br>
-M ← ρ M(Missao) <br>
-R ← OPM ⨝ (OPM.titulo_objetivo = OP.titulo_objetivo) OP <br>
-S ← R ⨝ (OPM.nome_missao = M.nome_missao) M <br>
-T ← π(OPM.titulo_objetivo, OP.descricao → descricao_objetivo, M.nome_missao, M.descricao → descricao_missao)(S) <br></p>
-</li>
-<li>
-<p><strong>Exibe quantas missoes estão associadas a cada objetivo</strong> <br>
-OPM ← ρ OPM(Objetivo_Principal_Missao)<br>
-M ← ρ M(Missao) <br>
-R ← OPM ⨝ (OPM.nome_missao = M.nome_missao) M <br>
-S ← γ(M.nome_missao, COUNT(∗) → total_objetivos)(R) <br>
-T ← τ(total_objetivos DESC)(S)<br></p>
-</li>
-<li>
-<p><strong>Exibe objetivos que possuem pelo menos uma missao associada</strong> <br>
-OP ← ρ OP(Objetivo_Principal)<br>
-OPM ← ρ OPM(Objetivo_Principal_Missao) <br>
-M ← ρ M(Missao) <br>
-R ← OP ⨝ (OP.titulo_objetivo = OPM.titulo_objetivo) OPM <br>
-S ← R ⨝ (OPM.nome_missao = M.nome_missao) M <br>
-W ← σ(M.status = TRUE)(S) <br>
-T ← π(OP.titulo_objetivo, OP.descricao)(W) <br>
-U ← δ(T)  -- Operador de distinção (DISTINCT) <br></p>
-</li>
-</ul>
-<h3 id="dialogo">Dialogo</h3>
-<ul>
-<li>
-<p><strong>Exibe diálogos com nome da missao em ordem</strong> <br> 
-T ← π(nome_missao, ordem, texto)(Dialogo) <br>
-U ← τ(nome_missao ASC, ordem ASC)(T) <br></p>
-</li>
-<li>
-<p><strong>Exibe diálogos de uma missao específica</strong> <br>
-R ← σ(nome_missao = 'Fuga de Fox River')(Dialogo) <br>
-T ← τ(ordem ASC)(R) <br></p>
-</li>
-<li>
-<p><strong>Exibe diálogos de um personagem específico</strong> <br>
-R ← σ(id_personagem = '9')(Dialogo) <br>
-T ← τ(ordem ASC)(R) <br></p>
-</li>
-<li>
-<p><strong>Exibe quantos diálogos cada personagem tem</strong> <br>
-T ← γ(id_personagem, COUNT(∗) → qtd_dialogos)(Dialogo) <br></p>
-</li>
-<li>
-<p><strong>Exibe quantos diálogos existe por missao</strong> <br>
-T ← γ(nome_missao, COUNT(∗) → qtd_dialogos)(Dialogo) <br></p>
-</li>
-<li>
-<p><strong>Exibe diálogos como nome e descricao da missao</strong> <br>
-D ← ρ D(Dialogo)<br>
-M ← ρ M(Missao) <br>
-R ← D ⨝ (D.nome_missao = M.nome_missao) M <br>
-T ← π(D.id_dialogo, D.texto, D.ordem, D.nome_missao, M.descricao → descricao_missao)(R) <br>
-U ← τ(D.ordem ASC)(T) <br></p>
-</li>
-<li>
-<p><strong>Exibe diálogos e o tipo do personagem de cada um</strong> <br>
-D ← ρ D(Dialogo)<br>
-CP ← ρ CP(Consulta_Personagem) <br>
-R ← D ⨝ (D.id_personagem = CP.id_personagem) CP <br>
-T ← π(D.texto, CP.tipo_personagem)(R) <br></p>
-</li>
-</ul>
-<h3 id="missao">Missão</h3>
-<ul>
-<li>
-<p><strong>Consultar todas as missoes</strong><br>
-T ← π(*) (missao)<br></p>
-</li>
-<li>
-<p><strong>Consultar missoes ativas</strong><br>
-T ← σ(status = true)(missao)<br></p>
-</li>
-<li>
-<p><strong>Consultar missoes inativas</strong><br>
-T ← σ(status = false)(missao)<br></p>
-</li>
-<li>
-<p><strong>Consultar quantas missoes estao ativas e inativas</strong>
-T ← γ_{status} ( COUNT(*) → total ) (missao)</p>
-</li>
-<li>
-<p><strong>Consultar missoes com seus respectivos objetivos</strong> <br>
-T ← π(missao ⨝ missao.nome_missao = objetivo_principal_missao.nome_missao objetivo_principal_missao) ⨝ (objetivo_principal_missao.titulo_objetivo = objetivo_principal.titulo_objetivo objetivo_principal)<br>
-R ← π(m.nome_missao, m.descricao, o.titulo_objetivo, op.descricao)(T)<br></p>
-</li>
-<li>
-<p><strong>Consultar as salas asscociadas a cada missao</strong><br>
-T ← π(missao ⨝ missao.nome_missao = missao_sala.nome_missao missao_sala) ⨝ (missao_sala.id_sala = sala.id_sala sala)<br>
-R ← π(missao.nome_missao, sala.nome, sala.nivel_perigo)(T)<br></p>
-</li>
-<li>
-<p><strong>Consultar missoes e seus itens associados</strong>
-T ← π(missao ⨝ missao.nome_missao = item.nome_missao item) ⨝ (item.nome_item = instancia_item.nome_item instancia_item)
-R ← π(missao.nome_missao, missao.descricao, item.nome_item, instancia_item.id_instancia, instancia_item.nivel_de_gasto) (T)</p>
-</li>
-</ul>
-<h3 id="inventario">Inventário</h3>
-<ul>
-<li>
-<p><strong>Retorna todas as informações do inventário</strong> <br>
-T ← π(id_inventario, qtd_itens, is_full)(Inventario) <br></p>
-</li>
-<li>
-<p><strong>Apenas os Inventários Cheios</strong> <br>
-R ← (σ (is_full = TRUE)(Inventario)) <br>
-T ← π (id_inventario, qtd_itens, is_full)(R) <br></p>
-</li>
-<li>
-<p><strong>Apenas os Inventários que Não Estão Cheios</strong> <br>
-R ← σ(is_full = FALSE)(Inventario) <br>
-T ← π(id_inventario, qtd_itens, is_full)(R) <br></p>
-</li>
-</ul>
-<h3 id="sala">Sala</h3>
-<ul>
-<li>
-<p><strong>Inventário de uma Sala Específica</strong> <br>
-R ← σ(S.id_sala = 1)(Inventario⋈I.id_inventario = S.id_inventario Sala)
-T ← π(I.id_inventario, I.qtd_itens, I.is_full)(R) <br></p>
-</li>
-<li>
-<p><strong>Retorna todas as informações das salas</strong> <br>
-T ← π(id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)(Sala) <br></p>
-</li>
-<li>
-<p><strong>Apenas as Salas que Não Estão Bloqueadas</strong> <br>
-R ← σ(bloqueado = FALSE)(Sala) <br>
-T ← π(id_sala, id_inventario, nome, descricao, nivel_perigo, bloqueado)(R) <br></p>
-</li>
-<li>
-<p><strong>Apenas a Sala que um personagem Está Presente</strong> <br>
-R ← σ(J.id_personagem = 1)(Sala⋈S.id_sala = J.id_sala)(Jogador) <br>
-T ← π(S.id_sala, S.nome, S.descricao, S.nivel_perigo, S.bloqueado, J.nome)(R) <br></p>
-</li>
-</ul>
-<h3 id="item_iventario">Item_Iventario</h3>
-<ul>
-<li>
-<p><strong>Exibe todos os itens e suas informações de um inventário específico:</strong> <br>
-INV ← ρ INV(Inventario) <br>
-II ← ρ II(Instancia_Item) <br>
-I ← ρ I(Item) <br>
-R ← INV ⨝ (INV.id_inventario = II.id_inventario) II <br>
-S ← R ⨝ (II.nome_item = I.nome_item) I <br>
-W ← σ(INV.id_inventario = 1)(S) <br>
-T ← π(INV.id_inventario, INV.qtd_itens, II.id_instancia, I.nome_item, I.descricao, I.durabilidade, II.nivel_de_gasto, I.utilidade, I.beneficio)(W)</p>
-</li>
-<li>
-<p><strong>Exibe a quantidade total de cada item em um inventário específico:</strong> <br>
-I ← ρ I(Item) <br>
-II ← ρ II(Instancia_Item) <br>
-R ← II ⨝ (II.nome_item = I.nome_item) I <br>
-S ← σ(II.id_inventario = 1)(R) <br>
-T ← γ(I.nome_item, I.descricao, I.durabilidade, COUNT(II.nome_item) → quantidade_total)(S)</p>
-</li>
-<li>
-<p><strong>Exibe o total de itens e tipos diferentes em um inventário específico:</strong> <br>
-INV ← ρ INV(Inventario) <br>
-II ← ρ II(Instancia_Item) <br>
-R ← INV ⨝ (INV.id_inventario = II.id_inventario) II <br>
-S ← σ(INV.id_inventario = 1)(R) <br>
-T ← γ(INV.id_inventario, COUNT(II.id_instancia) → total_itens, COUNT(DISTINCT II.nome_item) → tipos_diferentes_itens)(S)</p>
-</li>
-</ul>
-<h3 id="item">Item</h3>
-<ul>
-<li>
-<p><strong>Exibe todas as gangues que vendem um item específico:</strong> <br>
-I ← ρ I(Item) <br>
-IL ← ρ IL(Item_Loja) <br>
-L ← ρ L(Loja) <br>
-R ← I ⨝ (I.nome_item = IL.nome_item) IL <br>
-S ← R ⨝ (IL.nome_gangue = L.nome_gangue) L <br>
-W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
-T ← π(I.nome_item, IL.nome_gangue)(W)</p>
-</li>
-<li>
-<p><strong>Exibe todos os inventários que possuem um item específico:</strong> <br>
-I ← ρ I(Item) <br>
-II ← ρ II(Instancia_Item) <br>
-INV ← ρ INV(Inventario) <br>
-R ← I ⨝ (I.nome_item = II.nome_item) II <br>
-S ← R ⨝ (II.id_inventario = INV.id_inventario) INV <br>
-W ← σ(I.nome_item = 'Chave Inglesa')(S) <br>
-T ← π(I.nome_item, INV.id_inventario)(W)</p>
-</li>
-</ul>
-<h3 id="loja">Loja</h3>
-<ul>
-<li>
-<p><strong>Exibe todos os itens e suas informações de uma gangue específica:</strong> <br>
-L ← ρ L(Loja) <br>
-IL ← ρ IL(Item_Loja) <br>
-I ← ρ I(Item) <br><br>
-R ← L ⨝ (L.nome_gangue = IL.nome_gangue) IL <br>
-S ← R ⨝ (IL.nome_item = I.nome_item) I <br>
-W ← σ(L.nome_gangue = 'Nome da Gangue')(S) <br>
-T ← π(L.nome_gangue, L.nome_item, I.descricao, L.preco, I.durabilidade, I.utilidade, I.beneficio)(W)</p>
-</li>
-<li>
-<p><strong>Exibe o total de itens e valor total dos itens de uma gangue específica:</strong> <br>
-L ← ρ L(Loja) <br>
-IL ← ρ IL(Item_Loja) <br>
-R ← L ⨝ (L.nome_gangue = IL.nome_gangue) IL <br>
-S ← σ(L.nome_gangue = 'Nome da Gangue')(R) <br>
-T ← γ(L.nome_gangue, COUNT(L.nome_item) → total_itens, SUM(L.preco) → valor_total)(S)</p>
-</li>
-<li>
-<p><strong>Exibe a quantidade e valor total de cada item em uma loja de uma gangue específica:</strong> <br>
-L ← ρ L(Loja) <br>
-IL ← ρ IL(Item_Loja) <br>
-R ← L ⨝ (L.nome_gangue = IL.nome_gangue AND L.nome_item = IL.nome_item) IL <br>
-S ← σ(L.nome_gangue = 'Nome da Gangue')(R) <br>
-T ← γ(L.nome_item, L.preco, COUNT(L.nome_item) → quantidade_item, SUM(L.preco) → valor_total_item)(S)</p>
-</li>
-</ul>
-<h2 id="historico-de-versao">📑 Histórico de versão</h2>
+<p>A metodologia aplicada para o desenvolvimento das Stored Procedures consistiu em mapear os principais comportamentos esperados durante o jogo e convertê-los em operações reutilizáveis diretamente no banco de dados. Foram identificadas ações frequentes como concluir uma missão, conceder recompensas e desbloquear conteúdos e transformadas em rotinas SQL encapsuladas, visando reduzir a duplicidade de lógica e aumentar a segurança e consistência dos dados.</p>
+<p>A definição dos parâmetros das procedures seguiu o princípio de clareza e padronização, utilizando prefixos identificáveis (como p_) e limitando o tamanho dos VARCHARs conforme o modelo relacional. Isso favoreceu tanto a organização quanto a fácil integração com a aplicação Python. A estrutura modular permite acionar essas procedures de forma isolada ou combinada, conforme os eventos ocorram no jogo.</p>
+<h2 id="stored-procedures">Stored procedures</h2>
+<h3 id="criar-personagens">Criar personagens</h3>
+<p>Tem como objetivo cadastrar entidades essenciais no sistema do jogo, como jogadores, agentes penitenciários, prisioneiros e salas. Cada uma realiza verificações prévias de integridade referencial, garantindo que os dados associados, como salas, missões, objetivos e gangues, existam antes de prosseguir com a inserção. </p>
+<p>A procedure criar_jogador valida a existência de entidades relacionadas e cria um novo personagem com inventário vinculado. De forma semelhante, criar_agente_penitenciario e criar_prisioneiro inserem novos personagens do tipo agente ou prisioneiro após confirmar a existência da sala e, no caso dos prisioneiros, da gangue associada. Já a procedure criar_sala é responsável por gerar uma nova sala no jogo, vinculada a um inventário recém-criado. Essas procedures garantem a consistência do banco de dados e automatizam a criação controlada dos elementos do sistema.</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE PROCEDURE criar_jogador(
+        p_nome VARCHAR(50),
+        p_id_sala INT,
+        p_titulo_objetivo VARCHAR(255) DEFAULT NULL,
+        p_nome_missao VARCHAR(255) DEFAULT NULL,
+        p_nome_gangue VARCHAR(50) DEFAULT NULL,
+        p_velocidade INT DEFAULT 0,
+        p_vida INT DEFAULT 0,
+        p_recursos INT DEFAULT 0,
+        p_captura INT DEFAULT 0
+    )
+    LANGUAGE plpgsql
+    AS $$
+    DECLARE
+        r_id_personagem INT;
+        r_id_inventario INT;
+        flag_sala_exists BOOLEAN;
+        flag_missao_exists BOOLEAN;
+        flag_objetivo_exists BOOLEAN;
+        flag_gangue_exists BOOLEAN;
+    BEGIN
+        SELECT EXISTS ( SELECT 1 FROM Sala WHERE id_sala = p_id_sala ) INTO flag_sala_exists;
+        IF NOT flag_sala_exists THEN
+            RAISE EXCEPTION &#39;Sala com ID % não existe&#39;, p_id_sala;
+        END IF;
+
+        IF p_nome_missao IS NOT NULL THEN
+            SELECT EXISTS ( SELECT 1 FROM Missao WHERE nome_missao = p_nome_missao ) INTO flag_missao_exists;
+            IF NOT flag_missao_exists THEN
+                RAISE EXCEPTION &#39;Missão % não existe&#39;, p_nome_missao;
+            END IF;
+        END IF;
+
+        IF p_titulo_objetivo IS NOT NULL THEN
+            SELECT EXISTS ( SELECT 1 FROM Objetivo_Principal WHERE titulo_objetivo = p_titulo_objetivo ) INTO flag_objetivo_exists;
+            IF NOT flag_objetivo_exists THEN
+                RAISE EXCEPTION &#39;Objetivo % não existe&#39;, p_titulo_objetivo;
+            END IF;
+        END IF;
+
+        IF p_nome_gangue IS NOT NULL THEN
+            SELECT EXISTS ( SELECT 1 FROM Gangue WHERE nome_gangue = p_nome_gangue ) INTO flag_gangue_exists;
+            IF NOT flag_gangue_exists THEN
+                RAISE EXCEPTION &#39;Gangue % não existe&#39;, p_nome_gangue;
+            END IF;
+        END IF;
+
+        INSERT INTO Consulta_Personagem(tipo_personagem) VALUES (&#39;J&#39;)
+            RETURNING id_personagem INTO r_id_personagem;
+
+        INSERT INTO Inventario DEFAULT VALUES
+            RETURNING id_inventario INTO r_id_inventario;
+
+        INSERT INTO Jogador (id_personagem, nome, velocidade, vida, qtded_recurso, qtded_captura, id_sala, id_inventario, nome_missao, titulo_objetivo, nome_gangue)
+            VALUES (
+                r_id_personagem,
+                p_nome,
+                p_velocidade,
+                p_vida,
+                p_recursos,
+                p_captura,
+                p_id_sala,
+                r_id_inventario,
+                p_nome_missao,
+                p_titulo_objetivo,
+                p_nome_gangue
+            );
+    END;
+    $$; 
+
+CREATE OR REPLACE PROCEDURE criar_agente_penitenciario(
+        p_id_sala INT,
+        p_nome VARCHAR(50) DEFAULT &#39;Tira&#39;,
+        p_velocidade INT DEFAULT 5,
+        p_nivel_perigo INT DEFAULT 5,
+        p_nivel_alerta INT DEFAULT 5,
+        p_corrupto BOOLEAN DEFAULT FALSE,
+        p_preco INT DEFAULT 0,
+        p_cargo VARCHAR(255) DEFAULT &#39;Carcereiro&#39;
+    )
+    LANGUAGE plpgsql
+    AS $$
+    DECLARE
+        r_id_personagem INT;
+        flag_sala_exists BOOLEAN;
+    BEGIN
+        SELECT EXISTS (
+            SELECT 1 FROM Sala WHERE id_sala = p_id_sala
+        ) INTO flag_sala_exists;
+        IF NOT flag_sala_exists THEN
+            RAISE EXCEPTION &#39;Sala com ID % não existe&#39;, p_id_sala;
+        END IF;
+
+        INSERT INTO Consulta_Personagem (tipo_personagem) 
+        VALUES (&#39;AP&#39;) 
+        RETURNING id_personagem INTO r_id_personagem;
+
+        INSERT INTO Agente_Penitenciario (id_personagem, nome, id_sala, velocidade, nivel_de_perigo, nivel_de_alerta, corrupto, preco, cargo)
+        VALUES (
+            r_id_personagem,
+            p_nome,
+            p_id_sala,
+            p_velocidade,
+            p_nivel_perigo,
+            p_nivel_alerta,
+            p_corrupto,
+            p_preco,
+            p_cargo
+        );
+    END;
+    $$; 
+
+CREATE OR REPLACE PROCEDURE criar_prisioneiro(
+        p_nome VARCHAR(50),
+        p_id_sala INT,
+        p_velocidade INT DEFAULT 0,
+        p_vida INT DEFAULT 0,
+        p_crime VARCHAR(255) DEFAULT NULL,
+        p_nome_gangue VARCHAR(50) DEFAULT NULL
+    )
+    LANGUAGE plpgsql
+    AS $$
+    DECLARE
+        r_id_personagem INT;
+        flag_sala_exists BOOLEAN;
+        flag_gangue_exists BOOLEAN;
+    BEGIN
+        SELECT EXISTS (
+            SELECT 1 FROM Sala WHERE id_sala = p_id_sala
+        ) INTO flag_sala_exists;
+        IF NOT flag_sala_exists THEN
+            RAISE EXCEPTION &#39;Sala com ID % não existe&#39;, p_id_sala;
+        END IF;
+
+        SELECT EXISTS (
+            SELECT 1 FROM Gangue WHERE nome_gangue = p_nome_gangue
+        ) INTO flag_gangue_exists;
+        IF NOT flag_gangue_exists THEN
+            RAISE EXCEPTION &#39;Gangue % não existe&#39;, p_nome_gangue;
+        END IF;
+
+        INSERT INTO Consulta_Personagem (tipo_personagem) 
+        VALUES (&#39;P&#39;) 
+        RETURNING id_personagem INTO r_id_personagem;
+
+        INSERT INTO Prisioneiro (id_personagem, nome, velocidade, vida, crime, id_sala, nome_gangue)
+        VALUES (
+            r_id_personagem,
+            p_nome,
+            p_velocidade,
+            p_vida,
+            p_crime,
+            p_id_sala,
+            p_nome_gangue
+        );
+    END;
+    $$; 
+
+CREATE OR REPLACE PROCEDURE criar_sala(
+        p_nome VARCHAR(50),
+        p_descricao VARCHAR(1000),
+        p_nivel_perigo INT,
+        p_bloqueado BOOLEAN DEFAULT FALSE
+    )
+    LANGUAGE plpgsql
+    AS $$
+    DECLARE
+        r_id_inventario INT;
+    BEGIN
+
+    INSERT INTO Inventario DEFAULT VALUES
+        RETURNING id_inventario INTO r_id_inventario;
+
+    INSERT INTO sala (id_inventario, nome, descricao, nivel_perigo, bloqueado) VALUES(
+        r_id_inventario,
+        p_nome,
+        p_descricao,
+        p_nivel_perigo,
+        p_bloqueado
+    );
+
+    END;
+    $$; 
+</code></pre></div>
+<h3 id="comprar-item">Comprar item</h3>
+<p>Realiza a compra de um item por parte de um jogador em uma loja vinculada a uma gangue específica. Primeiramente, ela busca o preço do item na loja correspondente e verifica se o item está disponível. Em seguida, obtém os dados do inventário do jogador, certificando-se de que o mesmo exista e possua recursos suficientes para realizar a compra. Também é verificado se o inventário do jogador não está cheio (limite de 10 itens). </p>
+<p>Caso todas as condições sejam atendidas, o procedimento prossegue com a transação: atualiza os recursos do jogador, cria uma nova instância do item adquirido no inventário, incrementa a quantidade de itens e ajusta o status de inventário cheio, se necessário. Em caso de erro durante qualquer etapa da compra, uma exceção personalizada é lançada com a mensagem de erro correspondente.</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE PROCEDURE comprar_item(
+    IN p_id_jogador INT,
+    IN p_nome_item VARCHAR(50),
+    IN p_nome_gangue_loja VARCHAR(50)
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    v_preco_item INT;
+    v_id_inventario_jogador INT;
+    v_qtd_itens_inventario INT;
+    v_is_full_inventario BOOLEAN;
+    v_proximo_id_instancia INT;
+BEGIN
+    -- Obter o preço do item na loja da gangue específica
+    SELECT preco INTO v_preco_item
+    FROM Loja
+    WHERE nome_item = p_nome_item AND nome_gangue = p_nome_gangue_loja;
+
+    IF v_preco_item IS NULL THEN
+        RAISE EXCEPTION &#39;Item &#39;&#39;%&#39;&#39; não encontrado na loja da gangue &#39;&#39;%&#39;&#39; ou não está à venda.&#39;, p_nome_item, p_nome_gangue_loja;
+    END IF;
+
+    -- Obter informações do jogador e seu inventário
+    SELECT j.id_inventario, i.qtd_itens, i.is_full
+    INTO v_id_inventario_jogador, v_qtd_itens_inventario, v_is_full_inventario
+    FROM Jogador j
+    JOIN Inventario i ON j.id_inventario = i.id_inventario
+    WHERE j.id_personagem = p_id_jogador;
+
+    IF v_id_inventario_jogador IS NULL THEN
+        RAISE EXCEPTION &#39;Jogador com ID % não encontrado.&#39;, p_id_jogador;
+    END IF;
+
+    -- Verificar se o jogador tem recursos suficientes
+    IF (SELECT qtded_recurso FROM Jogador WHERE id_personagem = p_id_jogador) &lt; v_preco_item THEN
+        RAISE EXCEPTION &#39;Recursos insuficientes para comprar o item &#39;&#39;%&#39;&#39;.&#39;, p_nome_item;
+    END IF;
+
+    IF v_qtd_itens_inventario &gt;= 10 THEN
+        RAISE EXCEPTION &#39;Inventário do jogador está cheio.&#39;;
+    END IF;
+
+    -- Lógica da transação
+    BEGIN
+        UPDATE Jogador
+        SET qtded_recurso = qtded_recurso - v_preco_item
+        WHERE id_personagem = p_id_jogador;
+
+        SELECT COALESCE(MAX(id_instancia), 0) + 1 INTO v_proximo_id_instancia FROM Instancia_Item;
+
+        INSERT INTO Instancia_Item (id_instancia, id_inventario, nome_item)
+        VALUES (v_proximo_id_instancia, v_id_inventario_jogador, p_nome_item);
+
+        UPDATE Inventario
+        SET qtd_itens = qtd_itens + 1,
+            is_full = CASE WHEN (v_qtd_itens_inventario + 1) &gt;= 10 THEN TRUE ELSE FALSE END
+        WHERE id_inventario = v_id_inventario_jogador;
+
+        RAISE NOTICE &#39;Item &#39;&#39;%&#39;&#39; comprado com sucesso por % recursos.&#39;, p_nome_item, v_preco_item;
+
+    EXCEPTION
+        WHEN OTHERS THEN
+            RAISE EXCEPTION &#39;Erro ao comprar item: %&#39;, SQLERRM;
+    END;
+END;
+$$;
+</code></pre></div>
+<h3 id="vender-item">Vender item</h3>
+<p>Permite que um jogador venda um item específico de seu inventário para a loja de uma gangue. O processo começa verificando se a instância do item existe, se pertence ao inventário do jogador informado e se o item pode ser vendido. Também valida se a loja da gangue indicada comercializa o item. Caso todas as condições sejam atendidas, a procedure calcula o preço de venda (50% do valor original), adiciona essa quantia aos recursos do jogador, remove o item do inventário e atualiza a loja com o item devolvido.</p>
+<p>A quantidade total de itens no inventário é ajustada, e o status de inventário cheio é desativado, se necessário. Em caso de erro, uma mensagem formatada é lançada, detalhando o problema ocorrido.</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE PROCEDURE vender_item(
+    IN p_id_jogador INT,
+    IN p_id_instancia_item INT,
+    IN p_nome_gangue_loja VARCHAR(50)
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    v_nome_item VARCHAR(50);
+    v_preco_item INT;
+    v_id_inventario_jogador INT;
+    v_pode_ser_vendido BOOLEAN;
+    v_qtd_itens_inventario INT;
+    v_loja_existe BOOLEAN;
+    v_msg_erro TEXT;
+BEGIN
+    -- Obter informações da instância do item e do item
+    SELECT ii.nome_item, it.pode_ser_vendido, ii.id_inventario
+    INTO v_nome_item, v_pode_ser_vendido, v_id_inventario_jogador
+    FROM Instancia_Item ii
+    JOIN Item it ON ii.nome_item = it.nome_item
+    WHERE ii.id_instancia = p_id_instancia_item;
+
+    -- Verificar se a instância do item existe
+    IF v_nome_item IS NULL THEN
+        RAISE EXCEPTION &#39;Instância do item com ID % não encontrada.&#39;, p_id_instancia_item;
+    END IF;
+
+    -- Verificar se o item pertence ao inventário do jogador
+    IF (SELECT id_inventario FROM Jogador WHERE id_personagem = p_id_jogador) IS DISTINCT FROM v_id_inventario_jogador THEN
+        RAISE EXCEPTION &#39;O item com ID de instância % não pertence ao inventário do jogador %.&#39;, p_id_instancia_item, p_id_jogador;
+    END IF;
+
+    -- Verificar se o item pode ser vendido
+    IF NOT v_pode_ser_vendido THEN
+        RAISE EXCEPTION &#39;O item &#39;&#39;%&#39;&#39; não pode ser vendido.&#39;, v_nome_item;
+    END IF;
+
+    -- Verificar se a loja de destino existe e se o item é vendido por ela
+    SELECT EXISTS(SELECT 1 FROM Loja WHERE nome_gangue = p_nome_gangue_loja AND nome_item = v_nome_item)
+    INTO v_loja_existe;
+    IF NOT v_loja_existe THEN
+        RAISE EXCEPTION &#39;A loja &#39;&#39;%&#39;&#39; não comercializa o item &#39;&#39;%&#39;&#39; ou não existe.&#39;, p_nome_gangue_loja, v_nome_item;
+    END IF;
+
+    -- Obter o preço de venda do item (50% do valor original)
+    SELECT FLOOR(L.preco * 0.5)
+    INTO v_preco_item
+    FROM Loja L
+    WHERE L.nome_item = v_nome_item AND L.nome_gangue = p_nome_gangue_loja;
+
+    IF v_preco_item IS NULL THEN
+        v_preco_item := 0;
+        RAISE NOTICE &#39;Preço de venda para o item &#39;&#39;%&#39;&#39; não encontrado na Loja especificada, assumindo 0.&#39;, v_nome_item;
+    END IF;
+
+    -- Iniciar transações (o bloco BEGIN/EXCEPTION já cria um ponto de salvamento implícito)
+    BEGIN
+        -- Atualizar recursos do jogador
+        UPDATE Jogador
+        SET qtded_recurso = qtded_recurso + v_preco_item
+        WHERE id_personagem = p_id_jogador;
+
+        -- Remover item do inventário
+        DELETE FROM Instancia_Item
+        WHERE id_instancia = p_id_instancia_item;
+
+        -- Atualizar quantidade de itens no inventário
+        SELECT qtd_itens
+        INTO v_qtd_itens_inventario
+        FROM Inventario
+        WHERE id_inventario = v_id_inventario_jogador;
+
+        UPDATE Inventario
+        SET qtd_itens = v_qtd_itens_inventario - 1,
+            is_full = FALSE
+        WHERE id_inventario = v_id_inventario_jogador;
+
+        -- Adicionar item de volta ao estoque da loja
+        UPDATE Loja
+        SET quantidade_disponivel = quantidade_disponivel + 1
+        WHERE nome_gangue = p_nome_gangue_loja AND nome_item = v_nome_item;
+
+        RAISE NOTICE &#39;Item &#39;&#39;%&#39;&#39; vendido com sucesso por % recursos para a loja &#39;&#39;%&#39;&#39;.&#39;, v_nome_item, v_preco_item, p_nome_gangue_loja;
+
+    EXCEPTION
+        WHEN OTHERS THEN
+            v_msg_erro := format(&#39;Erro ao vender item: %s - %s&#39;, SQLSTATE, SQLERRM);
+            RAISE EXCEPTION USING MESSAGE = v_msg_erro;
+    END;
+END;
+$$;
+</code></pre></div>
+<h3 id="concluir-missao">Concluir missão</h3>
+<p>Gerencia a finalização de uma missão por um jogador e executa diversas ações encadeadas. Primeiro, identifica a missão atual do jogador pelo nome; se ele não tiver nenhuma missão ativa, a execução termina com um aviso. Caso contrário, a missão é marcada como concluída, o jogador recebe uma recompensa de recursos e suas referências à missão e ao objetivo são limpas. Em seguida, é atribuída automaticamente uma nova missão disponível (caso exista), vinculada a um novo objetivo, e uma mensagem é exibida informando a nova tarefa. </p>
+<p>Além disso, a procedure tenta desbloquear uma sala que esteja marcada como bloqueada no sistema, atualizando seu status e exibindo suas informações ao jogador. Com isso, a procedure automatiza a progressão de missões e o avanço no mapa de forma integrada e orientada à narrativa.</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE PROCEDURE concluir_missao(p_nome_jogador VARCHAR(50))
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    p_missao_atual         VARCHAR(255);
+    p_nova_missao          VARCHAR(255);
+    p_novo_objetivo        VARCHAR(255);
+    p_recompensa           INT := 10;
+    p_nome_sala            VARCHAR(50);
+    p_descricao_sala       VARCHAR(1000);
+    p_nivel_perigo_sala    INT;
+    p_sala_desbloqueada_id INT;
+BEGIN
+    -- Busca missão atual do jogador
+    SELECT nome_missao INTO p_missao_atual
+    FROM Jogador
+    WHERE nome = p_nome_jogador;
+
+    IF p_missao_atual IS NULL THEN
+        RAISE NOTICE &#39;Jogador % não possui missão ativa.&#39;, p_nome_jogador;
+        RETURN;
+    END IF;
+
+    -- Mensagem de conclusão logo no início
+    RAISE NOTICE &#39;Missão % concluída. % recebeu % recursos.&#39;, p_missao_atual, p_nome_jogador, p_recompensa;
+
+    -- Marca missão como concluída
+    UPDATE Missao
+    SET status = false
+    WHERE nome_missao = p_missao_atual;
+
+    -- Dá recompensa e limpa missão atual
+    UPDATE Jogador
+    SET qtded_recurso = qtded_recurso + p_recompensa,
+        nome_missao = NULL,
+        titulo_objetivo = NULL
+    WHERE nome = p_nome_jogador;
+
+    -- Atribui nova missão (se houver)
+    SELECT m.nome_missao, opm.titulo_objetivo
+    INTO p_nova_missao, p_novo_objetivo
+    FROM Missao m
+    JOIN Objetivo_principal_missao opm ON m.nome_missao = opm.nome_missao
+    WHERE m.status = true
+    LIMIT 1;
+
+    IF p_nova_missao IS NOT NULL THEN
+        UPDATE Jogador
+        SET nome_missao = p_nova_missao,
+            titulo_objetivo = p_novo_objetivo
+        WHERE nome = p_nome_jogador;
+
+        RAISE NOTICE &#39;Nova missão atribuída: % com objetivo %.&#39;, p_nova_missao, p_novo_objetivo;
+    ELSE
+        RAISE NOTICE &#39;Parabéns você concluiu todas as missões&#39;;
+    END IF;
+
+    -- Desbloqueia nova sala e exibe informações
+    SELECT id_sala, nome, descricao, nivel_perigo
+    INTO p_sala_desbloqueada_id, p_nome_sala, p_descricao_sala, p_nivel_perigo_sala
+    FROM Sala
+    WHERE bloqueado = true
+    LIMIT 1;
+
+    IF p_sala_desbloqueada_id IS NOT NULL THEN
+        UPDATE Sala
+        SET bloqueado = false
+        WHERE id_sala = p_sala_desbloqueada_id;
+
+        RAISE NOTICE &#39;Sala desbloqueada:&#39;;
+        RAISE NOTICE &#39;%&#39;, p_nome_sala;
+        RAISE NOTICE &#39;%&#39;, p_descricao_sala;
+        RAISE NOTICE &#39;Nível de perigo: %&#39;, p_nivel_perigo_sala;
+    ELSE
+        RAISE NOTICE &#39;&#39;;
+    END IF;
+END;
+$$;
+</code></pre></div>
+<h3 id="subornar-agente-penitenciario">Subornar agente penitenciario</h3>
+<p>Permite que um jogador suborne um agente penitenciário corrupto, reduzindo o nível de perigo tanto da sala onde o agente atua quanto do próprio agente. Primeiramente, ela verifica se o agente existe, se é corrupto e qual o custo do suborno. Em seguida, confere se o jogador possui recursos suficientes para realizar a ação. </p>
+<p>Se todas as condições forem atendidas, o valor é descontado dos recursos do jogador, e os níveis de perigo do agente e da sala são reduzidos (respeitando o limite mínimo de zero). Ao final, são exibidas mensagens de sucesso informando a realização do suborno e a redução dos perigos envolvidos.</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE PROCEDURE subornar_agente(p_nome_jogador VARCHAR(50), p_id_agente INT)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    p_preco_agente       INT;
+    p_corrupto           BOOLEAN;
+    p_sala               INT;
+    p_recursos_jogador   INT;
+    p_novo_nivel_agente  INT;
+BEGIN
+    -- Verifica se agente existe e se é corrupto
+    SELECT preco, corrupto, id_sala
+    INTO p_preco_agente, p_corrupto, p_sala
+    FROM Agente_Penitenciario
+    WHERE id_personagem = p_id_agente;
+
+    IF NOT FOUND THEN
+        RAISE NOTICE &#39;Agente penitenciario não encontrado.&#39;;
+        RETURN;
+    END IF;
+
+    IF p_corrupto IS FALSE THEN
+        RAISE NOTICE &#39;Esse agente não pode ser subornado.&#39;;
+        RETURN;
+    END IF;
+
+    -- Verifica recursos do jogador
+    SELECT qtded_recurso INTO p_recursos_jogador
+    FROM Jogador
+    WHERE nome = p_nome_jogador;
+
+    IF p_recursos_jogador &lt; p_preco_agente THEN
+        RAISE NOTICE &#39;Recursos insuficientes. Custo: %, você tem: %&#39;, p_preco_agente, p_recursos_jogador;
+        RETURN;
+    END IF;
+
+    -- Desconta o recurso
+    UPDATE Jogador
+    SET qtded_recurso = qtded_recurso - p_preco_agente
+    WHERE nome = p_nome_jogador;
+
+    -- Reduz nível de perigo da sala (mínimo 0)
+    UPDATE Sala
+    SET nivel_perigo = GREATEST(nivel_perigo - 3, 0)
+    WHERE id_sala = p_sala;
+
+    -- Reduz nível de perigo do agente (mínimo 0)
+    UPDATE Agente_Penitenciario
+    SET nivel_de_perigo = GREATEST(nivel_de_perigo - 2, 0)
+    WHERE id_personagem = p_id_agente;
+
+    RAISE NOTICE &#39;Suborno realizado com sucesso.&#39;;
+    RAISE NOTICE &#39;Perigo da sala % e do agente % foram reduzidos.&#39;, p_sala, p_id_agente;
+END;
+$$;
+</code></pre></div>
+<h3 id="mover-npc">Mover NPC</h3>
+<p>A função mover_npc permite movimentar dinamicamente um personagem do tipo prisioneiro ou agente penitenciário entre salas adjacentes. Primeiramente, a função identifica a sala atual do personagem com base no seu tipo ('P' para prisioneiro e 'AP' para agente). Em seguida, ela busca todas as salas adjacentes à atual, considerando as direções norte, sul, leste e oeste. Para prisioneiros, somente salas desbloqueadas são consideradas, enquanto agentes podem se mover livremente. Caso existam salas adjacentes disponíveis, é sorteado aleatoriamente um índice dentro do array dessas salas e selecionada uma nova sala de destino. </p>
+<p>Por fim, o personagem é atualizado em sua respectiva tabela (Prisioneiro ou Agente_Penitenciario), sendo movido para a nova sala de forma automática. Essa função simula o deslocamento dos NPCs no ambiente do jogo, promovendo interações e dinamicidade entre as entidades.</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE FUNCTION mover_npc(
+    p_id_personagem INT,
+    p_tipo_personagem VARCHAR(2)
+)
+RETURNS VOID AS $$
+DECLARE
+    r_id_sala_atual INT;
+    r_salas_adjacentes INT[];
+    id_sala_proxima INT;
+    array_limite_inferior INT;
+    array_limite_superior INT;
+    indice_aleatorio INT;
+BEGIN
+    IF p_tipo_personagem = &#39;P&#39; THEN
+        SELECT id_sala INTO r_id_sala_atual
+        FROM Prisioneiro
+        WHERE id_personagem = p_id_personagem;
+
+        SELECT array_agg(adjacente.id_sala) INTO r_salas_adjacentes
+        FROM Sala AS Atual
+        JOIN Sala AS adjacente ON adjacente.id_sala IN (Atual.norte, Atual.sul, Atual.leste, Atual.oeste)
+        WHERE Atual.id_sala = r_id_sala_atual and adjacente.bloqueado = false;
+
+    ELSIF p_tipo_personagem = &#39;AP&#39; THEN 
+        SELECT id_sala INTO r_id_sala_atual
+        FROM Agente_Penitenciario
+        WHERE id_personagem = p_id_personagem;
+
+        SELECT array_agg(adjacente.id_sala) INTO r_salas_adjacentes
+        FROM Sala AS Atual
+        JOIN Sala AS adjacente ON adjacente.id_sala IN (Atual.norte, Atual.sul, Atual.leste, Atual.oeste)
+        WHERE Atual.id_sala = r_id_sala_atual;
+
+    ELSE
+        RAISE EXCEPTION &#39;Tipo de personagem inválido: %&#39;, p_tipo_personagem;
+    END IF;
+
+    IF r_salas_adjacentes IS NULL OR array_length(r_salas_adjacentes, 1) = 0 THEN
+        RETURN;
+    END IF;
+
+    array_limite_inferior := array_lower(r_salas_adjacentes, 1);
+    array_limite_superior := array_upper(r_salas_adjacentes, 1);
+    indice_aleatorio := floor(random() * (array_limite_superior - array_limite_inferior + 1) + array_limite_inferior);
+
+    id_sala_proxima := r_salas_adjacentes[indice_aleatorio];
+
+    IF p_tipo_personagem = &#39;P&#39; THEN
+        UPDATE Prisioneiro
+        SET id_sala = id_sala_proxima
+        WHERE id_personagem = p_id_personagem;
+    ELSIF p_tipo_personagem = &#39;AP&#39; THEN
+        UPDATE Agente_Penitenciario
+        SET id_sala = id_sala_proxima
+        WHERE id_personagem = p_id_personagem;
+    END IF;
+
+END;
+$$ LANGUAGE plpgsql;
+</code></pre></div>
+<h2 id="historico-de-versoes">📑 Histórico de Versões</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">Versão</th>
-<th style="text-align: center;">Data</th>
-<th style="text-align: left;">Descrição</th>
-<th>Autor</th>
+<th><strong>Versão</strong></th>
+<th><strong>Data</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Autor</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><code>1.0</code></td>
-<td style="text-align: center;">05/06/2025</td>
-<td style="text-align: left;">Criação da introdução e metodologia utilizada na Algebra Relacional</td>
-<td><a href="https://github.com/Mayara-tech">Mayara A. Oliveira</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>1.1</code></td>
-<td style="text-align: center;">11/06/2025</td>
-<td style="text-align: left;">Adiciona agente_penitenciario, agente_penitenciario_jogador, consulta_personagem e missao_sala</td>
-<td><a href="https://github.com/Maliz30">Maria Alice</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>1.2</code></td>
-<td style="text-align: center;">13/06/2025</td>
-<td style="text-align: left;">Objetivo_Principal, Objetivo_Principal_Missao, Dialogo</td>
-<td><a href="https://github.com/anawcarol">Ana Carolina</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>1.3</code></td>
-<td style="text-align: center;">13/06/2025</td>
-<td style="text-align: left;">adicionando algebra relacional jogador, prisioneiro e gangue</td>
-<td><a href="https://github.com/Mayara-tech">Mayara A. Oliveira</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>1.4</code></td>
-<td style="text-align: center;">15/06/2025</td>
-<td style="text-align: left;">adicionando algebra relacional de Inventário, Sala e Missao</td>
-<td><a href="https://github.com/m4rllon">Marllon Cardoso</a></td>
+<td><code>1.0</code></td>
+<td>07/07/2025</td>
+<td>Criação da página de Stored de procedures</td>
+<td><a href="https://github.com/Mayara-tech">Mayara Alves</a></td>
 </tr>
 </tbody>
 </table>
@@ -2350,7 +2272,7 @@ T ← γ(L.nome_item, L.preco, COUNT(L.nome_item) → quantidade_item, SUM(L.pre
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../DQL/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: DQL - Data Query Language">
+          <a href="../../SQL/AlgebraRelacional/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Algebra Relacional">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2360,20 +2282,20 @@ T ← γ(L.nome_item, L.preco, COUNT(L.nome_item) → quantidade_item, SUM(L.pre
                 Anterior
               </span>
               <div class="md-ellipsis">
-                DQL - Data Query Language
+                Algebra Relacional
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../Dinamica/Procedures/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Stored Procedures">
+          <a href="../Triggers/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Triggers">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Próximo
               </span>
               <div class="md-ellipsis">
-                Stored Procedures
+                Triggers
               </div>
             </div>
             <div class="md-footer__button md-icon">
