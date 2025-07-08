@@ -25,12 +25,14 @@ def start_game(conn, cursor):
                 print("Erro ao carregar dados do jogador.")
                 break
 
-            id_personagem, nome, qtded_recurso, gangue, titulo_objetivo = dados_jogador
+            id_personagem, nome, qtded_recurso, gangue, titulo_objetivo, nome_missao = dados_jogador
 
             print(f"==========================================================================================")
             print(f"[ PRISON BREAK ] {nome} | Recursos: {qtded_recurso} | Gangue: {gangue or 'Nenhuma'}")
             print(f"-------------------------------------------------------------------------------------------")
             print(f"OBJETIVO: {titulo_objetivo}")
+            print(f"MISSÃO ATUAL: {nome_missao}")
+            print(f"-------------------------------------------------------------------------------------------")
 
             # Sala atual do jogador
             query_current_room_id = load_sql_query('select_player_current_room_id')
