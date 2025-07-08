@@ -56,7 +56,8 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | nome_gangue     | Identificador da gangue                                                     | varchar      | 50      | FK                    |
 | id_cela         | Identificador da cela do jogador                                            | int          |         | FK                    |
 | nome            | Nome do personagem                                                          | varchar      | 50      | Not Null              |
-| velocidade      | Velocidade máxima do personagem                                             | int          |         | Default               |
+| dificuldade_jogo | Dificuldade do jogo escolhida pelo player                                  | varchar      | 1       | Default               |
+| modificador_equipamento | Modificador numérico vindo dos itens que o ajuda a não ser pego     | int          |         | Default               |
 | vida            | Quantidade de vida do jogador (0 a 100)                                     | int          |         | Default               |
 | qtded_recurso   | Quantidade monetária do jogador (cigarro)                                   | int          |         | Default               |
 | qtded_captura   | Quantidade de vezes que o jogador foi capturado por um agente penitenciário | int          |         | Default               |
@@ -227,6 +228,15 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | nome_missao     | Identificador único da missão relacionada ao objetivo principal | varchar      | 255     | FK, Not Null          |
 | titulo_objetivo | Identificador único do objetivo principal relacionado à missão  | varchar      | 255     | FK, Not Null          |
 
+### Tabela: `Modificador_dificuldade`
+
+**Descrição:** Esta tabela guarda as informações das dificuldades que são possíveis para se jogar e seus respectivos modificadores.			
+
+| Nome            | Descrição                                                       | Tipo de dado | Tamanho | Restrições de domínio |
+| --------------- | --------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| tag_dificuldade | Identificador único da dificuldade                              | varchar      | 1       | PK, Not Null          |
+| titulo_objetivo | Identificador único do objetivo principal relacionado à missão  | int          |         |  Not Null             |
+
 ## 📑 Histórico de Versões
 
 | **Versão** | **Data**   | **Descrição**                                         | **Autor**                                                                                 |
@@ -236,5 +246,6 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | `1.2`      | 09/05/2025 | Adiciona tabela ObjetivoPrincipalMissao               | [Maria Alice](https://github.com/Maliz30)                                                 |
 | `2.0`      | 13/06/2025 | Corrige dicionário de dados após criação das tabelas  | [Maria Alice](https://github.com/Maliz30)                                                 |
 | `3.0`      | 30/06/2025 | Adiciona norte, sul, leste e oeste na tabela de salas, e cela do jogador | [Maria Alice](https://github.com/Maliz30)                                                 |
+| `4.0`      | 07/07/2025 | Retira velocidade e adiciona dificuldade_jogo e modificador_equipamento na tabela de Jogador, adiciona tabela Modificador_dificuldade | [Marllon Cardoso](https://github.com/m4rllon)                                                 |
 
 

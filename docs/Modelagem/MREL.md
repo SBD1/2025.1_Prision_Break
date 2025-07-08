@@ -28,3 +28,4 @@ Caso não seja possível visualizar o Diagrama Entidade relacionamento pela imag
 |`2.1`| 02/05/2025 | Ajuste do modelo relacional| [Ana Carolina](https://github.com/anawcarol) e [Renann Gomes](https://github.com/renannOgomes)|
 |`3.0`| 13/06/2025 | Altera imagem do Modelo Relacional e adiciona embed | [Maria Alice](https://github.com/Maliz30)| 
 |`4.0`| 30/06/2025 | Adiciona norte, sul, leste e oeste na tabela de salas | [Maria Alice](https://github.com/Maliz30)| 
+|`5.0`| 30/06/2025 | Modifica Jogador e adiciona Modificador_dificuldade | [Marllon Cardoso](https://github.com/m4rllon)| 

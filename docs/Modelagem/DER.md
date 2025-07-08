@@ -24,3 +24,4 @@ Caso não seja possível visualizar o Diagrama Entidade relacionamento pela imag
 |--------|---------|-----------|--------|
 |`1.0`| 21/04/2025 | Criação da página Diagrama Entidade-Relacionamento| [Mayara Alves](https://github.com/Mayara-tech)| 
 |`2.0`| 13/06/2025 | Corrige link do embed | [Maria Alice](https://github.com/Maliz30)| 
+|`3.0`| 07/07/2025 | Retira velocidade e adiciona dificuldade_jogo e modificador_equipamento na tabela de Jogador, adiciona tabela Modificador_dificuldade | [Marllon Cardoso](https://github.com/m4rllon)| 
