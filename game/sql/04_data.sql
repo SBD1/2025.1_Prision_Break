@@ -117,14 +117,14 @@ INSERT INTO Instancia_Item (id_instancia, nivel_de_gasto, id_inventario, nome_it
         (5, 0, 11, 'Bilhete Cifrado'),        -- No inventário do Pátio Principal.
         (6, 0, 10, 'Relógio de Bolso Quebrado'); -- No inventário da Biblioteca.
 
-INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
-    ('Mafia Abruzzi', 15, 'Pé de Cabra'),
-    ('Mafia Abruzzi', 25, 'Molde de Gesso'),
-    ('La Familia', 5, 'Faca improvisada'),
-    ('La Familia', 10, 'Isqueiro'),
-    ('Os Fox River Eight', 50, 'Alicate Corta-Fio'),
-    ('Os Fox River Eight', 30, 'Espelho de Bolso'),
-    ('Os Justiceiros', 40, 'Livro de Apostas');
+INSERT INTO Loja (nome_gangue, preco, nome_item, quantidade_disponivel) VALUES
+    ('Mafia Abruzzi', 15, 'Pé de Cabra', 5),
+    ('Mafia Abruzzi', 25, 'Molde de Gesso', 5),
+    ('La Familia', 5, 'Faca improvisada', 5),
+    ('La Familia', 10, 'Isqueiro', 5),
+    ('Os Fox River Eight', 50, 'Alicate Corta-Fio', 5),
+    ('Os Fox River Eight', 30, 'Espelho de Bolso', 5),
+    ('Os Justiceiros', 40, 'Livro de Apostas', 5);
 
 CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 'M', 0, 100, 1000, 0);
 
