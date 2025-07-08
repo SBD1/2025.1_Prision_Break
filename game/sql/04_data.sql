@@ -126,7 +126,7 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
     ('Os Fox River Eight', 30, 'Espelho de Bolso'),
     ('Os Justiceiros', 40, 'Livro de Apostas');
 
-CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 'M', 0, 100, 10, 0);
+CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 'M', 0, 100, 1000, 0);
 
 CALL criar_agente_penitenciario(1, 'Brad Bellick', 4, 4, 0, true, 5, 'Carcereiro');
 CALL criar_agente_penitenciario(19, 'Alex Mahone', 8, 8, 0, false, NULL, 'Policial Chefe');
@@ -243,42 +243,42 @@ INSERT INTO Objetivo_Principal (titulo_objetivo, descricao) VALUES(
         'Confiar em alguém é um erro. Planeje uma fuga solo, movendo-se pelas sombras como um fantasma. Sua liberdade depende apenas da sua inteligência e furtividade.'
     );
 
-INSERT INTO Objetivo_Principal_Missao (titulo_objetivo, nome_missao) VALUES
+INSERT INTO Objetivo_Principal_Missao (titulo_objetivo, nome_missao, ordem) VALUES
     -- Resgatar o irmão
-        ('Resgatar o irmão', 'Ecos da Cela 17'),
-        ('Resgatar o irmão', 'Olhos nas Sombras'),
-        ('Resgatar o irmão', 'Silêncio no Bloco B'),
-        ('Resgatar o irmão', 'A Palavra do Diretor'),
-        ('Resgatar o irmão', 'Entre Refeições e Informantes'),
-        ('Resgatar o irmão', 'Mapa Manchado de Sangue'),
-        ('Resgatar o irmão', 'A Voz da Solitária'),
-        ('Resgatar o irmão', 'Códigos e Corrupção'),
-        ('Resgatar o irmão', 'Sinais da Cela Esquecida'),
-        ('Resgatar o irmão', 'Laços de Sangue'),
+        ('Resgatar o irmão', 'Ecos da Cela 17', 1),
+        ('Resgatar o irmão', 'Olhos nas Sombras', 2),
+        ('Resgatar o irmão', 'Silêncio no Bloco B', 3),
+        ('Resgatar o irmão', 'A Palavra do Diretor', 4),
+        ('Resgatar o irmão', 'Entre Refeições e Informantes', 5),
+        ('Resgatar o irmão', 'Mapa Manchado de Sangue', 6),
+        ('Resgatar o irmão', 'A Voz da Solitária', 7),
+        ('Resgatar o irmão', 'Códigos e Corrupção', 8),
+        ('Resgatar o irmão', 'Sinais da Cela Esquecida', 9),
+        ('Resgatar o irmão', 'Laços de Sangue', 10),
     -- Virar líder de uma gangue
-        ('Virar líder de uma gangue', 'Fazendo um Nome'),
-        ('Virar líder de uma gangue', 'Protegendo a Família'),
-        ('Virar líder de uma gangue', 'O Fantasma do Passado'),
-        ('Virar líder de uma gangue', 'O Lance de Mestre'),
-        ('Virar líder de uma gangue', 'O Trono e a Coroa'),
+        ('Virar líder de uma gangue', 'Fazendo um Nome', 1),
+        ('Virar líder de uma gangue', 'Protegendo a Família', 2),
+        ('Virar líder de uma gangue', 'O Fantasma do Passado', 3),
+        ('Virar líder de uma gangue', 'O Lance de Mestre', 4),
+        ('Virar líder de uma gangue', 'O Trono e a Coroa', 5),
     -- Fugir com a própria gangue
-        ('Fugir com a própria gangue', 'Prova de Fogo'),
-        ('Fugir com a própria gangue', 'O Doutor Está Ocupado'),
-        ('Fugir com a própria gangue', 'Olhos e Ouvidos'),
-        ('Fugir com a própria gangue', 'A Chave Dourada'),
-        ('Fugir com a própria gangue', 'O Grande Dia'),
+        ('Fugir com a própria gangue', 'Prova de Fogo', 1),
+        ('Fugir com a própria gangue', 'O Doutor Está Ocupado', 2),
+        ('Fugir com a própria gangue', 'Olhos e Ouvidos', 3),
+        ('Fugir com a própria gangue', 'A Chave Dourada', 4),
+        ('Fugir com a própria gangue', 'O Grande Dia', 5),
     -- Identificar policiais corruptos
-        ('Identificar policiais corruptos', 'O Preço do Silêncio'),
-        ('Identificar policiais corruptos', 'Decifrando a Conspiração'),
-        ('Identificar policiais corruptos', 'O Rastro dos Medicamentos'),
-        ('Identificar policiais corruptos', 'A Escuta'),
-        ('Identificar policiais corruptos', 'O Dia do Julgamento'),
+        ('Identificar policiais corruptos', 'O Preço do Silêncio', 1),
+        ('Identificar policiais corruptos', 'Decifrando a Conspiração', 2),
+        ('Identificar policiais corruptos', 'O Rastro dos Medicamentos', 3),
+        ('Identificar policiais corruptos', 'A Escuta', 4),
+        ('Identificar policiais corruptos', 'O Dia do Julgamento', 5),
     -- Fugir da prisão sem ser pego
-        ('Fugir da prisão sem ser pego', 'O Sussurro nas Paredes'),
-        ('Fugir da prisão sem ser pego', 'Escalada Silenciosa'),
-        ('Fugir da prisão sem ser pego', 'Ponto Cego'),
-        ('Fugir da prisão sem ser pego', 'Passeio ao Luar'),
-        ('Fugir da prisão sem ser pego', 'O Último Corte');
+        ('Fugir da prisão sem ser pego', 'O Sussurro nas Paredes', 1),
+        ('Fugir da prisão sem ser pego', 'Escalada Silenciosa', 2),
+        ('Fugir da prisão sem ser pego', 'Ponto Cego', 3),
+        ('Fugir da prisão sem ser pego', 'Passeio ao Luar', 4),
+        ('Fugir da prisão sem ser pego', 'O Último Corte', 5);
 
 INSERT INTO Missao_Sala (nome_missao, id_sala) VALUES
     -- Liberam a Diretoria

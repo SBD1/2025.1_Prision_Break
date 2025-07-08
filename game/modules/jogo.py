@@ -93,11 +93,11 @@ def escolher_objetivo_principal(conn):
                 objetivo_escolhido = objetivos_lista[numero_objetivo - 1]
                 titulo_objetivo = objetivo_escolhido[0]
 
-                query_update_objetivo = load_sql_query('update_player_objective')
+                query_update_objetivo = load_sql_query('procedure_atualiza_objetivo')
                 if not query_update_objetivo: return
 
                 cursor = conn.cursor()
-                cursor.execute(query_update_objetivo, (titulo_objetivo, ID_JOGADOR))
+                cursor.execute(query_update_objetivo, (ID_JOGADOR, titulo_objetivo))
                 conn.commit()
                 cursor.close()
                 clear_console()
