@@ -2,9 +2,8 @@ version: '3.8'
 
 services:
   db:
+    platform: linux/amd64
     image: postgres:13
-    container_name: prision_break_db_container
-    restart: always 
     environment:
       POSTGRES_DB: prision_break_db
       POSTGRES_USER: prision_break_user

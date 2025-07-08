@@ -102,6 +102,7 @@ def start_game(conn, cursor):
             # print(f"5. Pegar item do chão (se houver)")
             # print(f"6. Realizar combate (se houver prisioneiros)")
             print(f"0. Sair do jogo")
+            
 
             acao = input("\nQual ação deseja realizar?: ")
             
@@ -129,7 +130,7 @@ def start_game(conn, cursor):
                 headers = ["Número da Sala", "Nome da Sala", "Direção", "Status"]
                 display_data = [[id_s, nome_s, direcao_s, ('Bloqueada' if bloqueado_s else 'Liberada')] for id_s, nome_s, bloqueado_s, direcao_s in available_rooms_data]
                 print(tabulate(display_data, headers=headers, tablefmt="grid"))
-
+                
                 # 4. Usuário escolhe qual sala deseja ir
                 escolha_sala_str = input("\nDigite o número da sala para onde deseja ir: ")
                 
