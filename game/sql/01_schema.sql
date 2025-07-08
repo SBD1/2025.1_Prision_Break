@@ -168,6 +168,7 @@ CREATE TABLE IF NOT EXISTS Dialogo (
 CREATE TABLE IF NOT EXISTS Objetivo_principal_missao (
     titulo_objetivo      VARCHAR(255)  NOT NULL,
     nome_missao          VARCHAR(255)  NOT NULL,
+    ordem                INT           NOT NULL,
     FOREIGN KEY (titulo_objetivo) REFERENCES Objetivo_Principal(titulo_objetivo),
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
