@@ -51,6 +51,7 @@ nav:
   - Apresentação:
     - Entrega 1 - Modelagem: Apresentacao/Entrega1.md
     - Entrega 2 - SQL: Apresentacao/Entrega2.md
+    - Entrega 3 - Jogo: Apresentacao/Entrega3.md
   - Como Jogar:
     - Executando o jogo: Jogo/jogo.md
 theme:

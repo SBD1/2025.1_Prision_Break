@@ -1,6 +1,6 @@
 # ⛓️ Prision Break
 
-![Capa do jogo](/assets/CapaJogo.png)
+![Capa do jogo](assets/CapaJogo.png)
 
 ## Sobre o Projeto
 
