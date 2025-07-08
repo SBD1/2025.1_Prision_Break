@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/icon1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1234,6 +1234,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#modificador-dificuldade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modificador Dificuldade
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1537,6 +1546,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apresentacao/Entrega3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Entrega 3 - Jogo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1822,6 +1854,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#modificador-dificuldade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modificador Dificuldade
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1866,13 +1907,12 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Gangue</span><span class="w"> </span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Gangue</span><span class="w"> </span><span class="p">(</span>
 <span class="w">        </span><span class="n">nome_gangue</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">        </span><span class="n">descricao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">        </span><span class="n">qtdd_membros</span><span class="w">         </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">        </span><span class="n">qtdd_recurso_gangue</span><span class="w">  </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-
-<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -1892,10 +1932,10 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Inventario</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">id_inventario</span><span class="w">    </span><span class="nb">INT</span><span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">        </span><span class="n">qtd_itens</span><span class="w">        </span><span class="nb">INT</span><span class="w">      </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">is_full</span><span class="w">          </span><span class="nb">BOOLEAN</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Inventario</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">id_inventario</span><span class="w">        </span><span class="nb">SERIAL</span><span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">qtd_itens</span><span class="w">            </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="n">is_full</span><span class="w">              </span><span class="nb">BOOLEAN</span><span class="w">       </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -1915,9 +1955,9 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Objetivo_Principal</span><span class="p">(</span>
-<span class="w">        </span><span class="n">titulo_objetivo</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">        </span><span class="n">descricao</span><span class="w">           </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Objetivo_Principal</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">titulo_objetivo</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">descricao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -1937,10 +1977,10 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Missao</span><span class="p">(</span>
-<span class="w">        </span><span class="n">nome_missao</span><span class="w">        </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">   </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">        </span><span class="n">descricao</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">status</span><span class="w">             </span><span class="nb">BOOLEAN</span><span class="w">        </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">false</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Missao</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">nome_missao</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">descricao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">status</span><span class="w">               </span><span class="nb">BOOLEAN</span><span class="w">       </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -1960,15 +2000,22 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Sala</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">id_sala</span><span class="w">         </span><span class="nb">INT</span><span class="w">           </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">        </span><span class="n">id_inventario</span><span class="w">   </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nome</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">descricao</span><span class="w">       </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nivel_perigo</span><span class="w">    </span><span class="nb">INT</span><span class="w">           </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">nivel_perigo</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">nivel_perigo</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span>
-<span class="w">        </span><span class="n">bloqueado</span><span class="w">       </span><span class="nb">BOOLEAN</span><span class="w">       </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span>
-
-<span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w">     </span><span class="p">(</span><span class="n">id_inventario</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Inventario</span><span class="p">(</span><span class="n">id_inventario</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Sala</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">id_sala</span><span class="w">              </span><span class="nb">SERIAL</span><span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">norte</span><span class="w">                </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">sul</span><span class="w">                  </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">leste</span><span class="w">                </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">oeste</span><span class="w">                </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">id_inventario</span><span class="w">        </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nome</span><span class="w">                 </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">descricao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nivel_perigo</span><span class="w">         </span><span class="nb">INT</span><span class="w">           </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">nivel_perigo</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">nivel_perigo</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span>
+<span class="w">        </span><span class="n">bloqueado</span><span class="w">            </span><span class="nb">BOOLEAN</span><span class="w">       </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span>
+<span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_inventario</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Inventario</span><span class="p">(</span><span class="n">id_inventario</span><span class="p">),</span>
+<span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">norte</span><span class="p">)</span><span class="w">   </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Sala</span><span class="p">(</span><span class="n">id_sala</span><span class="p">),</span>
+<span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">sul</span><span class="p">)</span><span class="w">     </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Sala</span><span class="p">(</span><span class="n">id_sala</span><span class="p">),</span>
+<span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">leste</span><span class="p">)</span><span class="w">   </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Sala</span><span class="p">(</span><span class="n">id_sala</span><span class="p">),</span>
+<span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">oeste</span><span class="p">)</span><span class="w">   </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Sala</span><span class="p">(</span><span class="n">id_sala</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -1988,15 +2035,14 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">nome_item</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">        </span><span class="n">descricao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">nome_item</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">descricao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">        </span><span class="n">durabilidade</span><span class="w">         </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="w">        </span><span class="n">pode_ser_vendido</span><span class="w">     </span><span class="nb">BOOLEAN</span><span class="w">       </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nome_missao</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">utilidade</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nome_missao</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">utilidade</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">        </span><span class="n">beneficio</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Missao</span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
@@ -2017,9 +2063,9 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Consulta_Personagem</span><span class="p">(</span>
-<span class="w">        </span><span class="n">id_personagem</span><span class="w">        </span><span class="nb">SERIAL</span><span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">    </span>
-<span class="w">        </span><span class="n">tipo_personagem</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">       </span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Consulta_Personagem</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">id_personagem</span><span class="w">        </span><span class="nb">SERIAL</span><span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">tipo_personagem</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
 <span class="w">    </span><span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -2039,7 +2085,7 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Prisioneiro</span><span class="w"> </span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Prisioneiro</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id_personagem</span><span class="w">   </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">nome</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">velocidade</span><span class="w">      </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -2047,7 +2093,6 @@
 <span class="w">    </span><span class="n">crime</span><span class="w">           </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">id_sala</span><span class="w">         </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">nome_gangue</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Consulta_Personagem</span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">nome</span><span class="p">),</span>
@@ -2072,7 +2117,7 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Agente_Penitenciario</span><span class="w"> </span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Agente_Penitenciario</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id_personagem</span><span class="w">          </span><span class="nb">INT</span><span class="w">         </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">id_sala</span><span class="w">                </span><span class="nb">INT</span><span class="w">         </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                    </span>
 <span class="w">    </span><span class="n">nome</span><span class="w">                   </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;Tira&#39;</span><span class="p">,</span>
@@ -2082,7 +2127,6 @@
 <span class="w">    </span><span class="n">corrupto</span><span class="w">               </span><span class="nb">BOOLEAN</span><span class="w">     </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span>
 <span class="w">    </span><span class="n">preco</span><span class="w">                  </span><span class="nb">INT</span><span class="w">         </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="n">cargo</span><span class="w">                 </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;Carcereiro&#39;</span><span class="p">,</span>
-
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Consulta_Personagem</span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_sala</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Sala</span><span class="p">(</span><span class="n">id_sala</span><span class="p">)</span>
@@ -2105,20 +2149,19 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Jogador</span><span class="w"> </span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Jogador</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id_personagem</span><span class="w">     </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">id_sala</span><span class="w">           </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">id_inventario</span><span class="w">     </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">nome_missao</span><span class="w">       </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">    </span>
-<span class="w">    </span><span class="n">titulo_objetivo</span><span class="w">   </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">     </span>
-<span class="w">    </span><span class="n">nome_gangue</span><span class="w">       </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w">      </span>
-
+<span class="w">    </span><span class="n">nome_missao</span><span class="w">       </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">    </span>
+<span class="w">    </span><span class="n">titulo_objetivo</span><span class="w">   </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">     </span>
+<span class="w">    </span><span class="n">nome_gangue</span><span class="w">       </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">      </span>
 <span class="w">    </span><span class="n">nome</span><span class="w">              </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">velocidade</span><span class="w">        </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">dificuldade_jogo</span><span class="w">  </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">modificador_equipamento</span><span class="w">        </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="n">vida</span><span class="w">              </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="n">qtded_recurso</span><span class="w">     </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="n">qtded_captura</span><span class="w">     </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-
 <span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">nome</span><span class="p">),</span>
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Consulta_Personagem</span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
@@ -2126,7 +2169,8 @@
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_inventario</span><span class="p">)</span><span class="w">     </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Inventario</span><span class="w"> </span><span class="p">(</span><span class="n">id_inventario</span><span class="p">),</span>
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span><span class="w">       </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Missao</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">),</span>
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">titulo_objetivo</span><span class="p">)</span><span class="w">   </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Objetivo_principal</span><span class="w"> </span><span class="p">(</span><span class="n">titulo_objetivo</span><span class="p">),</span>
-<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span><span class="w">       </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Gangue</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span><span class="w">       </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Gangue</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">chk_dificuldade</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">dificuldade_jogo</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;D&#39;</span><span class="p">))</span>
 <span class="p">);</span>
 </code></pre></div></p>
 </li>
@@ -2146,11 +2190,10 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Agente_Penitenciario_Jogador</span><span class="p">(</span>
-<span class="w">        </span><span class="n">id_captura</span><span class="w">                         </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">          </span>
-<span class="w">        </span><span class="n">id_personagem_jogador</span><span class="w">              </span><span class="nb">INT</span><span class="p">,</span><span class="w">           </span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Agente_Penitenciario_Jogador</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">id_captura</span><span class="w">                      </span><span class="nb">SERIAL</span><span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">id_personagem_jogador</span><span class="w">           </span><span class="nb">INT</span><span class="p">,</span>
 <span class="w">        </span><span class="n">id_personagem_agente_penitenciario</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
-
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem_jogador</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Jogador</span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem_agente_penitenciario</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Agente_Penitenciario</span><span class="p">(</span><span class="n">id_personagem</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
@@ -2172,12 +2215,12 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Loja</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">nome_gangue</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">     </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">preco</span><span class="w">                  </span><span class="nb">INT</span><span class="w">             </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nome_item</span><span class="w">              </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
-<span class="w">        </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Loja</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">nome_gangue</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">preco</span><span class="w">                </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nome_item</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">quantidade_disponivel</span><span class="w"> </span><span class="nb">INT</span><span class="w">          </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Coluna renomeada para consistência</span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">,</span><span class="w"> </span><span class="n">nome_item</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Chave primária composta</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Gangue</span><span class="p">(</span><span class="n">nome_gangue</span><span class="p">),</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_item</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Item</span><span class="p">(</span><span class="n">nome_item</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
@@ -2225,11 +2268,10 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Missao_Sala</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">nome_missao</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">id_sala</span><span class="w">                </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
-<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">,</span><span class="w"> </span><span class="n">id_sala</span><span class="p">),</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Missao_Sala</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">nome_missao</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">id_sala</span><span class="w">              </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">,</span><span class="w"> </span><span class="n">id_sala</span><span class="p">),</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_sala</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Sala</span><span class="p">(</span><span class="n">id_sala</span><span class="p">),</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Missao</span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
@@ -2251,12 +2293,11 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Instancia_Item</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">id_instancia</span><span class="w">          </span><span class="nb">INT</span><span class="w">         </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nivel_de_gasto</span><span class="w">        </span><span class="nb">INT</span><span class="w">         </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">        </span><span class="n">id_inventario</span><span class="w">         </span><span class="nb">INT</span><span class="w">         </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nome_item</span><span class="w">             </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Instancia_Item</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">id_instancia</span><span class="w">         </span><span class="nb">INT</span><span class="w">           </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nivel_de_gasto</span><span class="w">       </span><span class="nb">INT</span><span class="w">           </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="n">id_inventario</span><span class="w">        </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nome_item</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">   </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_inventario</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Inventario</span><span class="p">(</span><span class="n">id_inventario</span><span class="p">),</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_item</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Item</span><span class="p">(</span><span class="n">nome_item</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
@@ -2278,13 +2319,12 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Dialogo</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Dialogo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id_dialogo</span><span class="w">       </span><span class="nb">INT</span><span class="w">            </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <span class="w">    </span><span class="n">id_personagem</span><span class="w">    </span><span class="nb">INT</span><span class="p">,</span>
 <span class="w">    </span><span class="n">nome_missao</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
 <span class="w">    </span><span class="n">texto</span><span class="w">            </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ordem</span><span class="w">            </span><span class="nb">INT</span><span class="w">            </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_personagem</span><span class="p">)</span><span class="w">     </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Consulta_Personagem</span><span class="p">(</span><span class="n">id_personagem</span><span class="p">),</span>
 <span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span><span class="w">       </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Missao</span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span>
 <span class="p">);</span>
@@ -2306,10 +2346,10 @@
 <ul>
 <li>
 <p>Create
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Objetivo_principal_missao</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="n">titulo_objetivo</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">nome_missao</span><span class="w">        </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">     </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Objetivo_principal_missao</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">titulo_objetivo</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nome_missao</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ordem</span><span class="w">                </span><span class="nb">INT</span><span class="w">           </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">titulo_objetivo</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Objetivo_Principal</span><span class="p">(</span><span class="n">titulo_objetivo</span><span class="p">),</span>
 <span class="w">        </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Missao</span><span class="p">(</span><span class="n">nome_missao</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
@@ -2327,6 +2367,12 @@
 </code></pre></div></p>
 </li>
 </ul>
+<h4 id="modificador-dificuldade">Modificador Dificuldade</h4>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Modificador_dificuldade</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">tag_dificuldade</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">modificador</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+</code></pre></div>
 <h2 id="historico-de-versao">📑 Histórico de versão</h2>
 <table>
 <thead>
@@ -2378,6 +2424,12 @@
 <td style="text-align: center;"><code>1.6</code></td>
 <td style="text-align: center;">12/06/2025</td>
 <td style="text-align: left;">Organiza tabelas e adiciona códigos pendentes que já estão no .sql</td>
+<td><a href="https://github.com/Maliz30">Maria Alice</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>1.7</code></td>
+<td style="text-align: center;">07/07/2025</td>
+<td style="text-align: left;">Atualiza DDL</td>
 <td><a href="https://github.com/Maliz30">Maria Alice</a></td>
 </tr>
 </tbody>
