@@ -12,7 +12,7 @@ Uma vantagem significativa dessas plataformas foi a capacidade de colaborar em t
 
 ## Diagrama Entidade-Relacionamento
 
-![Diagrama Entidade-Relacionamento](../assets/DER_Prision_Break.png)
+![Diagrama Entidade-Relacionamento](../assets/DER_Prision_Break_3.png)
 
 Caso não seja possível visualizar o Diagrama Entidade relacionamento pela imagem, tente pelo iframe do draw.io logo abaixo:
 

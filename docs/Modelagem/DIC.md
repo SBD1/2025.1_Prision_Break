@@ -227,6 +227,7 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | --------------- | --------------------------------------------------------------- | ------------ | ------- | --------------------- |
 | nome_missao     | Identificador único da missão relacionada ao objetivo principal | varchar      | 255     | FK, Not Null          |
 | titulo_objetivo | Identificador único do objetivo principal relacionado à missão  | varchar      | 255     | FK, Not Null          |
+| ordem | Identificador da ordem das missões  | INT      |      | Not Null          |
 
 ### Tabela: `Modificador_dificuldade`
 
@@ -247,5 +248,4 @@ A construção do dicionário de dados seguiu os seguintes passos:
 | `2.0`      | 13/06/2025 | Corrige dicionário de dados após criação das tabelas  | [Maria Alice](https://github.com/Maliz30)                                                 |
 | `3.0`      | 30/06/2025 | Adiciona norte, sul, leste e oeste na tabela de salas, e cela do jogador | [Maria Alice](https://github.com/Maliz30)                                                 |
 | `4.0`      | 07/07/2025 | Retira velocidade e adiciona dificuldade_jogo e modificador_equipamento na tabela de Jogador, adiciona tabela Modificador_dificuldade | [Marllon Cardoso](https://github.com/m4rllon)                                                 |
-
-
+|`5.0`| 07/07/2025 | Atualiza modelo relaciona |[Maria Alice](https://github.com/Maliz30)| 
