@@ -171,14 +171,3 @@ CREATE TABLE IF NOT EXISTS Objetivo_principal_missao (
     FOREIGN KEY (titulo_objetivo) REFERENCES Objetivo_Principal(titulo_objetivo),
     FOREIGN KEY (nome_missao) REFERENCES Missao(nome_missao)
 );
-
-CREATE TABLE IF NOT EXISTS LogCaptura (
-    log_id            SERIAL        PRIMARY KEY,
-    jogador_id        INT           NOT NULL,
-    data_captura      TIMESTAMP     DEFAULT NOW(),
-    sala_antiga       INT           NOT NULL,
-    sala_nova         INT           NOT NULL,
-    FOREIGN KEY (jogador_id) REFERENCES Jogador(id_personagem),
-    FOREIGN KEY (sala_antiga) REFERENCES Sala(id_sala),
-    FOREIGN KEY (sala_nova) REFERENCES Sala(id_sala)
-);

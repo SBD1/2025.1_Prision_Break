@@ -11,14 +11,20 @@ DECLARE
     v_qtd_itens_inventario INT;
     v_is_full_inventario BOOLEAN;
     v_proximo_id_instancia INT;
+    v_quantidade_disponivel_loja INT; -- NOVA VARIÁVEL
 BEGIN
-    -- Obter o preço do item na loja da gangue específica
-    SELECT preco INTO v_preco_item
+    -- Obter o preço do item na loja da gangue específica E a quantidade disponível
+    SELECT preco, quantidade_disponivel INTO v_preco_item, v_quantidade_disponivel_loja
     FROM Loja
     WHERE nome_item = p_nome_item AND nome_gangue = p_nome_gangue_loja;
 
     IF v_preco_item IS NULL THEN
         RAISE EXCEPTION 'Item ''%'' não encontrado na loja da gangue ''%'' ou não está à venda.', p_nome_item, p_nome_gangue_loja;
+    END IF;
+
+    -- NOVA VERIFICAÇÃO: Verificar se o item está em estoque
+    IF v_quantidade_disponivel_loja <= 0 THEN
+        RAISE EXCEPTION 'Item ''%'' está fora de estoque na loja ''%''!', p_nome_item, p_nome_gangue_loja;
     END IF;
 
     -- Obter informações do jogador e seu inventário
@@ -52,16 +58,20 @@ BEGIN
         INSERT INTO Instancia_Item (id_instancia, id_inventario, nome_item)
         VALUES (v_proximo_id_instancia, v_id_inventario_jogador, p_nome_item);
 
+        UPDATE Loja
+        SET quantidade_disponivel = quantidade_disponivel - 1
+        WHERE nome_gangue = p_nome_gangue_loja AND nome_item = p_nome_item;
+
         UPDATE Inventario
         SET qtd_itens = qtd_itens + 1,
             is_full = CASE WHEN (v_qtd_itens_inventario + 1) >= 10 THEN TRUE ELSE FALSE END
         WHERE id_inventario = v_id_inventario_jogador;
 
-        RAISE NOTICE 'Item ''%'' comprado com sucesso por % recursos.', p_nome_item, v_preco_item;
+        RAISE NOTICE 'Item ''%'' comprado com sucesso por % recursos da loja ''%''.', p_nome_item, v_preco_item, p_nome_gangue_loja;
 
     EXCEPTION
         WHEN OTHERS THEN
-            RAISE EXCEPTION 'Erro ao comprar item: %', SQLERRM;
+            RAISE EXCEPTION 'Erro na transação de compra de item: %', SQLERRM;
     END;
 END;
 $$;

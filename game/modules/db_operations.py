@@ -197,6 +197,22 @@ def get_table_columns(cursor, table_name: str) -> list:
         print(f"Erro ao obter colunas da tabela '{table_name}': {e}")
         return []
     
+def execute_query(conn, sql_query: str, params: tuple = None) -> list:
+    """
+    Executa uma query SQL (SELECT) e retorna os resultados.
+    Útil para queries que buscam dados sem modificar o banco.
+    """
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(sql_query, params or ())
+            return cursor.fetchall()
+    except Error as e:
+        print(f"Erro de banco de dados ao executar query: {e}")
+        return []
+    except Exception as e:
+        print(f"Erro inesperado ao executar query: {e}")
+        return []
+    
 def execute_procedure(conn, sql_proc: str, params: tuple = None):
     """
     Executa uma stored procedure no banco de dados.
