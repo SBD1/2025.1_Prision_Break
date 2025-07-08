@@ -130,28 +130,46 @@ def iniciar_jogo(conn, cursor):
         nome_atual, gangue_atual = jogador_info
         print(f"\nDados do personagem:")
         print(f"  Nome: {nome_atual}")
-        print(f"  Gangue: {gangue_atual}")
+        print(f"  Gangue: {gangue_atual if gangue_atual else 'Nenhuma'}")
 
         # 2. Perguntar se o usuário aceita ou quer editar
         while True:
-            choice = input("\nDeseja editar essas informações? [S/N]: ").strip().upper()
-            
-            if choice == 'N':
-                print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
+            if gangue_atual == None:
                 change_difficulty_console(conn, cursor, ID_JOGADOR)
                 escolher_objetivo_principal(conn)
+                editar_jogdor(conn, cursor, jogador_info)
                 clear_console()
                 start_game(conn, cursor)
                 break
+            else: 
+                choice = input("\nDeseja editar essas informações? [S/N]: ").strip().upper()
+                
+                if choice == 'N':
+                    print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
+                    clear_console()
+                    start_game(conn, cursor)
+                    break
 
-            elif choice == 'S':
-                change_difficulty_console(conn, cursor, ID_JOGADOR)
-                escolher_objetivo_principal(conn)
-                pause_and_clear()
-                break
-            else:
-                print("Opção inválida. Digite 'S' para editar ou 'N' para continuar.")
+                elif choice == 'S':
+                    change_difficulty_console(conn, cursor, ID_JOGADOR)
+                    escolher_objetivo_principal(conn)
+                    editar_jogdor(conn, cursor, jogador_info)
+                    pause_and_clear()
+                    break
+                else:
+                    print("Opção inválida. Digite 'S' para editar ou 'N' para continuar.")
+  
+    except Error as e:
+        conn.rollback()
+        print(f"Erro no gerenciamento do jogador: {e}")
+    except Exception as e:
+        conn.rollback()
+        print(f"Um erro inesperado ocorreu: {e}")
 
+def editar_jogdor(conn, cursor, jogador_info): 
+    
+    try:
+        nome_atual, gangue_atual = jogador_info
         # 3. Se desejar editar, perguntar o que editar
         while True:
             print(f"\n---------------------------------- [ Edição de Jogador ] ----------------------------------")
@@ -217,8 +235,6 @@ def iniciar_jogo(conn, cursor):
                 conn.commit()
                 if cursor.rowcount <= 0:
                     print("Erro: Nenhum jogador encontrado para atualizar ou gangue não alterada.")
-                
-                
 
                 print(f"Personagem criado com sucesso com sucesso! Pressione ENTER para iniciar o jogo.")
                 clear_console()
@@ -229,10 +245,11 @@ def iniciar_jogo(conn, cursor):
                 print(f"Erro ao alterar gangue do jogador: {e}")
             
             break
-            
+
     except Error as e:
         conn.rollback()
         print(f"Erro no gerenciamento do jogador: {e}")
     except Exception as e:
         conn.rollback()
         print(f"Um erro inesperado ocorreu: {e}")
+        
