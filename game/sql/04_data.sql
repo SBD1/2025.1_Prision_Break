@@ -126,7 +126,7 @@ INSERT INTO Loja (nome_gangue, preco, nome_item) VALUES
     ('Os Fox River Eight', 30, 'Espelho de Bolso'),
     ('Os Justiceiros', 40, 'Livro de Apostas');
 
-CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 'M', 0, 100, 10, 0);
+CALL criar_jogador('Mauricio', 1, NULL, NULL, NULL, 'M', 0, 100, 1000, 0);
 
 CALL criar_agente_penitenciario(1, 'Brad Bellick', 4, 4, 0, true, 5, 'Carcereiro');
 CALL criar_agente_penitenciario(19, 'Alex Mahone', 8, 8, 0, false, NULL, 'Policial Chefe');
